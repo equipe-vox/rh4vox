@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="rh4vox.jnlp">
+  <information>
+    <title>rh4vox</title>
+    <vendor>jvsil</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="rh4vox.jar" size="2194" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="rh4vox.Rh4vox"  name="rh4vox" />
+  <update check="always"/>
+</jnlp>

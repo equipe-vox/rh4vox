@@ -2,40 +2,40 @@
   src: url('../assets/fonts/Ubuntu-Bold.ttf');
 }
 
-/*
+.root {
   -main: #F35416;
   -orange: #F18524;
   -white: #FFFFFF;
   -text: #555555;
   -title: #333333;
-  -border: rgba(84, 84, 84, 0.5); 
-*/
+  -border: rgba(84, 84, 84, 0.5);
+}
 
 #container {
   -fx-min-height: 100%;
   -fx-min-width: 100%;
-  -fx-background-color: #FFFFFF;
+  -fx-background-color: -white;
 }
 
 #borderPane {
   /* -fx-min-height: 100%;
   -fx-min-width: 100%; */
-  -fx-background-color: #FFFFFF;
+  -fx-background-color: -white;
 }
 
 #header {
   -fx-pref-height: 125px;
   -fx-pref-width: 100%;
-  -fx-background-color: #FFFFFF;
+  -fx-background-color: -white;
   -fx-border-width: 1 0 1 0;
-  -fx-border-color: rgba(84, 84, 84, 0.5);
+  -fx-border-color: -border;
 }
 
 #sideBar {
   -fx-pref-width: 145px;
-  -fx-background-color: #FFFFFF;
+  -fx-background-color: -white;
   -fx-border-width: 1 1 0 0;
-  -fx-border-color: rgba(84, 84, 84, 0.5);
+  -fx-border-color: -border;
 }
 
 #logo {
@@ -45,7 +45,7 @@
 #pageTitle {
   -fx-font-family: 'Ubuntu Bold';
   -fx-font-size: 26px;
-  -fx-text-fill: #333333;
+  -fx-text-fill: -title;
 }
 
 #btnContainer {

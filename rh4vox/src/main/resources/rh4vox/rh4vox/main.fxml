@@ -1,65 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="957.0" style="-fx-min-height: 100%; -fx-min-width: 100%;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
-   <stylesheets>
-      <URL value="@../styles/main.css" />
-      <URL value="@../styles/main.css" />
-   </stylesheets>
+<AnchorPane id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="942.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane prefHeight="400.0" prefWidth="122.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="474.4" AnchorPane.topAnchor="0.0">
-         <left>
-            <AnchorPane id="sideBar" prefHeight="400.0" prefWidth="135.0" BorderPane.alignment="CENTER">
+      <AnchorPane id="content" prefHeight="636.0" prefWidth="942.0" stylesheets="@../styles/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane id="sideBar" maxHeight="189.0" minHeight="125.0" prefHeight="189.0" prefWidth="130.0" stylesheets="@../styles/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <ImageView id="logo" fitHeight="33.0" fitWidth="86.0" layoutX="36.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="35.0" fitWidth="85.0" layoutX="30.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/logo.png" />
                      </image>
                   </ImageView>
+                  <VBox id="menuBtnContainer" layoutX="-1.0" layoutY="127.0" prefHeight="510.0" prefWidth="146.0" stylesheets="@../styles/main.css">
+                     <children>
+                        <VBox id="menuBtnContent" prefHeight="200.0" prefWidth="100.0" stylesheets="@../styles/main.css">
+                           <children>
+                              <Button id="menuBtn" mnemonicParsing="false" stylesheets="@../styles/main.css">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/icons/home.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="menuBtn" mnemonicParsing="false" stylesheets="@../styles/main.css">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/icons/jobs.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="menuBtn" mnemonicParsing="false" stylesheets="@../styles/main.css">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/icons/add-orange.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="menuBtn" mnemonicParsing="false" stylesheets="@../styles/main.css">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/icons/person.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox id="exitBtnContainer" prefHeight="174.0" prefWidth="132.0" stylesheets="@../styles/main.css">
+                           <children>
+                              <Button id="menuBtn" mnemonicParsing="false" stylesheets="@../styles/main.css">
+                                 <graphic>
+                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/icons/exit-orange.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
                </children>
-            </AnchorPane>
-         </left>
-      </BorderPane>
-      <BorderPane layoutX="146.0" prefHeight="126.0" prefWidth="454.0" AnchorPane.bottomAnchor="273.6" AnchorPane.leftAnchor="146.0" AnchorPane.rightAnchor="-0.39999999999997726" AnchorPane.topAnchor="0.0">
-         <top>
-            <AnchorPane id="header" prefHeight="126.0" prefWidth="411.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+            </Pane>
+            <HBox id="header" alignment="CENTER_LEFT" layoutX="146.0" maxHeight="126.0" prefHeight="126.0" prefWidth="796.0" stylesheets="@../styles/main.css" AnchorPane.leftAnchor="146.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Label id="pageTitle" layoutX="37.0" layoutY="47.0" stylesheets="@../styles/main.css" text="Adicionar vaga" />
-                  <BorderPane id="btnContainer" layoutX="508.0" layoutY="4.0" maxWidth="100.0" prefHeight="118.0" prefWidth="180.0" stylesheets="@../styles/main.css" AnchorPane.bottomAnchor="3.1999999999999886" AnchorPane.leftAnchor="508.0" AnchorPane.rightAnchor="96.79999999999995" AnchorPane.topAnchor="3.0">
-                     <left>
-                        <Button mnemonicParsing="false" BorderPane.alignment="CENTER">
+                  <HBox id="pageTitleContainer" alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="486.0" stylesheets="@../styles/main.css">
+                     <children>
+                        <Label id="pageTitle" minWidth="400.0" prefHeight="30.0" prefWidth="400.0" stylesheets="@../styles/main.css" text="Adicionar vaga" />
+                     </children>
+                     <padding>
+                        <Insets left="30.0" />
+                     </padding>
+                  </HBox>
+                  <HBox id="btnContainer" alignment="CENTER_RIGHT" prefHeight="126.0" prefWidth="501.0" stylesheets="@../styles/main.css">
+                     <children>
+                        <Button id="settingsBtn" mnemonicParsing="false" stylesheets="@../styles/main.css">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/icons/settings.png" />
                                  </image>
                               </ImageView>
-                           </graphic>
-                        </Button>
-                     </left>
-                     <center>
-                        <Button mnemonicParsing="false" text="Button" BorderPane.alignment="CENTER">
+                           </graphic></Button>
+                        <Button id="profileBtn" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="95.0" stylesheets="@../styles/main.css" text="Administrador">
                            <graphic>
-                              <ImageView fitHeight="45.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../assets/icons/profile.png" />
                                  </image>
                               </ImageView>
-                           </graphic>
-                        </Button>
-                     </center>
-                  </BorderPane>
+                           </graphic></Button>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
+                  </HBox>
                </children>
-            </AnchorPane>
-         </top>
-      </BorderPane>
+            </HBox>
+            <VBox id="pageContainer" layoutX="146.0" layoutY="126.0" prefHeight="510.0" prefWidth="796.0" stylesheets="@../styles/main.css" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

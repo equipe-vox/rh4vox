@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox id="addJobContainer" alignment="CENTER" prefHeight="510.0" prefWidth="796.0" spacing="20.0" stylesheets="@../styles/addJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rh4vox.rh4vox.SecondaryController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <children>
+      <VBox id="addJobContent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="474.0" prefWidth="650.0" stylesheets="@../styles/addJob.css" />
+   </children>
+</VBox>

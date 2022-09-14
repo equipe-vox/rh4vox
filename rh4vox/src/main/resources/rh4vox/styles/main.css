@@ -2,6 +2,10 @@
   src: url('../assets/fonts/Ubuntu-Bold.ttf');
 }
 
+@font-face {
+  src: url('../assets/fonts/Inter-Medium.ttf');
+}
+
 .root {
   -main: #F35416;
   -orange: #F18524;
@@ -17,22 +21,34 @@
   -fx-background-color: -white;
 }
 
+#content {
+  -fx-min-height: 100%;
+  -fx-min-width: 100%;
+  -fx-background-color: -white;
+}
+
 #borderPane {
-  /* -fx-min-height: 100%;
-  -fx-min-width: 100%; */
   -fx-background-color: -white;
 }
 
 #header {
   -fx-pref-height: 125px;
-  -fx-pref-width: 100%;
+  -fx-min-height: 125px;
+  -fx-max-height: 125px;
+  -fx-min-width: 100%;
+  -fx-min-width: 100%;
   -fx-background-color: -white;
   -fx-border-width: 1 0 1 0;
   -fx-border-color: -border;
+  -fx-spacing: 1200px;
 }
 
 #sideBar {
   -fx-pref-width: 145px;
+  -fx-min-width: 145px;
+  -fx-max-width: 145px;
+  -fx-min-height: 636px;
+  -fx-max-height: 100%;
   -fx-background-color: -white;
   -fx-border-width: 1 1 0 0;
   -fx-border-color: -border;
@@ -42,7 +58,15 @@
   -fx-pref-width: 93px;
 }
 
+#pageTitleContainer {
+  -fx-min-width: 200px;
+  -fx-alignment: left;
+  -fx-padding: 0 0 0 30px;
+}
+
 #pageTitle {
+  -fx-height: 100%;
+  -fx-width: 100%;
   -fx-font-family: 'Ubuntu Bold';
   -fx-font-size: 26px;
   -fx-text-fill: -title;
@@ -50,16 +74,70 @@
 
 #btnContainer {
   -fx-padding: 30px;
-  -fx-pref-width: 100%;
+  -fx-min-width: 50%;
+  -fx-min-height: 125px;
   -fx-background-color: transparent;
+  -fx-spacing: 20px;
 }
 
 #settingsBtn {
   -fx-pref-height: 30px;
-  -fx-pref-width: 30px;
+  -fx-pref-width: 100px;
   -fx-background-color: transparent;
   -fx-cursor: hand;
 }
 #settingsBtn:hover {
   -fx-opacity: 0.75;
+}
+
+#profileBtn {
+  -fx-alignment: left;
+  -fx-pref-height: 40px;
+  -fx-pref-width: 40px;
+  -fx-background-color: transparent;
+  -fx-cursor: hand;
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 14px;
+  -fx-text-fill: -text;
+}
+
+#profileBtn:hover {
+  -fx-opacity: 0.85;
+}
+
+#menuBtnContainer {
+  -fx-alignment: center;
+  -fx-spacing: 270px;
+}
+
+#menuBtnContent {
+  -fx-alignment: top-center;
+  -fx-spacing: 35px;
+  -fx-padding: 30px;
+}
+
+#menuBtn {
+  -fx-height: 25px;
+  -fx-width: 25px;
+  -fx-background-color: transparent;
+  -fx-cursor: hand;
+}
+
+#menuBtn:hover {
+  -fx-opacity: 0.85;
+}
+
+#exitBtnContainer {
+  -fx-alignment: bottom-center;
+}
+
+#exitBtnContainer:hover {
+  -fx-opacity: 0.85;
+}
+
+#pageContainer {
+  -fx-alignment: top-left;
+  -fx-min-height: 100%;
+  -fx-min-width: 100%;
+  -fx-background-color: -white;
 }

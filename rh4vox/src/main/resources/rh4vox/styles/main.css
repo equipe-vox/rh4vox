@@ -1,0 +1,65 @@
+@font-face {
+  src: url('../assets/fonts/Ubuntu-Bold.ttf');
+}
+
+/*
+  -main: #F35416;
+  -orange: #F18524;
+  -white: #FFFFFF;
+  -text: #555555;
+  -title: #333333;
+  -border: rgba(84, 84, 84, 0.5); 
+*/
+
+#container {
+  -fx-min-height: 100%;
+  -fx-min-width: 100%;
+  -fx-background-color: #FFFFFF;
+}
+
+#borderPane {
+  /* -fx-min-height: 100%;
+  -fx-min-width: 100%; */
+  -fx-background-color: #FFFFFF;
+}
+
+#header {
+  -fx-pref-height: 125px;
+  -fx-pref-width: 100%;
+  -fx-background-color: #FFFFFF;
+  -fx-border-width: 1 0 1 0;
+  -fx-border-color: rgba(84, 84, 84, 0.5);
+}
+
+#sideBar {
+  -fx-pref-width: 145px;
+  -fx-background-color: #FFFFFF;
+  -fx-border-width: 1 1 0 0;
+  -fx-border-color: rgba(84, 84, 84, 0.5);
+}
+
+#logo {
+  -fx-pref-width: 93px;
+}
+
+#pageTitle {
+  -fx-font-family: 'Ubuntu Bold';
+  -fx-font-size: 26px;
+  -fx-text-fill: #333333;
+}
+
+#btnContainer {
+  -fx-padding: 30px;
+  -fx-pref-width: 100%;
+  -fx-background-color: transparent;
+}
+
+#settingsBtn {
+  -fx-pref-height: 30px;
+  -fx-pref-width: 30px;
+  -fx-background-color: transparent;
+  -fx-cursor: hand;
+}
+#settingsBtn:hover {
+  -fx-opacity: 0.75;
+}

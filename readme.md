@@ -17,7 +17,7 @@
 - Luciano Pamplona - [Linkedin]()
 - Silas Rafael - [Linkedin]()
 - Hamilton Roberto - [Linkedin]()
-- Isidro - [Linkedin]()
+- Isidro Antonio - [Linkedin]()
 
 <br>
 

@@ -38,7 +38,7 @@
                               <Label id="text" style="-fx-text-fill: rgba(84, 84, 84, 0.5);" stylesheets="@../styles/addJob.css" text="${'Escreva uma descrição das\natividades dessa vaga'}" />
                            </children>
                         </VBox>
-                        <TextArea id="inputField" prefHeight="126.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" />
+                        <TextArea id="descInputField" prefHeight="126.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" wrapText="true" />
                      </children>
                   </HBox>
                   <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">

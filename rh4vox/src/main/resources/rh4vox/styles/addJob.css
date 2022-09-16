@@ -14,6 +14,18 @@
   src: url('../assets/fonts/Inter-Regular.ttf');
 }
 
+.text-area{
+  -fx-background-color: -white, -white;
+}
+
+.text-area .content {
+  -fx-background-color: -white;
+}
+
+.text-area:focused .content {
+  -fx-background-color: -white;
+}
+
 .root {
   -main: #F35416;
   -orange: #F18524;
@@ -98,6 +110,22 @@
   -fx-faint-focus-color: transparent;
 
   -fx-font-family: 'Inter Medium';
-  -fx-font-size: 10px;
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+
+#descInputField {
+  -fx-border-width: 1px;
+  -fx-border-color: -border;
+  -fx-border-radius: 30px;
+  -fx-background-radius: 30px;
+  -fx-padding: 10px;
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-text-box-border: transparent;
+  -fx-background-color: transparent;
+
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
   -fx-text-fill: -text;
 }

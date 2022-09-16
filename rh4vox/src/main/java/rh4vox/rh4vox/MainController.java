@@ -9,9 +9,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 
 public class MainController implements Initializable {
 
@@ -21,20 +22,25 @@ public class MainController implements Initializable {
     @FXML
     private StackPane pageContainer;
 
+    @FXML
+    private Button addJobBtn;
+    
+    @FXML
+    private Label addJobTitle;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        try {
-            Parent addJob = FXMLLoader.load(getClass().getResource("addJob.fxml"));
-            
-            pageContainer.getChildren().removeAll();
-            pageContainer.getChildren().setAll(addJob);
-            
-        } catch (IOException ex) {
-            return;
-        }
-    }
 
-    public void addJob() {
-           
+        addJobBtn.setOnMouseClicked(event -> {
+            try {
+                Parent addJob = FXMLLoader.load(getClass().getResource("addJob.fxml"));
+                
+                pageContainer.getChildren().removeAll();
+                pageContainer.getChildren().setAll(addJob);
+                
+            } catch (IOException ex) {
+                return;
+            }
+        });
     }
 }

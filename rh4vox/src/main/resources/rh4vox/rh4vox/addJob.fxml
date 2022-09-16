@@ -1,11 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
 
 <AnchorPane id="addJobContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="413.0" stylesheets="@../styles/addJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox id="addJobContent" alignment="CENTER_LEFT" fillWidth="false" maxHeight="650.0" maxWidth="413.0" minHeight="650.0" minWidth="413.0" prefHeight="650.0" prefWidth="413.0" stylesheets="@../styles/addJob.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <VBox id="addJobContent" alignment="TOP_CENTER" fillWidth="false" maxHeight="650.0" maxWidth="413.0" minHeight="650.0" minWidth="413.0" prefHeight="650.0" prefWidth="413.0" stylesheets="@../styles/addJob.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="629.0">
+               <children>
+                  <Label id="addJobTitle" fx:id="addJobTitle" prefHeight="88.0" prefWidth="328.0" stylesheets="@../styles/addJob.css" text="${'Preencha os campos\npara criar a vaga'}" />
+                  <HBox alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="285.0">
+                     <children>
+                        <Button id="saveJobBtn" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="Salvar" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <VBox id="inputsContainer" prefHeight="441.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+               <children>
+                  <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+                     <children>
+                        <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Nome da vaga" />
+                        <TextField id="inputField" prefHeight="40.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" />
+                     </children>
+                  </HBox>
+                  <HBox id="inputItem" prefHeight="125.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+                     <children>
+                        <VBox prefHeight="39.0" prefWidth="186.0">
+                           <children>
+                              <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="170.0" stylesheets="@../styles/addJob.css" text="Descrição" />
+                              <Label id="text" style="-fx-text-fill: rgba(84, 84, 84, 0.5);" stylesheets="@../styles/addJob.css" text="${'Escreva uma descrição das\natividades dessa vaga'}" />
+                           </children>
+                        </VBox>
+                        <TextArea id="inputField" prefHeight="126.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" />
+                     </children>
+                  </HBox>
+                  <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+                     <children>
+                        <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Salário" />
+                        <TextField id="inputField" prefHeight="40.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" />
+                     </children>
+                  </HBox>
+                  <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+                     <children>
+                        <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Regime" />
+                        <TextField id="inputField" prefHeight="40.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children></VBox>
    </children>
 </AnchorPane>

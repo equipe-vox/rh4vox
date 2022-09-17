@@ -9,13 +9,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
-public class LoginController implements Initializable {
+public class SignUpController implements Initializable  {
     @FXML
     private Button loginBtn;
 
     @FXML
-    private Button signUpBtn;
-    
+    private Button signupBtn;
+
     @FXML
     private Label text;
 
@@ -23,18 +23,17 @@ public class LoginController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         text.setWrapText(true);
 
-
         loginBtn.setOnAction(event -> {
             try {
-                App.setRoot("main");
+                App.setRoot("login");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
 
-        signUpBtn.setOnAction(event -> {
+        signupBtn.setOnAction(event -> {
             try {
-                App.setRoot("signup");
+                App.setRoot("main");
             } catch (IOException e) {
                 e.printStackTrace();
             }

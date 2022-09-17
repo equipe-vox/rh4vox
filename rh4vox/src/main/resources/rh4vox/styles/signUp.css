@@ -1,0 +1,146 @@
+@font-face {
+  src: url('../assets/fonts/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+  src: url('../assets/fonts/Ubuntu-Medium.ttf');
+}
+
+
+@font-face {
+  src: url('../assets/fonts/Ubuntu-Regular.ttf');
+}
+
+@font-face {
+  src: url('../assets/fonts/Inter-Medium.ttf');
+}
+
+@font-face {
+  src: url('../assets/fonts/Inter-Regular.ttf');
+}
+
+.root {
+  -main: #F35416;
+  -orange: #F18524;
+  -white: #FFFFFF;
+  -text: #555555;
+  -title: #333333;
+  -border: rgba(84, 84, 84, 0.5);
+  -light: rgba(84, 84, 84, 0.4);
+}
+
+.date-picker {
+  -fx-border-color: transparent;
+  -fx-border-width: 0;
+  -fx-focus-color: transparent;
+  -fx-background-insets: 0;
+  -fx-background-color: transparent, -white, transparent, -white;
+  -fx-text-fill: -text;
+}
+
+.date-picker:focused .content {
+  -fx-background-color: -white;
+  -fx-border-color: -white;
+  -fx-border-width: 0;
+  -fx-focus-color: transparent;
+}
+
+#container {
+  -fx-background-color: -white;
+}
+
+#content {
+  -fx-padding: 30px;
+}
+
+#signupContainer {
+  -fx-background-color: -white;
+  -fx-effect: dropshadow(three-pass-box, -border, 10, 0, 0, 0);
+  -fx-border-radius: 25px;
+  -fx-background-radius: 25px;
+  -fx-border-width: 1px;
+  -fx-border-color: -light;
+  -fx-padding: 30px;
+}
+
+#title {
+  -fx-font-family: 'Ubuntu Medium';
+  -fx-font-size: 25px;
+  -fx-text-fill: -title;
+}
+
+#textSignup {
+  -fx-font-family: 'Inter';
+  -fx-font-size: 13px;
+  -fx-text-fill: -text;
+}
+
+#inputField {
+  -fx-min-height: 55px;
+  -fx-border-width: 2px;
+  -fx-border-color: -border;
+  -fx-border-radius: 60px;
+  -fx-background-radius: 60px;
+  -fx-padding: 10px;
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+
+#signupBtnContainer {
+  -fx-padding: 30px 0px 30px 0px;
+}
+
+#signupBtn {
+  -fx-font-family: "Ubuntu Medium";
+  -fx-font-size: 13px;
+  -fx-text-fill: -white;
+  -fx-background-color: -main;
+  -fx-min-height: 55px;
+  -fx-min-width: 100%;
+  -fx-border-radius: 60px;
+  -fx-background-radius: 60px;
+  -fx-padding: 8px 20px;
+  -fx-cursor: hand;
+}
+
+#signupBtn:hover {
+  -fx-background-color: transparent;
+  -fx-text-fill: -main;
+  -fx-border-width: 2px;
+  -fx-border-color: -main;
+}
+
+#accountContainer {
+  -fx-alignment: center;
+  -fx-spacing: 5px;
+}
+
+#haveAnAccountText {
+  -fx-font-family: 'Inter';
+  -fx-font-size: 13px;
+  -fx-text-fill: -text;
+}
+
+#haveAnAccountBtn {
+  -fx-font-family: 'Inter';
+  -fx-font-size: 13px;
+  -fx-text-fill: -orange;
+  -fx-background-color: transparent;
+  -fx-padding: 0px;
+  -fx-cursor: hand;
+}
+
+#haveAnAccountBtn:hover {
+  -fx-opacity: 0.75;
+}
+
+#text {
+  -fx-font-family: 'Ubuntu';
+  -fx-font-size: 24px;
+  -fx-text-fill: -border;
+  -fx-alignment: center;
+}

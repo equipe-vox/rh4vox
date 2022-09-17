@@ -49,10 +49,10 @@
                               <HBox id="accountContainer" prefHeight="100.0" prefWidth="200.0" stylesheets="@../styles/login.css">
                                  <children>
                                     <Label id="haveAnAccountText" stylesheets="@../styles/login.css" text="Não possui uma conta ainda?" />
-                                    <Button id="haveAnAccountBtn" mnemonicParsing="false" stylesheets="@../styles/login.css" text="CADASTRE-SE" />
+                                    <Button id="haveAnAccountBtn" fx:id="signUpBtn" mnemonicParsing="false" stylesheets="@../styles/login.css" text="CADASTRE-SE" />
                                  </children>
                               </HBox>
-                              <Button id="forgotPassBtn" mnemonicParsing="false" stylesheets="@../styles/login.css" text="Esqueceu sua senha?" />
+                              <Button id="forgotPassBtn" fx:id="forgotPassBtn" mnemonicParsing="false" stylesheets="@../styles/login.css" text="Esqueceu sua senha?" />
                            </children>
                         </VBox>
                      </children>
@@ -61,6 +61,16 @@
             </VBox>
          </children>
       </HBox>
+      <VBox alignment="CENTER_RIGHT" layoutX="431.0" layoutY="145.0" prefHeight="525.0" prefWidth="1074.0" spacing="70.0">
+         <children>
+            <ImageView fitHeight="103.0" fitWidth="623.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../assets/pro4tech.png" />
+               </image>
+            </ImageView>
+            <Label id="textSignup" fx:id="text" alignment="CENTER_RIGHT" contentDisplay="RIGHT" lineSpacing="15.0" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="630.0" stylesheets="@../styles/signUp.css" text="${'Diante da atual transformação digital, a Pro4tech acredita que a tecnologia da informação é a maior responsável pela nova dinâmica do mercado, pois conecta de forma ágil e eficiente pessoas, serviços, produtos e negócios. Neste contexto, provemos serviços de desenvolvimento, suporte e manutenção tecnológica que aceleram a transformação digital, tão necessária atualmente. A partir do entendimento profundo das necessidades e dos desafios de nossos clientes, entregamos soluções altamente diferenciadas que, conjugadas com o nosso compromisso de excelência no atendimento e com o nosso cuidado na manutenção da confiança depositada por nossos clientes, levam a relacionamentos de longo prazo.'}" textAlignment="JUSTIFY" wrapText="true" />
+         </children>
+      </VBox>
    </children>
    <padding>
       <Insets bottom="60.0" left="60.0" right="60.0" />

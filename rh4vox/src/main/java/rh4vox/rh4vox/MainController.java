@@ -28,6 +28,9 @@ public class MainController implements Initializable {
 
     @FXML
     private Button addJobBtn;
+
+    @FXML
+    private Button exitBtn;
     
     @FXML
     private Label addJobTitle;
@@ -50,6 +53,14 @@ public class MainController implements Initializable {
                 
             } catch (IOException ex) {
                 return;
+            }
+        });
+
+        exitBtn.setOnAction(event -> {
+            try {
+                App.setRoot("login");
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
     }

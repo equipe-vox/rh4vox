@@ -88,7 +88,7 @@
                <children>
                   <HBox id="pageTitleContainer" alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="486.0" stylesheets="@../styles/main.css">
                      <children>
-                        <Label id="pageTitle" minWidth="400.0" prefHeight="30.0" prefWidth="400.0" stylesheets="@../styles/main.css" text="Adicionar vaga" />
+                        <Label id="pageTitle" fx:id="title" minWidth="400.0" prefHeight="30.0" prefWidth="400.0" stylesheets="@../styles/main.css" text="Adicionar vaga" />
                      </children>
                      <padding>
                         <Insets left="30.0" />

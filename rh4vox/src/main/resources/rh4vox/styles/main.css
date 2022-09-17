@@ -60,7 +60,7 @@
 
 #pageTitleContainer {
   -fx-min-width: 200px;
-  -fx-alignment: left;
+  -fx-alignment: center-left;
   -fx-padding: 0 0 0 30px;
 }
 
@@ -91,7 +91,7 @@
 }
 
 #profileBtn {
-  -fx-alignment: left;
+  -fx-alignment: center-left;
   -fx-pref-height: 40px;
   -fx-pref-width: 40px;
   -fx-background-color: transparent;

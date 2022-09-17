@@ -6,18 +6,23 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
+import service.VagaExtractor;
+import javafx.scene.control.Button;
 
 public class AddJobController implements Initializable {
 
   @FXML
   private TextArea descInput;
   
+  
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
       descInput.setWrapText(true);
+      
   }
 
   public void setMainController(MainController mainController) {
+	  
   }
   
 }

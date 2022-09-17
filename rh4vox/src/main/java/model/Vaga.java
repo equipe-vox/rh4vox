@@ -1,4 +1,4 @@
-package rh4vox.model;
+package model;
 
 public class Vaga {
     private String nome;

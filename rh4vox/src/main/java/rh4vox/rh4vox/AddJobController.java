@@ -6,8 +6,6 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
-import service.VagaExtractor;
-import javafx.scene.control.Button;
 
 public class AddJobController implements Initializable {
 

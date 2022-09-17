@@ -14,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import service.VagaExtractor;
 
 public class MainController implements Initializable {
 

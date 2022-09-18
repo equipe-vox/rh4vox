@@ -47,64 +47,27 @@
 
 <br>
 
-## 📄 Sprint backlog
-
-<a href="https://github.com/equipe-vox/rh4vox/tree/main/images/backlogs/sprint-backlog1.jpeg">Sprint Backlog 1</a>
-<br>
-<a href="https://github.com/equipe-vox/rh4vox/tree/main/images/backlogs/sprint-backlog2.jpeg">Sprint Backlog 2</a>
-<br>
-<a href="https://github.com/equipe-vox/rh4vox/tree/main/images/backlogs/sprint-backlog3.jpeg">Sprint Backlog 3</a>
-
-<a href="https://github.com/equipe-vox/rh4vox/tree/main/images/backlogs/sprint-backlog4.jpeg">Sprint Backlog 4</a>
-
-<br>
-
 ## ℹ️ Como usar o aplicativo
 
 ### Pré-requisitos
 
-<!-- Para clonar e rodar a aplicação, é necessário ter instalado em sua máquina as ferramentas:
-[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) e [Yarn](https://yarnpkg.com/) (opcional).
-Além disso, é legal ter um bom editor de código, como o [VSCode](https://code.visualstudio.com/)
+Para clonar e rodar a aplicação, é necessário ter instalado em sua máquina o Java 8 e JavaFX SDK,
+[Git](https://git-scm.com), [Java](https://www.java.com/pt-BR/), [JavaFX SDK](https://www.oracle.com/java/technologies/install-javafx-sdk.html) e [Maven Apache](https://maven.apache.org/).
+Além disso, é legal ter um bom editor de código, como o [VSCode](https://code.visualstudio.com/).
 
 ### 🎲 Rodando a aplicação
 
 ```bash
-# --backend
 # Clone este repositório
-$ git clone <https://github.com/joaovtmarques/assistente_virtual_boardclass>
+$ git clone <https://github.com/equipe-vox/rh4vox>
 # Acesse a pasta do projeto no terminal
-$ cd assistente_virtual_boardclass
-# Navegue até a pasta 'backend' e depois até a pasta 'boardclass'
-$ cd backend
-$ cd boardclass
-# Instale as dependências
-$ npm install ou yarn install
-# Configure o orm do adonisjs para banco de dados PostgreSQL
-$ node ace configure @adonisjs/lucid
-# Na raíz do projeto, crie um arquivo .env com as mesmas variáveis contidas em .env.example
-# Preencha as variáveis com os respectivos valores da sua máquina
-# Execute a aplicação
-$ node ace serve ou yarn dev
-
-# --frontend
-# Clone este repositório
-$ git clone <https://github.com/joaovtmarques/assistente_virtual_boardclass>
-# Acesse a pasta do projeto no terminal
-$ cd assistente_virtual_boardclass
-# Navegue até a pasta 'frontend' e depois até a pasta 'boardclass'
-$ cd frontend
-$ cd boardclass
-# Instale as dependências
-$ npm install ou yarn install
-# Na raíz do projeto, crie um arquivo .env com a variável contida em .env.example
-$ REACT_APP_BACKEND_URL=http://{ip-backend}:{porta}/api
-# Preencha a variável com o ip do backend rodando na sua máquina
-# Com o backend já em execução:
-# Execute a aplicação
-$ npm start ou yarn start
-``` -->
-
+$ cd rh4vox
+# Navegue até a pasta 'rh4vox' novamente
+$ cd rh4vox
+# Dentro da pasta 'rh4vox', execute o comando no terminal
+$ mvn exec:java
+# O projeto deverá ser executado em alguns segundos.
+```
 <br>
 
 ## 🖥️ Mockups

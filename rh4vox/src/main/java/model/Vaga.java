@@ -3,10 +3,10 @@ package model;
 public class Vaga {
     private String nome;
     private String descricao;
-    private Float salario;
+    private String salario;
     private String regime;
 
-    public Vaga(String nome, String descricao, Float salario, String regime){
+    public Vaga(String nome, String descricao, String salario, String regime){
         this.nome = nome;
         this.descricao = descricao;
         this.salario = salario;
@@ -29,11 +29,11 @@ public class Vaga {
         this.descricao = descricao;
     }
 
-    public Float getSalario() {
+    public String getSalario() {
         return salario;
     }
 
-    public void setSalario(Float salario) {
+    public void setSalario(String salario) {
         this.salario = salario;
     }
 

@@ -8,20 +8,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
+import model.BaseVagas;
+import service.VagaExtractor;
 
 public class MainController implements Initializable {
-
+	
     @FXML
     private Label title;
-
-    @FXML
-    private static AnchorPane addJob;
 
     @FXML
     private StackPane pageContainer;
@@ -37,6 +35,7 @@ public class MainController implements Initializable {
 
     @FXML
     private ImageView addJobImage;
+    
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -46,18 +45,22 @@ public class MainController implements Initializable {
             try {
                 title.setText("Adicionar vaga");
 
-                Parent addJob = FXMLLoader.load(getClass().getResource("addJob.fxml"));
+                AnchorPane addJob = FXMLLoader.load(getClass().getResource("addJob.fxml"));
                 
                 pageContainer.getChildren().removeAll();
                 pageContainer.getChildren().setAll(addJob);
                 
             } catch (IOException ex) {
+            	ex.printStackTrace();
                 return;
             }
         });
 
         exitBtn.setOnAction(event -> {
             try {
+            	
+            	new VagaExtractor("../vagas.csv").extractVagas(BaseVagas.getInstance().getVagas());
+            	
                 App.setRoot("login");
             } catch (IOException e) {
                 e.printStackTrace();

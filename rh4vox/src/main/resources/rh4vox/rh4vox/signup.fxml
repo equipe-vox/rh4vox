@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="934.0" stylesheets="@../styles/signUp.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rh4vox.rh4vox.SignUpController">
+<AnchorPane id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="934.0" stylesheets="@../styles/signUp.css" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rh4vox.rh4vox.SignUpController">
    <children>
       <VBox alignment="CENTER_LEFT" layoutX="29.0" layoutY="29.0" prefHeight="730.0" prefWidth="523.0" spacing="70.0" AnchorPane.bottomAnchor="-90.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="382.0" AnchorPane.topAnchor="29.0">
          <children>

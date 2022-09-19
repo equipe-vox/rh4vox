@@ -59,7 +59,7 @@ public class MainController implements Initializable {
         exitBtn.setOnAction(event -> {
             try {
             	
-            	new VagaExtractor("../vagas.csv").extractVagas(BaseVagas.getInstance().getVagas());
+            	// new VagaExtractor("vagas.csv").extractVagas(BaseVagas.getInstance().getVagas());
             	
                 App.setRoot("login");
             } catch (IOException e) {

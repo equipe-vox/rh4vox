@@ -8,11 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="addJobContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="413.0" 
-   stylesheets="@../styles/addJob.css" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rh4vox.rh4vox.AddJobController">
+<AnchorPane id="addJobContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="413.0" stylesheets="@../styles/addJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rh4vox.rh4vox.AddJobController">
 
-   <VBox id="addJobContent" alignment="TOP_CENTER" fillWidth="false" maxHeight="650.0" maxWidth="413.0" minHeight="650.0" minWidth="413.0" prefHeight="650.0" prefWidth="413.0" 
-      stylesheets="@../styles/addJob.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+   <VBox id="addJobContent" alignment="TOP_CENTER" fillWidth="false" maxHeight="650.0" maxWidth="413.0" minHeight="650.0" minWidth="413.0" prefHeight="650.0" prefWidth="413.0" stylesheets="@../styles/addJob.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       
       <!-- Título -->
       <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="629.0">
@@ -20,7 +18,7 @@
          <Label id="addJobTitle" prefHeight="88.0" prefWidth="328.0" stylesheets="@../styles/addJob.css" text="${'Preencha os campos\npara criar a vaga'}" />
          
          <HBox alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="285.0">
-            <Button id="saveJobBtn" fx:id="saveJobBtn" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="Salvar" onAction="#salvaVaga" />
+            <Button id="saveJobBtn" fx:id="saveJobBtn" mnemonicParsing="false" onAction="#salvaVaga" stylesheets="@../styles/addJob.css" text="Salvar" />
          </HBox>
 
       </HBox>

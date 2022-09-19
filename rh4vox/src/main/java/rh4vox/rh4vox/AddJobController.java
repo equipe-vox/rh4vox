@@ -33,7 +33,11 @@ public class AddJobController implements Initializable {
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+		saveJobBtn.setOnMouseClicked(event -> {
+			salvaVaga();
+
+			new VagaExtractor("vagas.csv").extractVagas(BaseVagas.getInstance().getVagas());
+		});
 	}
 	
 	public void salvaVaga() {

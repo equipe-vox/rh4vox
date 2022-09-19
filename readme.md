@@ -47,6 +47,14 @@
 
 <br>
 
+## 📈 Burn Down
+
+### Sprint 1
+
+<img src="images/burndown.png" />
+
+<br>
+
 ## ℹ️ Como usar o aplicativo
 
 ### Pré-requisitos

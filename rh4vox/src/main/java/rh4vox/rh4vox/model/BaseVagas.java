@@ -1,4 +1,4 @@
-package model;
+package rh4vox.rh4vox.model;
 
 import java.util.ArrayList;
 import java.util.List;

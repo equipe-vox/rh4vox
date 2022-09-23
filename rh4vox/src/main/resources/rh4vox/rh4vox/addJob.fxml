@@ -18,7 +18,7 @@
          <Label id="addJobTitle" prefHeight="88.0" prefWidth="328.0" stylesheets="@../styles/addJob.css" text="${'Preencha os campos\npara criar a vaga'}" />
          
          <HBox alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="285.0">
-            <Button id="saveJobBtn" fx:id="saveJobBtn" mnemonicParsing="false" onAction="#salvaVaga" stylesheets="@../styles/addJob.css" text="Salvar" />
+            <Button id="saveJobBtn" fx:id="saveJobBtn" mnemonicParsing="false" onAction="#saveJobClick" stylesheets="@../styles/addJob.css" text="Salvar" />
          </HBox>
 
       </HBox>

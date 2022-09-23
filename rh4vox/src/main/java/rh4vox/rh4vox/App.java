@@ -22,7 +22,7 @@ public class App extends Application {
         stage.setResizable(false);
         stage.getIcons().add(new Image(App.class.getResourceAsStream( "icon.png" ))); }
 
-    static void setRoot(String fxml) throws IOException {
+    public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 

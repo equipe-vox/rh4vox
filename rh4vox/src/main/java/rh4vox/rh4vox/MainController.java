@@ -13,8 +13,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
-import model.BaseVagas;
-import service.VagaExtractor;
+import rh4vox.rh4vox.model.BaseVagas;
+import rh4vox.rh4vox.service.VagaExtractor;
 
 public class MainController implements Initializable {
 	

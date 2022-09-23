@@ -1,0 +1,74 @@
+/* Lógico_1: */
+
+CREATE TABLE vaga (
+    id INTEGER PRIMARY KEY,
+    nome VARCHAR,
+    descricao VARCHAR,
+    salario DOUBLE,
+    regime VARCHAR,
+    aberto VARCHAR
+);
+
+CREATE TABLE usuario_candidato (
+    id INTEGER PRIMARY KEY,
+    email VARCHAR,
+    senha VARCHAR,
+    nome VARCHAR,
+    cpf INTEGER,
+    data_nasc DATE,
+    UNIQUE (email, cpf)
+);
+
+CREATE TABLE curriculo (
+    id_candidato INTEGER PRIMARY KEY,
+    bio VARCHAR,
+    objetivo VARCHAR,
+    habilidades VARCHAR,
+    formacao VARCHAR,
+    experiencia VARCHAR
+);
+
+CREATE TABLE candidato_vaga (
+    fk_candidato_id INTEGER,
+    fk_vaga_id INTEGER,
+    status_candidato VARCHAR
+);
+
+CREATE TABLE usuario_vaga (
+    fk_usuario_candidato_id INTEGER,
+    fk_vaga_id INTEGER
+);
+
+CREATE TABLE candidato_curriculo (
+    fk_usuario_candidato_id INTEGER,
+    fk_curriculo_id_candidato INTEGER
+);
+ 
+ALTER TABLE candidato_vaga ADD CONSTRAINT FK_candidato_vaga_1
+    FOREIGN KEY (fk_candidato_id)
+    REFERENCES ??? (???);
+ 
+ALTER TABLE candidato_vaga ADD CONSTRAINT FK_candidato_vaga_2
+    FOREIGN KEY (fk_vaga_id)
+    REFERENCES vaga (id)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE usuario_vaga ADD CONSTRAINT FK_usuario_vaga_1
+    FOREIGN KEY (fk_usuario_candidato_id)
+    REFERENCES usuario_candidato (id)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE usuario_vaga ADD CONSTRAINT FK_usuario_vaga_2
+    FOREIGN KEY (fk_vaga_id)
+    REFERENCES vaga (id)
+    ON DELETE SET NULL;
+ 
+ALTER TABLE candidato_curriculo ADD CONSTRAINT FK_candidato_curriculo_1
+    FOREIGN KEY (fk_usuario_candidato_id)
+    REFERENCES usuario_candidato (id)
+    ON DELETE RESTRICT;
+ 
+ALTER TABLE candidato_curriculo ADD CONSTRAINT FK_candidato_curriculo_2
+    FOREIGN KEY (fk_curriculo_id_candidato)
+    REFERENCES curriculo (id_candidato)
+    ON DELETE SET NULL;

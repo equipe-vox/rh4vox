@@ -1,11 +1,11 @@
-package service;
+package rh4vox.rh4vox.service;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-import model.Vaga;
+import rh4vox.rh4vox.model.Vaga;
 
 public class VagaExtractor {
 	

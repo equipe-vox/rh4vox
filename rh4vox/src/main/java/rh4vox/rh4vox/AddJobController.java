@@ -8,10 +8,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import model.BaseVagas;
-import model.Vaga;
-import service.VagaExtractor;
+
+import rh4vox.rh4vox.model.Vaga;
+import rh4vox.rh4vox.service.VagaService;
 
 public class AddJobController implements Initializable {
 
@@ -30,17 +29,14 @@ public class AddJobController implements Initializable {
 	@FXML
 	private TextArea descriptionJobText;
   
-	
+	private VagaService vagaService;
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		saveJobBtn.setOnMouseClicked(event -> {
-			salvaVaga();
-
-			new VagaExtractor("vagas.csv").extractVagas(BaseVagas.getInstance().getVagas());
-		});
-	}
+		vagaService = new VagaService();
+	}	
 	
-	public void salvaVaga() {
+	public void saveJobClick() {
 		String vagaNome = nameJobText.getText();
 		String vagaRegime = regimeJobText.getText();
 		String vagaDescricao = descriptionJobText.getText();
@@ -48,8 +44,8 @@ public class AddJobController implements Initializable {
 		
 		Vaga vaga = new Vaga(vagaNome, vagaDescricao, vagaSalario, vagaRegime);
 		
-		BaseVagas.getInstance().addVaga(vaga);
-		
+		vagaService.saveJob(vaga);			
+
 		nameJobText.clear();
 		regimeJobText.clear();
 		descriptionJobText.clear();

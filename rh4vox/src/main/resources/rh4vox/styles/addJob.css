@@ -132,3 +132,17 @@
   -fx-font-size: 12px;
   -fx-text-fill: -text;
 }
+
+#regimeBtn {
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+  -fx-focus-color: -main;
+  -fx-faint-focus-color: transparent;
+  -fx-background-color: transparent;
+}
+
+#regimeBtn:selected .radio .dot {
+  -fx-background-color: -main;
+  -fx-background-insets: 0;
+}

@@ -28,6 +28,9 @@ public class MainController implements Initializable {
     private Button addJobBtn;
 
     @FXML
+    private Button homeBtn;
+
+    @FXML
     private Button exitBtn;
     
     @FXML
@@ -35,36 +38,48 @@ public class MainController implements Initializable {
 
     @FXML
     private ImageView addJobImage;
+
+    @FXML
+    private AnchorPane page;
     
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        title.setText("Vagas");
+        setPage("Vagas", "listJobs.fxml");
+
+        homeBtn.setOnMouseClicked(event -> {
+            setPage("Vagas", "listJobs.fxml");
+        });
         
         addJobBtn.setOnMouseClicked(event -> {
-            try {
-                title.setText("Adicionar vaga");
-
-                AnchorPane addJob = FXMLLoader.load(getClass().getResource("addJob.fxml"));
-                
-                pageContainer.getChildren().removeAll();
-                pageContainer.getChildren().setAll(addJob);
-                
-            } catch (IOException ex) {
-            	ex.printStackTrace();
-                return;
-            }
+            setPage("Adicionar vaga", "addJob.fxml");
         });
 
         exitBtn.setOnAction(event -> {
-            try {
-            	
-            	// new VagaExtractor("vagas.csv").extractVagas(BaseVagas.getInstance().getVagas());
-            	
+            try {    	
                 App.setRoot("login");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+    }
+
+    private void setPage(String pageName, String fxml) {
+        try {
+            pageContainer.setStyle("-fx-padding: 30px;");
+            title.setText(pageName);
+            page = FXMLLoader.load(getClass().getResource(fxml));
+
+            if(pageName == "Vagas") {
+                pageContainer.setStyle("-fx-padding: 0px;");
+            } else {
+                pageContainer.setStyle("-fx-padding: 30px;");
+            }
+
+            pageContainer.getChildren().removeAll();           
+            pageContainer.getChildren().setAll(page);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }

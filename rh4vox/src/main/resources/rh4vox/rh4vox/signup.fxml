@@ -35,7 +35,7 @@
                   <VBox prefHeight="80.0" prefWidth="338.0" spacing="10.0">
                      <children>
                         <Label id="title" stylesheets="@../styles/signUp.css" text="Cadastro" />
-                        <Label id="textSignup" stylesheets="@../styles/signUp.css" text="${'Preencha os campos abaixo \n para se registrar e acessar o sistemas'}" />
+                        <Label id="textSignup" stylesheets="@../styles/signUp.css" text="${'Preencha os campos abaixo\npara se registrar e acessar o sistemas'}" />
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0">

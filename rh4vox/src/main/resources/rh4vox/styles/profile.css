@@ -1,0 +1,211 @@
+@font-face {
+  src: url('../assets/fonts/Ubuntu-Medium.ttf');
+}
+
+@font-face {
+  src: url('../assets/fonts/Inter-Medium.ttf');
+}
+
+@font-face {
+  src: url('../assets/fonts/Inter-Regular.ttf');
+}
+
+.text-area{
+  -fx-background-color: -white, -white;
+}
+
+.text-area .content {
+  -fx-background-color: -white;
+}
+
+.text-area:focused .content {
+  -fx-background-color: -white;
+}
+
+.root {
+  -main: #F35416;
+  -orange: #F18524;
+  -white: #FFFFFF;
+  -text: #555555;
+  -title: #333333;
+  -border: rgba(84, 84, 84, 0.4);
+  -light: rgba(84, 84, 84, 0.4);
+}
+
+#container {
+  -fx-background-color: -white;
+}
+
+#content {
+  -fx-background-color: -white;
+}
+
+#profileContainer {
+  -fx-pref-height: 360px;
+  -fx-effect: dropshadow(three-pass-box, -border, 10, 0, 0, 0);
+  -fx-border-radius: 25px;
+  -fx-background-radius: 25px;
+  -fx-border-width: 1px;
+  -fx-border-color: -light;
+  -fx-background-image: url("../assets/profile-background.png");
+  -fx-background-repeat: no-repeat;   
+  -fx-background-size: 100% 100%;
+  -fx-background-position: 100% 100%;
+  -fx-padding: 25px;
+}
+
+#profileIconContainer {
+  -fx-background-color: -white;
+  -fx-pref-height: 110px;
+  -fx-pref-width: 110px;
+  -fx-border-radius: 25px;
+  -fx-background-radius: 25px;
+  -fx-padding: 25px;
+  -fx-alignment: center;
+  -fx-effect: dropshadow(three-pass-box, -border, 10, 0, 0, 0);
+  -fx-border-width: 1px;
+  -fx-border-color: -light;
+}
+
+#profileInfoContainer {
+  -fx-alignment: bottom-left;
+  -fx-padding: 0 0 0 15px;
+}
+
+#nameText {
+  -fx-font-family: 'Ubuntu Medium';
+  -fx-font-size: 20px;
+  -fx-text-fill: -text;
+}
+
+#bioText {
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+
+#skillContainer {
+  -fx-alignment: center-left;
+}
+
+#skillItem {
+  -fx-min-height: 25px;
+  -fx-max-height: 22px;
+  -fx-min-width: 90px;
+  -fx-alignment: center;
+  -fx-border-radius: 10px;
+  -fx-background-radius: 10px;
+  -fx-background-color: -orange;
+}
+
+#skillText {
+  -fx-font-family: 'Inter Regular';
+  -fx-font-size: 12px;
+  -fx-text-fill: -white;
+}
+
+#linksContainer {
+  -fx-effect: dropshadow(three-pass-box, -border, 10, 0, 0, 0);
+  -fx-border-radius: 25px;
+  -fx-background-radius: 25px;
+  -fx-border-width: 1px;
+  -fx-border-color: -light;
+  -fx-padding: 25px;
+}
+
+#linksTitle {
+  -fx-font-family: 'Ubuntu Medium';
+  -fx-font-size: 16px;
+  -fx-text-fill: -text;
+}
+
+#hyperlink {
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+
+#curriculumContainer {
+  -fx-min-height: 750px;
+  -fx-effect: dropshadow(three-pass-box, -border, 10, 0, 0, 0);
+  -fx-border-radius: 25px;
+  -fx-background-radius: 25px;
+  -fx-border-width: 1px;
+  -fx-border-color: -light;
+  -fx-background-color: -white;
+  -fx-padding: 25px;
+}
+
+#curriculumHeader {
+  -fx-min-height: 38px;
+  -fx-max-height: 78px;
+  -fx-alignment: center-right;
+  -fx-effect: none;
+}
+
+#saveBtn {
+  -fx-font-family: "Ubuntu Medium";
+  -fx-font-size: 12px;
+  -fx-text-fill: -white;
+  -fx-background-color: -main;
+  -fx-height: 38px;
+  -fx-width: 102px;
+  -fx-border-radius: 30px;
+  -fx-background-radius: 30px;
+  -fx-padding: 8px 20px;
+  -fx-cursor: hand;
+  -fx-effect: none;
+}
+
+#saveBtn:hover {
+  -fx-background-color: transparent;
+  -fx-text-fill: -main;
+  -fx-border-width: 2px;
+  -fx-border-color: -main;
+}
+
+#inputTitle {
+  -fx-font-family: 'Ubuntu Medium';
+  -fx-font-size: 16px;
+  -fx-text-fill: -text;
+  -fx-padding: 0px;
+}
+
+#text {
+  -fx-font-family: 'Inter';
+  -fx-font-size: 10px;
+  -fx-text-fill: -light;
+}
+
+#inputField {
+  -fx-min-height: 40px;
+  -fx-min-width: 450px;
+  -fx-border-width: 1px;
+  -fx-border-color: -border;
+  -fx-border-radius: 30px;
+  -fx-background-radius: 30px;
+  -fx-padding: 10px;
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-text-box-border: transparent;
+
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+
+#bioInputField {
+  -fx-border-width: 1px;
+  -fx-border-color: -border;
+  -fx-border-radius: 30px;
+  -fx-background-radius: 30px;
+  -fx-padding: 10px;
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-text-box-border: transparent;
+  -fx-background-color: transparent;
+
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}

@@ -10,6 +10,7 @@ import javafx.fxml.Initializable;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -17,40 +18,42 @@ import javafx.scene.layout.StackPane;
 public class MainController implements Initializable {
 	
     @FXML
-    private Label title;
+    private Label title,addJobTitle;
 
     @FXML
     private StackPane pageContainer;
 
     @FXML
-    private Button addJobBtn;
-
-    @FXML
-    private Button homeBtn;
-
-    @FXML
-    private Button exitBtn;
-    
-    @FXML
-    private Label addJobTitle;
+    private Button addJobBtn, homeBtn, exitBtn, profileBtn, headerProfileBtn;
 
     @FXML
     private ImageView addJobImage;
 
     @FXML
     private AnchorPane page;
+
+    @FXML
+    private ScrollPane scrollPane;
     
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         setPage("Vagas", "listJobs.fxml");
 
-        homeBtn.setOnMouseClicked(event -> {
+        homeBtn.setOnAction(event -> {
             setPage("Vagas", "listJobs.fxml");
         });
         
-        addJobBtn.setOnMouseClicked(event -> {
+        addJobBtn.setOnAction(event -> {
             setPage("Adicionar vaga", "addJob.fxml");
+        });
+
+        profileBtn.setOnAction(event -> {
+            setPage("Meu Perfil", "profile.fxml");
+        });
+
+        headerProfileBtn.setOnAction(event -> {
+            setPage("Meu Perfil", "profile.fxml");
         });
 
         exitBtn.setOnAction(event -> {
@@ -62,20 +65,21 @@ public class MainController implements Initializable {
         });
     }
 
-    private void setPage(String pageName, String fxml) {
+    public void setPage(String pageName, String fxml) {
         try {
-            pageContainer.setStyle("-fx-padding: 30px;");
+            scrollPane.setStyle("-fx-padding: 30px;");
+            scrollPane.setPrefViewportHeight(4000);
             title.setText(pageName);
             page = FXMLLoader.load(getClass().getResource(fxml));
 
             if(pageName == "Vagas") {
-                pageContainer.setStyle("-fx-padding: 0px;");
+                scrollPane.setStyle("-fx-padding: 0px;");
             } else {
-                pageContainer.setStyle("-fx-padding: 30px;");
+                scrollPane.setStyle("-fx-padding: 20px;");
             }
 
-            pageContainer.getChildren().removeAll();           
-            pageContainer.getChildren().setAll(page);
+            scrollPane.setContent(page);          
+            // scrollPane.getChildren().setAll(page);
         } catch (IOException ex) {
             ex.printStackTrace();
         }

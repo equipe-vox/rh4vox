@@ -139,5 +139,15 @@
   -fx-alignment: top-left;
   -fx-min-height: 100%;
   -fx-min-width: 100%;
-  -fx-background-color: -white;
+  -fx-background-color: transparent;
+}
+
+#scrollPane {
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+  -fx-background-color: transparent;
 }

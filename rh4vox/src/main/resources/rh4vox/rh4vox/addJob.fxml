@@ -42,8 +42,16 @@
          </HBox>
 
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
-            <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Salário" />
-            <TextField id="inputField" fx:id="salaryJobText" prefHeight="40.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" />
+            <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="268.0" stylesheets="@../styles/addJob.css" text="Salário" />
+            <TextField id="inputField" fx:id="salaryJobText" prefHeight="39.0" prefWidth="335.0" stylesheets="@../styles/addJob.css" />
+            <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="302.0" spacing="15.0">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <children>
+                  <RadioButton id="regimeBtn" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="Negociável" />
+               </children>
+            </HBox>
          </HBox>
 
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">

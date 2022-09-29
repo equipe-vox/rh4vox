@@ -6,6 +6,13 @@
   src: url('../assets/fonts/Inter-Medium.ttf');
 }
 
+@font-face {
+  src: url('../assets/fonts/Inter-Regular.ttf');
+}
+
+.scroll-pane .viewport {
+  -fx-background-color: transparent;
+}
 
 .root {
   -main: #F35416;
@@ -87,4 +94,66 @@
   -fx-border-width: 1px;
   -fx-border-color: -orange;
   -fx-text-fill: -orange;
+}
+
+#scrollContainer {
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-background-color: transparent;
+}
+
+#scrollContent {
+  -fx-padding: 15px;
+}
+
+#jobItemContainer {
+  -fx-alignment: center-left;
+  -fx-background-color: -white;
+  -fx-effect: dropshadow(three-pass-box, -border, 10, 0, 0, 0);
+  -fx-border-width: 1px;
+  -fx-border-color: -light;
+  -fx-border-radius: 30px;
+  -fx-background-radius: 30px;
+
+  -fx-cursor: hand;
+}
+
+#jobItemContainer: hover {
+  -fx-opacity: 0.9;
+}
+
+#jobItemTitle {
+  -fx-font-family: 'Ubuntu Medium';
+  -fx-font-size: 20px;
+  -fx-text-fill: -text;
+}
+
+#jobItemDescription {
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+
+#jobItemCandidates {
+
+}
+
+#requirementsContainer {
+  -fx-alignment: center-left;
+}
+
+#requirementsItem {
+  -fx-min-height: 25px;
+  -fx-max-height: 22px;
+  -fx-min-width: 90px;
+  -fx-alignment: center;
+  -fx-border-radius: 10px;
+  -fx-background-radius: 10px;
+  -fx-background-color: -orange;
+}
+
+#requirementsText {
+  -fx-font-family: 'Inter Regular';
+  -fx-font-size: 12px;
+  -fx-text-fill: -white;
 }

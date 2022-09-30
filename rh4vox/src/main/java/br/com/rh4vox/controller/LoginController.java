@@ -28,7 +28,6 @@ public class LoginController implements Initializable {
 
         loginBtn.setOnAction(event -> {
             try {
-                System.out.println("Tentando rodar o main.fxml");
                 App.setRoot("main");
             } catch (IOException e) {
                 e.printStackTrace();

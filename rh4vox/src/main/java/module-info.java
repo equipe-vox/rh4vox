@@ -1,9 +1,9 @@
-module rh4vox.rh4vox {
+module br.com.rh4vox {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.desktop;
-    // requires org.postgresql.jdbc;
 
-    opens rh4vox.rh4vox to javafx.fxml;
-    exports rh4vox.rh4vox;
+    opens br.com.rh4vox.controller to javafx.fxml;
+    
+    exports br.com.rh4vox;
+    exports br.com.rh4vox.controller;
 }

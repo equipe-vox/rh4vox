@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="addJobContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="423.0" stylesheets="@../styles/addJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.AddJobController">
+
+   <VBox id="addJobContent" alignment="TOP_CENTER" fillWidth="false" maxHeight="650.0" maxWidth="413.0" minHeight="650.0" minWidth="413.0" prefHeight="650.0" prefWidth="413.0" stylesheets="@../styles/addJob.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      
+      <!-- Título -->
+      <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="629.0">
+         
+         <Label id="addJobTitle" prefHeight="88.0" prefWidth="328.0" stylesheets="@../styles/addJob.css" text="${'Preencha os campos\npara criar a vaga'}" />
+         
+         <HBox alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="285.0">
+            <Button id="saveJobBtn" fx:id="saveJobBtn" mnemonicParsing="false" onAction="#saveJobClick" stylesheets="@../styles/addJob.css" text="Salvar" />
+         </HBox>
+
+      </HBox>
+
+      <!-- Conteúdo -->
+      <VBox id="inputsContainer" prefHeight="441.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+         
+         <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+               <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Nome da vaga" />
+               <TextField id="inputField" fx:id="nameJobText" prefHeight="40.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" />
+         </HBox>
+
+         <HBox id="inputItem" prefHeight="125.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+            <VBox prefHeight="39.0" prefWidth="186.0">
+                  <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="170.0" stylesheets="@../styles/addJob.css" text="Descrição" />
+                  <Label id="text" style="-fx-text-fill: rgba(84, 84, 84, 0.5);" stylesheets="@../styles/addJob.css" text="${'Escreva uma descrição das\natividades dessa vaga'}" />
+            </VBox>
+            <TextArea id="descInputField" fx:id="descriptionJobText" prefHeight="126.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" wrapText="true" />
+         </HBox>
+
+         <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+            <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="268.0" stylesheets="@../styles/addJob.css" text="Salário" />
+            <TextField id="inputField" fx:id="salaryJobText" prefHeight="39.0" prefWidth="335.0" stylesheets="@../styles/addJob.css" />
+            <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="302.0" spacing="15.0">
+               <padding>
+                  <Insets left="30.0" />
+               </padding>
+               <children>
+                  <RadioButton id="regimeBtn" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="Negociável" />
+               </children>
+            </HBox>
+         </HBox>
+
+         <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+            <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="176.0" stylesheets="@../styles/addJob.css" text="Regime de Contrato" />
+            <HBox id="regimeBtnContainer" prefHeight="39.0" prefWidth="206.0" spacing="30.0" stylesheets="@../styles/addJob.css">
+               <children>
+                  <RadioButton id="regimeBtn" fx:id="regimeBtn1" mnemonicParsing="false" prefHeight="16.0" prefWidth="71.0" stylesheets="@../styles/addJob.css" text="CLT" />
+                  <RadioButton id="regimeBtn" fx:id="regimeBtn2" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="PJ" />
+                  <RadioButton id="regimeBtn" fx:id="regimeBtn3" mnemonicParsing="false" prefHeight="16.0" prefWidth="93.0" stylesheets="@../styles/addJob.css" text="Estágio" />
+               </children>
+            </HBox>
+         </HBox>
+
+      </VBox>
+   </VBox>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</AnchorPane>

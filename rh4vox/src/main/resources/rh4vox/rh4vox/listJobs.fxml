@@ -26,7 +26,7 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <ScrollPane id="scrollContainer" fitToHeight="true" fitToWidth="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="544.0" stylesheets="@../styles/listJobs.css">
+                  <ScrollPane id="scrollContainer" fx:id="scrollContainer" fitToHeight="true" fitToWidth="true" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="544.0" stylesheets="@../styles/listJobs.css">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>

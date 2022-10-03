@@ -51,7 +51,8 @@
 
 ### Sprint 1
 
-<img src="images/burndown.png" />
+<!-- <img src="images/burndown.png" /> -->
+<a href="https://github.com/equipe-vox/rh4vox/tree/main/images/backlogs/backlog-sp1.jpeg">Sprint Backlog 1</a>
 
 <br>
 

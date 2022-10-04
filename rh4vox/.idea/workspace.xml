@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d19431cb-0a9b-4f88-8a06-7dd39e9309c5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/rh4vox/dao/CandidatoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/rh4vox/dao/CandidatoDAO.java" afterDir="false" />
-    </list>
+    <list default="true" id="d19431cb-0a9b-4f88-8a06-7dd39e9309c5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,7 +69,7 @@
       <workItem from="1664326408041" duration="640000" />
       <workItem from="1664836989191" duration="54000" />
       <workItem from="1664838764278" duration="251000" />
-      <workItem from="1664889833873" duration="1012000" />
+      <workItem from="1664889833873" duration="1607000" />
     </task>
     <servers />
   </component>

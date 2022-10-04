@@ -1,12 +1,16 @@
 package br.com.rh4vox.model;
 
+import br.com.rh4vox.enums.Regime;
+
 public class Vaga {
     private String nome;
     private String descricao;
     private String salario;
-    private String regime;
+    private Regime regime;
+    private Boolean negociavel;
+    private String cargo;
 
-    public Vaga(String nome, String descricao, String salario, String regime){
+    public Vaga(String nome, String descricao, String salario, Regime regime){
         this.nome = nome;
         this.descricao = descricao;
         this.salario = salario;
@@ -37,11 +41,11 @@ public class Vaga {
         this.salario = salario;
     }
 
-    public String getRegime() {
+    public Regime getRegime() {
         return regime;
     }
 
-    public void setRegime(String regime) {
+    public void setRegime(Regime regime) {
         this.regime = regime;
     }
     

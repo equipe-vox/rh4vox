@@ -4,8 +4,8 @@ import java.util.List;
 
 import br.com.rh4vox.model.Candidato; 
 
-public class CandidatoDAO {
-  public Candidato getCandidato() {
+public class CandidatoDAO extends BaseDAO {
+  public Candidato getCandidato(int id) {
     return null;
   }
 

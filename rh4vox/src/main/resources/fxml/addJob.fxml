@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="addJobContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="423.0" stylesheets="@../styles/addJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.AddJobController">
+<AnchorPane id="addJobContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="650.0" stylesheets="@../styles/addJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.AddJobController">
 
    <VBox id="addJobContent" alignment="TOP_CENTER" fillWidth="false" maxHeight="650.0" maxWidth="413.0" minHeight="650.0" minWidth="413.0" prefHeight="650.0" prefWidth="413.0" stylesheets="@../styles/addJob.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       
@@ -30,7 +30,13 @@
          
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
                <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Nome da vaga" />
-               <TextField id="inputField" fx:id="nameJobText" prefHeight="40.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" />
+               <TextField id="inputField" fx:id="nameJobText" prefHeight="40.0" prefWidth="450.0" promptText="Escreva o nome da vaga" stylesheets="@../styles/addJob.css" />
+         </HBox>
+         <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+            <children>
+               <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Cargo" />
+               <TextField id="inputField" fx:id="nameJobText1" prefHeight="40.0" prefWidth="450.0" promptText="Escreva o nome do cargo" stylesheets="@../styles/addJob.css" />
+            </children>
          </HBox>
 
          <HBox id="inputItem" prefHeight="125.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
@@ -38,12 +44,12 @@
                   <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="170.0" stylesheets="@../styles/addJob.css" text="Descrição" />
                   <Label id="text" style="-fx-text-fill: rgba(84, 84, 84, 0.5);" stylesheets="@../styles/addJob.css" text="${'Escreva uma descrição das\natividades dessa vaga'}" />
             </VBox>
-            <TextArea id="descInputField" fx:id="descriptionJobText" prefHeight="126.0" prefWidth="450.0" stylesheets="@../styles/addJob.css" wrapText="true" />
+            <TextArea id="descInputField" fx:id="descriptionJobText" prefHeight="126.0" prefWidth="450.0" promptText="Descreva habilidades, requisitos, benefícios e demais informações" stylesheets="@../styles/addJob.css" wrapText="true" />
          </HBox>
 
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
             <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="268.0" stylesheets="@../styles/addJob.css" text="Salário" />
-            <TextField id="inputField" fx:id="salaryJobText" onKeyReleased="#maskedMonetary" prefHeight="39.0" prefWidth="335.0" stylesheets="@../styles/addJob.css" />
+            <TextField id="inputField" fx:id="salaryJobText" onKeyReleased="#maskedMonetary" prefHeight="39.0" prefWidth="335.0" promptText="0000.00" stylesheets="@../styles/addJob.css" />
             <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="302.0" spacing="15.0">
                <padding>
                   <Insets left="30.0" />

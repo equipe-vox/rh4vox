@@ -26,7 +26,7 @@
       </HBox>
 
       <!-- Conteúdo -->
-      <VBox id="inputsContainer" onKeyReleased="#maskedMonetary" prefHeight="441.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+      <VBox id="inputsContainer" prefHeight="441.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
          
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
                <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Nome da vaga" />
@@ -49,7 +49,7 @@
 
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
             <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="268.0" stylesheets="@../styles/addJob.css" text="Salário" />
-            <TextField id="inputField" fx:id="salaryJobText" onKeyReleased="#maskedMonetary" prefHeight="39.0" prefWidth="335.0" promptText="0000.00" stylesheets="@../styles/addJob.css" />
+            <TextField id="inputField" fx:id="salaryJobText" prefHeight="39.0" prefWidth="335.0" promptText="0000.00" stylesheets="@../styles/addJob.css" />
             <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="302.0" spacing="15.0">
                <padding>
                   <Insets left="30.0" />

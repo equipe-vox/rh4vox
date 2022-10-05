@@ -1,6 +1,8 @@
 package br.com.rh4vox.controller;
 
 import java.net.URL;
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,12 +11,14 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-
+import br.com.rh4vox.MaskedTextField;
+import br.com.rh4vox.enums.Regime;
 import br.com.rh4vox.model.*;
 import br.com.rh4vox.service.*;
 
 public class AddJobController implements Initializable {
 
+	
 	@FXML
 	private Button saveJobBtn;
 
@@ -36,6 +40,23 @@ public class AddJobController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		vagaService = new VagaService();
+
+		salaryJobText.focusedProperty().addListener((ov, oldV, newV) -> {
+      if (!newV) {
+				Double number = Double.parseDouble(salaryJobText.getText());
+		
+				NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
+				String currency = format.format(number);
+				System.out.println("Currency in Canada : " + currency);
+	
+				format = NumberFormat.getCurrencyInstance(Locale.US);
+				currency = format.format(number);
+	
+				salaryJobText.setText(String.format("R%s", currency));
+				
+				System.out.println("Currency in Germany: " + currency);
+      }
+    });
 	}
 
 	public void saveJobClick() {
@@ -52,7 +73,7 @@ public class AddJobController implements Initializable {
 		String vagaDescricao = descriptionJobText.getText();
 		String vagaSalario = salaryJobText.getText();
 
-		Vaga vaga = new Vaga(vagaNome, vagaDescricao, vagaSalario, vagaRegime);
+		Vaga vaga = new Vaga(vagaNome, vagaDescricao, vagaSalario, Regime.CLT);
 
 		vagaService.saveJob(vaga);
 

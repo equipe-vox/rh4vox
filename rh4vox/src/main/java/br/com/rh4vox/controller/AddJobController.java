@@ -45,14 +45,14 @@ public class AddJobController implements Initializable {
       if (!newV) {
 				Double number = Double.parseDouble(salaryJobText.getText());
 		
-				NumberFormat format = NumberFormat.getCurrencyInstance(Locale.US);
+				NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
 				String currency = format.format(number);
 				System.out.println("Currency in Canada : " + currency);
 	
-				format = NumberFormat.getCurrencyInstance(Locale.US);
+				format = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
 				currency = format.format(number);
 	
-				salaryJobText.setText(String.format("R%s", currency));
+				salaryJobText.setText(String.format(currency));
 				
 				System.out.println("Currency in Germany: " + currency);
       }

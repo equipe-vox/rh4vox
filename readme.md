@@ -47,10 +47,7 @@
 
 ## 📈 Burn Down
 
-### Sprint 1
-
-<!-- <img src="images/burndown.png" /> -->
-<a href="https://github.com/equipe-vox/rh4vox/tree/main/images/burndown/burndown-sp1.png">Sprint Backlog 1</a>
+<a href="https://github.com/equipe-vox/rh4vox/tree/main/images/burndown/burndown-sp1.png">Sprint Burn Down 1</a>
 
 <br>
 

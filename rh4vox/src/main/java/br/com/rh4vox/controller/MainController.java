@@ -66,9 +66,6 @@ public class MainController implements Initializable {
             e1.printStackTrace();
         }
 
-        
-        
-
         homeBtn.setOnAction(event -> {
             setPage("Vagas", "listJobs.fxml");
         });

@@ -1,6 +1,9 @@
 package br.com.rh4vox.controller;
 
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -17,23 +20,24 @@ import br.com.rh4vox.model.*;
 import br.com.rh4vox.service.*;
 
 public class AddJobController implements Initializable {
-
 	
 	@FXML
 	private Button saveJobBtn;
 
 	@FXML
-	private TextField nameJobText, salaryJobText;
+	private TextField nameJobText, salaryJobText, cargoText;
 
 	@FXML
 	private TextArea descriptionJobText;
 
 	@FXML
-	private RadioButton regimeBtn1, regimeBtn2, regimeBtn3;
+	private RadioButton regimeBtn1, regimeBtn2, regimeBtn3, negociavelBtn;
 
 	private VagaService vagaService;
 
-	private String vagaRegime;
+	private Regime regime;
+
+	private BigDecimal salario;
 
 	final ToggleGroup group = new ToggleGroup();
 
@@ -44,6 +48,7 @@ public class AddJobController implements Initializable {
 		salaryJobText.focusedProperty().addListener((ov, oldV, newV) -> {
       if (!newV) {
 				Double number = Double.parseDouble(salaryJobText.getText());
+				salario = new BigDecimal(salaryJobText.getText());
 		
 				NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
 				String currency = format.format(number);
@@ -56,30 +61,54 @@ public class AddJobController implements Initializable {
     });
 	}
 
-	public void saveJobClick() {
-		if (regimeBtn1.isSelected()) {
-			vagaRegime = regimeBtn1.getText();
-		} else if (regimeBtn2.isSelected()) {
-			vagaRegime = regimeBtn2.getText();
-		} else if (regimeBtn3.isSelected()) {
-			vagaRegime = regimeBtn3.getText();
+	public void createVaga() {
+		try {
+			if(regimeBtn1.isSelected()) {
+				regime = Regime.CLT;
+			} else if (regimeBtn2.isSelected()) {
+				regime = Regime.PJ;
+			} else if (regimeBtn3.isSelected()) {
+				regime = Regime.ESTAGIO;
+			}
+
+			vagaService.cadastroVaga(
+				nameJobText.getText(),
+				descriptionJobText.getText(),
+				salario,
+				regime,
+				negociavelBtn.isSelected(),
+				true,
+				cargoText.getText()
+			);
+		} catch (SQLException e) {
+				e.printStackTrace();
 		}
+	}
 
-		String vagaNome = nameJobText.getText();
+	public void saveJobClick() {
+		// if (regimeBtn1.isSelected()) {
+		// 	vagaRegime = regimeBtn1.getText();
+		// } else if (regimeBtn2.isSelected()) {
+		// 	vagaRegime = regimeBtn2.getText();
+		// } else if (regimeBtn3.isSelected()) {
+		// 	vagaRegime = regimeBtn3.getText();
+		// }
 
-		String vagaDescricao = descriptionJobText.getText();
-		String vagaSalario = salaryJobText.getText();
+		// String vagaNome = nameJobText.getText();
 
-		Vaga vaga = new Vaga(vagaNome, vagaDescricao, vagaSalario, Regime.CLT);
+		// String vagaDescricao = descriptionJobText.getText();
+		// String vagaSalario = salaryJobText.getText();
 
-		vagaService.saveJob(vaga);
+		// Vaga vaga = new Vaga(vagaNome, vagaDescricao, vagaSalario, Regime.CLT);
 
-		nameJobText.clear();
-		descriptionJobText.clear();
-		salaryJobText.clear();
-		regimeBtn1.setSelected(false);
-		regimeBtn2.setSelected(false);
-		regimeBtn3.setSelected(false);
+		// vagaService.saveJob(vaga);
+
+		// nameJobText.clear();
+		// descriptionJobText.clear();
+		// salaryJobText.clear();
+		// regimeBtn1.setSelected(false);
+		// regimeBtn2.setSelected(false);
+		// regimeBtn3.setSelected(false);
 	}
 
 	public void maskedMonetary() {
@@ -171,3 +200,4 @@ public class AddJobController implements Initializable {
 		}
 	}
 }
+

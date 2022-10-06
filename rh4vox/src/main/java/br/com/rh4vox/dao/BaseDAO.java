@@ -10,7 +10,7 @@ public class BaseDAO {
         Properties props = new Properties();
         
         props.setProperty("user", "postgres");
-        props.setProperty("password", "130204jv");
+        props.setProperty("password", "postgres");
         props.setProperty("ssl", "false");
 
         Connection conn = DriverManager.getConnection(url, props);

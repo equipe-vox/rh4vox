@@ -48,8 +48,6 @@ public class CandidatoDAO extends BaseDAO {
   }
 
   public void insertCandidato(Candidato candidato) throws SQLException {
-    System.out.println("cadastro");
-
     executeQuery(String.format("INSERT INTO candidato (nome, data_nasc, cpf, id_usuario) VALUES('%s', '%s', '%s', '%s')", candidato.getNome(), candidato.getDataNasc(), candidato.getCpf(), candidato.getUsuario().getId()));
   }
 

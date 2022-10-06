@@ -38,6 +38,8 @@ public class SignUpController implements Initializable  {
 
         text.setWrapText(true);
 
+        // setar on action no fxml
+
         loginBtn.setOnAction(event -> {
             try {
                 App.setRoot("login");
@@ -45,6 +47,8 @@ public class SignUpController implements Initializable  {
                 e.printStackTrace();
             }
         });
+
+        // setar on action no fxml
 
         signupBtn.setOnAction(event -> {
             try {

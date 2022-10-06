@@ -41,7 +41,7 @@
 
 ## 📃 Backlog
 
-<img src="images/backlog/backlog.jpeg" />
+<a href="https://github.com/equipe-vox/rh4vox/tree/main/images/backlog/backlog.jpeg">Backlog</a>
 
 <br>
 

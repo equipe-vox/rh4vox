@@ -14,10 +14,8 @@
 
 #### **Integrantes:** 
 - João Vitor Marques - [Linkedin](https://www.linkedin.com/in/joao-vitor-da-silva-marques-944b461bb/)
-- Luciano Pamplona - [Linkedin]()
 - Silas Rafael - [Linkedin]()
 - Hamilton Roberto - [Linkedin]()
-- Isidro Antonio - [Linkedin]()
 
 <br>
 
@@ -43,7 +41,7 @@
 
 ## 📃 Backlog
 
-<img src="images/backlogs/backlog.jpeg" />
+<img src="images/backlog/backlog.jpeg" />
 
 <br>
 
@@ -51,7 +49,8 @@
 
 ### Sprint 1
 
-<img src="images/burndown.png" />
+<!-- <img src="images/burndown.png" /> -->
+<a href="https://github.com/equipe-vox/rh4vox/tree/main/images/burndown/burndown-sp1.png">Sprint Backlog 1</a>
 
 <br>
 
@@ -59,8 +58,7 @@
 
 ### Pré-requisitos
 
-Para clonar e rodar a aplicação, é necessário ter instalado em sua máquina o Java 8 e JavaFX SDK,
-[Git](https://git-scm.com), [Java](https://www.java.com/pt-BR/), [JavaFX SDK](https://www.oracle.com/java/technologies/install-javafx-sdk.html) e [Maven Apache](https://maven.apache.org/).
+Para clonar e rodar a aplicação, é necessário ter instalado em sua máquina o [Java 11](https://www.java.com/pt-BR/) e [JavaFX SDK](https://www.oracle.com/java/technologies/install-javafx-sdk.html), [Git](https://git-scm.com) e [Maven Apache](https://maven.apache.org/).
 Além disso, é legal ter um bom editor de código, como o [VSCode](https://code.visualstudio.com/).
 
 ### 🎲 Rodando a aplicação

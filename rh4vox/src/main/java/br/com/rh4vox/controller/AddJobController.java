@@ -47,14 +47,11 @@ public class AddJobController implements Initializable {
 		
 				NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
 				String currency = format.format(number);
-				System.out.println("Currency in Canada : " + currency);
 	
 				format = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
 				currency = format.format(number);
 	
 				salaryJobText.setText(String.format(currency));
-				
-				System.out.println("Currency in Germany: " + currency);
       }
     });
 	}

@@ -6,12 +6,12 @@ import java.util.Properties;
 public class BaseDAO {
 
     public Connection getConnection() throws SQLException{
-        String url = "jdbc:postgresql://localhost/rh4vox";
+        String url = "jdbc:postgresql://localhost:5432/testRH4Vox";
         Properties props = new Properties();
         
         props.setProperty("user", "postgres");
-        props.setProperty("password", "password");
-        props.setProperty("ssl", "true");
+        props.setProperty("password", "130204jv");
+        props.setProperty("ssl", "false");
 
         Connection conn = DriverManager.getConnection(url, props);
         return conn;

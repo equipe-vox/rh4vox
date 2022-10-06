@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="934.0" stylesheets="@../styles/signUp.css" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.SignUpController">
+<AnchorPane id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="934.0" stylesheets="@../styles/signUp.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.SignUpController">
    <children>
       <VBox alignment="CENTER_LEFT" layoutX="29.0" layoutY="29.0" prefHeight="730.0" prefWidth="523.0" spacing="70.0" AnchorPane.bottomAnchor="-90.0" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="382.0" AnchorPane.topAnchor="29.0">
          <children>
@@ -42,11 +42,11 @@
                      <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="15.0">
                            <children>
-                              <TextField id="inputField" promptText="Nome completo" stylesheets="@../styles/signUp.css" />
-                              <DatePicker id="inputField" prefHeight="26.0" prefWidth="337.0" promptText="Data de nascimento" stylesheets="@../styles/signUp.css" />
-                              <TextField id="inputField" promptText="CPF" stylesheets="@../styles/signUp.css" />
-                              <TextField id="inputField" promptText="Endereço de e-mail" stylesheets="@../styles/signUp.css" />
-                              <PasswordField id="inputField" promptText="Senha" stylesheets="@../styles/signUp.css" />
+                              <TextField id="inputField" fx:id="nomeText" promptText="Nome completo" stylesheets="@../styles/signUp.css" />
+                              <DatePicker id="inputField" fx:id="dataText" prefHeight="26.0" prefWidth="337.0" promptText="Data de nascimento" stylesheets="@../styles/signUp.css" />
+                              <TextField id="inputField" fx:id="cpfText" promptText="CPF" stylesheets="@../styles/signUp.css" />
+                              <TextField id="inputField" fx:id="emailText" promptText="Endereço de e-mail" stylesheets="@../styles/signUp.css" />
+                              <PasswordField id="inputField" fx:id="senhaText" promptText="Senha" stylesheets="@../styles/signUp.css" />
                            </children>
                         </VBox>
                         <VBox id="signupBtnContainer" prefHeight="101.0" prefWidth="338.0" stylesheets="@../styles/signUp.css">

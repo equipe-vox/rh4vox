@@ -1,0 +1,48 @@
+package br.com.rh4vox.service;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
+
+import br.com.rh4vox.dao.UsuarioDAO;
+import br.com.rh4vox.enums.TipoUsuario;
+import br.com.rh4vox.model.Usuario;
+import br.com.rh4vox.model.UsuarioLogado;
+
+public class UsuarioService {
+
+  UsuarioDAO dao = new UsuarioDAO();
+
+  public Usuario login(String email, String senha) throws SQLException {
+
+    List<Usuario> usuarios = dao.listUsuarios();
+
+    for(Usuario usuario:usuarios) {
+      if(email.equals(usuario.getEmail()) && senha.equals(usuario.getSenha())) {
+        UsuarioLogado.getInstance().setUsuario(usuario);
+        
+        return usuario;
+      }
+    }
+
+    return null;
+  }
+
+  public Usuario cadastroCandidato(String email, String senha, String nome, LocalDate data_nasc, String cpf) throws SQLException {
+    dao.insertUsuario(email, senha, TipoUsuario.CANDIDATO);
+
+    Usuario usuario = login(email, senha);
+
+    CandidatoService candidatoService = new CandidatoService();
+
+    candidatoService.cadastro(nome, data_nasc, cpf, usuario);
+
+    return usuario;
+  }
+
+  public void logoff() {
+    UsuarioLogado.getInstance().logoff();
+  }
+
+}

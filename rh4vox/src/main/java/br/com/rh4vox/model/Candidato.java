@@ -1,24 +1,30 @@
 package br.com.rh4vox.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Candidato {
   private Integer id;
   private String nome;
-  private Long cpf;
-  private Date dataNasc;
+  private String cpf;
+  private LocalDate dataNasc;
+  private Usuario usuario;
 
   public Candidato(
     Integer id,
     String nome,
-    Long cpf,
-    Date dataNasc
+    String cpf,
+    LocalDate dataNasc,
+    Usuario usuario
   ){
     this.id = id;
     this.nome = nome;
     this.cpf = cpf;
     this.dataNasc = dataNasc;
+    this.usuario = usuario;
   }
+
+  public Candidato() {}
 
   public Integer getId() {
     return id;
@@ -36,19 +42,29 @@ public class Candidato {
     this.nome = nome;
   }
 
-  public Long getCpf() {
+  public String getCpf() {
     return cpf;
   }
 
-  public void setCpf(Long cpf) {
+  public void setCpf(String cpf) {
     this.cpf = cpf;
   }
 
-  public Date getDataNasc() {
+  public LocalDate getDataNasc() {
     return dataNasc;
   }
 
-  public void setDataNasc(Date dataNasc) {
+  public void setDataNasc(LocalDate dataNasc) {
     this.dataNasc = dataNasc;
   }
+
+  public Usuario getUsuario() {
+    return usuario;
+  }
+
+  public void setUsuario(Usuario usuario) {
+    this.usuario = usuario;
+  }
+
+  
 }

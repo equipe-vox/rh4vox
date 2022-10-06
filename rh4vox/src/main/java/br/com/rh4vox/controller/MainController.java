@@ -2,20 +2,27 @@ package br.com.rh4vox.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-
+import javafx.scene.layout.VBox;
 import br.com.rh4vox.App;
+import br.com.rh4vox.enums.TipoUsuario;
+import br.com.rh4vox.model.Usuario;
+import br.com.rh4vox.model.UsuarioLogado;
+import br.com.rh4vox.service.CandidatoService;
+import br.com.rh4vox.service.UsuarioService;
 
 
 public class MainController implements Initializable {
@@ -37,18 +44,33 @@ public class MainController implements Initializable {
 
     @FXML
     private ScrollPane scrollPane;
+
+    private Usuario usuario;
+
+    private UsuarioService usuarioService;
+
+    private CandidatoService candidatoService;
     
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        usuario = UsuarioLogado.getInstance().getUsuario();
+        usuarioService = new UsuarioService();
+        candidatoService = new CandidatoService();
+
         setPage("Vagas", "listJobs.fxml");
+
+        try {
+            headerProfileBtn.setText(candidatoService.getCandidatoByUsuario(usuario).getNome());
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+
+        
+        
 
         homeBtn.setOnAction(event -> {
             setPage("Vagas", "listJobs.fxml");
-        });
-        
-        addJobBtn.setOnAction(event -> {
-            setPage("Adicionar vaga", "addJob.fxml");
         });
 
         profileBtn.setOnAction(event -> {
@@ -61,6 +83,7 @@ public class MainController implements Initializable {
 
         exitBtn.setOnAction(event -> {
             try {    	
+                usuarioService.logoff();
                 App.setRoot("login");
             } catch (IOException e) {
                 e.printStackTrace();
@@ -81,8 +104,7 @@ public class MainController implements Initializable {
                 scrollPane.setStyle("-fx-padding: 20px;");
             }
 
-            scrollPane.setContent(page);          
-            // scrollPane.getChildren().setAll(page);
+            scrollPane.setContent(page); 
         } catch (IOException ex) {
             ex.printStackTrace();
         }

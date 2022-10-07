@@ -1,7 +1,7 @@
 package br.com.rh4vox.model;
 
 public class Curriculo {
-  private Integer idCandidato;
+  private Integer id;
   private String bio;
   private String objetivo;
   private String habilidades;
@@ -9,14 +9,14 @@ public class Curriculo {
   private String experiencia;
 
   public Curriculo(
-    Integer idCandidato,
+    Integer id,
     String bio,
     String objetivo,
     String habilidades,
     String formacao,
     String experiencia
   ) {
-    this.idCandidato = idCandidato;
+    this.id = id;
     this.bio = bio;
     this.objetivo = objetivo;
     this.habilidades = habilidades;
@@ -24,12 +24,12 @@ public class Curriculo {
     this.experiencia = experiencia;
   }
 
-  public Integer getIdCandidato() {
-    return idCandidato;
+  public Integer getId() {
+    return id;
   }
 
-  public void setIdCandidato(Integer idCandidato) {
-    this.idCandidato = idCandidato;
+  public void setId(Integer idCandidato) {
+    this.id = id;
   }
 
   public String getBio() {

@@ -5,14 +5,19 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+import br.com.rh4vox.dao.CandidatoDAO;
 import br.com.rh4vox.dao.UsuarioDAO;
 import br.com.rh4vox.enums.TipoUsuario;
+import br.com.rh4vox.model.Candidato;
+import br.com.rh4vox.model.CandidatoLogado;
 import br.com.rh4vox.model.Usuario;
 import br.com.rh4vox.model.UsuarioLogado;
 
 public class UsuarioService {
 
   UsuarioDAO dao = new UsuarioDAO();
+  CandidatoDAO candDao = new CandidatoDAO();
+  Candidato candidato;
 
   public Usuario login(String email, String senha) throws SQLException {
 
@@ -21,7 +26,9 @@ public class UsuarioService {
     for(Usuario usuario:usuarios) {
       if(email.equals(usuario.getEmail()) && senha.equals(usuario.getSenha())) {
         UsuarioLogado.getInstance().setUsuario(usuario);
+        candidato = candDao.getCandidato(usuario);
         
+        CandidatoLogado.getInstance().setCandidato(candidato);
         return usuario;
       }
     }

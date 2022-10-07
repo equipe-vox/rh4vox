@@ -1,20 +1,32 @@
 package br.com.rh4vox.dao;
 
+import java.io.FileInputStream;
 import java.sql.*;
 import java.util.Properties;
 
+
 public class BaseDAO {
 
-    public Connection getConnection() throws SQLException{
-        String url = "jdbc:postgresql://localhost:5432/testRH4Vox";
-        Properties props = new Properties();
-        
-        props.setProperty("user", "postgres");
-        props.setProperty("password", "postgres");
-        props.setProperty("ssl", "false");
+    public Connection getConnection() throws SQLException {
+        try{
+            Properties properties = new Properties();
+    
+            properties.load(new FileInputStream("database_properties.txt"));
+    
+            String url = String.format("jdbc:%s://%s:%s/%s",
+                properties.getProperty("driver"), 
+                properties.getProperty("host"),
+                properties.getProperty("port"),
+                properties.getProperty("database")
+            );
+    
+            Connection conn = DriverManager.getConnection(url, properties);
+            return conn;
+        } catch(Exception e){
+            e.printStackTrace();
+        }
 
-        Connection conn = DriverManager.getConnection(url, props);
-        return conn;
+        return null;
     }
 
     public void executeQuery(String query) throws SQLException{

@@ -125,4 +125,5 @@ nbdist/
 ### IntelliJ ###
 .idea/
 
-# End of https://www.toptal.com/developers/gitignore/api/maven,visualstudiocode,eclipse,netbeans
+### Properties ###
+database_properties.txt

@@ -126,4 +126,4 @@ nbdist/
 .idea/
 
 ### Properties ###
-database_properties.txt
+database.properties

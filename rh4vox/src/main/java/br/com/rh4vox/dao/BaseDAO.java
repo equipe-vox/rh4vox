@@ -11,7 +11,7 @@ public class BaseDAO {
         try{
             Properties properties = new Properties();
     
-            properties.load(new FileInputStream("database_properties.txt"));
+            properties.load(new FileInputStream("database.properties"));
     
             String url = String.format("jdbc:%s://%s:%s/%s",
                 properties.getProperty("driver"), 

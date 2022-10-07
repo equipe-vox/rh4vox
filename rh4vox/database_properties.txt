@@ -1,7 +1,0 @@
-driver=postgresql
-host=localhost
-port=5432
-database=rh4vox
-user=postgres
-password=postgres
-ssl=false

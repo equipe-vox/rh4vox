@@ -122,4 +122,8 @@ nbdist/
 # Ignore code-workspaces
 *.code-workspace
 
-# End of https://www.toptal.com/developers/gitignore/api/maven,visualstudiocode,eclipse,netbeans
+### IntelliJ ###
+.idea/
+
+### Properties ###
+database.properties

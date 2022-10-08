@@ -15,6 +15,7 @@ import br.com.rh4vox.dao.UsuarioDAO;
 import br.com.rh4vox.enums.TipoUsuario;
 import br.com.rh4vox.model.Usuario;
 import br.com.rh4vox.model.UsuarioLogado;
+import br.com.rh4vox.service.PopupService;
 import br.com.rh4vox.service.UsuarioService;
 
 
@@ -30,11 +31,15 @@ public class LoginController implements Initializable {
 
     private UsuarioService loginService;
 
+    private PopupService popupService;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         text.setWrapText(true);
 
         loginService = new UsuarioService();
+
+        popupService = new PopupService();
 
         loginBtn.setOnAction(event -> {
             try {
@@ -55,6 +60,7 @@ public class LoginController implements Initializable {
 
                     try {
                         App.setRoot(targetScreen);
+                        this.popupService.popupLogin();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

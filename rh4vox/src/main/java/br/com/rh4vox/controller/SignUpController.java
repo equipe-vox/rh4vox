@@ -9,9 +9,11 @@ import java.util.ResourceBundle;
 import br.com.rh4vox.App;
 import br.com.rh4vox.enums.TipoUsuario;
 import br.com.rh4vox.model.Usuario;
+import br.com.rh4vox.service.PopupService;
 import br.com.rh4vox.service.UsuarioService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -32,9 +34,12 @@ public class SignUpController implements Initializable  {
 
     private UsuarioService usuarioService;
 
+    private PopupService popupService;
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         usuarioService = new UsuarioService();
+        popupService = new PopupService();
 
         text.setWrapText(true);
 
@@ -58,7 +63,7 @@ public class SignUpController implements Initializable  {
                     String targetScreen = null;
 
                     if(usuario.getTipo() == TipoUsuario.CANDIDATO) {
-                        targetScreen = "main";
+                        targetScreen = "login";
                     } else if(usuario.getTipo() == TipoUsuario.ADM) {
                         targetScreen = "mainAdm";
                     } else if(usuario.getTipo() == TipoUsuario.RH) {
@@ -67,6 +72,7 @@ public class SignUpController implements Initializable  {
 
                     try {
                         App.setRoot(targetScreen);
+                        this.popupService.popupSignUp();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }

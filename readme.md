@@ -13,9 +13,9 @@
 #### **Equipe Vox**
 
 #### **Integrantes:** 
-- João Vitor Marques - [Linkedin](https://www.linkedin.com/in/joao-vitor-da-silva-marques-944b461bb/)
-- Silas Rafael - [Linkedin]()
-- Hamilton Roberto - [Linkedin]()
+- João Vitor Marques (Scrum Master) - [Linkedin](https://www.linkedin.com/in/joao-vitor-da-silva-marques-944b461bb/)
+- Silas Rafael (Product Owner) - [Linkedin]()
+- Hamilton Roberto (Desenvolvedor) - [Linkedin]()
 
 <br>
 

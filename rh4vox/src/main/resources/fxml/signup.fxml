@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import br.com.rh4vox.MaskedTextField?>
 
 <AnchorPane id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="934.0" stylesheets="@../styles/signUp.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.SignUpController">
    <children>
@@ -44,7 +45,8 @@
                            <children>
                               <TextField id="inputField" fx:id="nomeText" promptText="Nome completo" stylesheets="@../styles/signUp.css" />
                               <DatePicker id="inputField" fx:id="dataText" prefHeight="26.0" prefWidth="337.0" promptText="Data de nascimento" stylesheets="@../styles/signUp.css" />
-                              <TextField id="inputField" fx:id="cpfText" promptText="CPF" stylesheets="@../styles/signUp.css" />
+                              <!-- <TextField id="inputField" fx:id="cpfText" promptText="CPF" stylesheets="@../styles/signUp.css" /> -->
+                              <MaskedTextField id="inputField" fx:id="cpfText" promptText="CPF" stylesheets="@../styles/signUp.css" mask="###.###.###-##" />
                               <TextField id="inputField" fx:id="emailText" promptText="Endereço de e-mail" stylesheets="@../styles/signUp.css" />
                               <PasswordField id="inputField" fx:id="senhaText" promptText="Senha" stylesheets="@../styles/signUp.css" />
                            </children>

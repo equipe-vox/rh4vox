@@ -80,6 +80,8 @@ public class SignUpController implements Initializable  {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
+            
         });
     }
 }

@@ -3,6 +3,7 @@ package br.com.rh4vox.service;
 import java.sql.SQLException;
 
 import br.com.rh4vox.dao.CurriculoDAO;
+import br.com.rh4vox.model.CandidatoLogado;
 import br.com.rh4vox.model.Curriculo;
 import br.com.rh4vox.model.Usuario;
 import br.com.rh4vox.model.UsuarioLogado;
@@ -16,7 +17,10 @@ public class CurriculoService {
     String objetivo,
     String habilidades,
     String formacao,
-    String experiencia
+    String experiencia,
+    String site,
+    String linkedin,
+    String git
   ) throws SQLException {
     Curriculo curriculo = new Curriculo(
       null,
@@ -24,7 +28,11 @@ public class CurriculoService {
       objetivo,
       habilidades,
       formacao,
-      experiencia
+      experiencia,
+      null,
+      site,
+      linkedin,
+      git
     );
 
     Usuario usuario = UsuarioLogado.getInstance().getUsuario();
@@ -33,9 +41,19 @@ public class CurriculoService {
     dao.insertCurrilo(curriculo, idCandidato);
   }
 
-  public Curriculo getCurriculo() {
+  public Curriculo getCurriculo() throws SQLException {
+    Curriculo c = null;
 
-    
-    return null;
+    Integer idCandidato = CandidatoLogado.getInstance().getCandidato().getId();
+
+    c = dao.getCurriculo(idCandidato);
+
+    if(c == null) {
+      return null;
+    } else {
+      return c;
+    }
+
+
   }
 }

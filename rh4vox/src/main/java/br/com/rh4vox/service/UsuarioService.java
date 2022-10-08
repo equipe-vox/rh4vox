@@ -20,6 +20,8 @@ public class UsuarioService {
   Candidato candidato;
 
   public Usuario login(String email, String senha) throws SQLException {
+    candidato = new Candidato();
+
 
     List<Usuario> usuarios = dao.listUsuarios();
 
@@ -44,6 +46,9 @@ public class UsuarioService {
     CandidatoService candidatoService = new CandidatoService();
 
     candidatoService.cadastro(nome, data_nasc, cpf, usuario);
+
+    candidato = candDao.getCandidato(usuario);
+    CandidatoLogado.getInstance().setCandidato(candidato);
 
     return usuario;
   }

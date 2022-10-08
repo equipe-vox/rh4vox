@@ -7,6 +7,11 @@ public class Curriculo {
   private String habilidades;
   private String formacao;
   private String experiencia;
+  private Integer idCandidato;
+  private String site;
+  private String linkedin;
+  private String git;
+
 
   public Curriculo(
     Integer id,
@@ -14,7 +19,11 @@ public class Curriculo {
     String objetivo,
     String habilidades,
     String formacao,
-    String experiencia
+    String experiencia,
+    Integer idCandidato,
+    String site,
+    String linkedin,
+    String git
   ) {
     this.id = id;
     this.bio = bio;
@@ -22,13 +31,21 @@ public class Curriculo {
     this.habilidades = habilidades;
     this.formacao = formacao;
     this.experiencia = experiencia;
+    this.idCandidato = idCandidato;
+    this.site = site;
+    this.linkedin = linkedin;
+    this.git = git;
+  }
+
+  public Curriculo() {
+
   }
 
   public Integer getId() {
     return id;
   }
 
-  public void setId(Integer idCandidato) {
+  public void setId(Integer id) {
     this.id = id;
   }
 
@@ -72,4 +89,35 @@ public class Curriculo {
     this.experiencia = experiencia;
   }
 
+  public Integer getIdCandidato() {
+    return idCandidato;
+  }
+
+  public void setIdCandidato(Integer idCandidato) {
+    this.idCandidato = idCandidato;
+  }
+
+  public String getSite() {
+    return site;
+  }
+
+  public void setSite(String site) {
+    this.site = site;
+  }
+
+  public String getLinkedin() {
+    return linkedin;
+  }
+
+  public void setLinkedin(String linkedin) {
+    this.linkedin = linkedin;
+  }
+
+  public String getGit() {
+    return git;
+  }
+
+  public void setGit(String git) {
+    this.git = git;
+  }
 }

@@ -12,11 +12,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1276.0" prefWidth="1082.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.ProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1448.0" prefWidth="1082.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.ProfileController">
    <children>
-      <HBox layoutX="12.0" layoutY="13.0" prefHeight="1321.0" prefWidth="960.0" spacing="30.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="-48.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="3.0">
+      <HBox layoutX="22.0" layoutY="23.0" prefHeight="1444.0" prefWidth="940.0" spacing="30.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="-181.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="13.0">
          <children>
-            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1255.0" prefWidth="702.0" spacing="30.0" style="-fx-background-color: #fff;">
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1423.0" prefWidth="702.0" spacing="30.0" style="-fx-background-color: #fff;">
                <children>
                   <VBox id="profileContainer" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="360.0" prefWidth="702.0" style="-fx-background-color: #d2d2d2;" stylesheets="@../styles/profile.css">
                      <children>
@@ -38,8 +38,8 @@
                                  <children>
                                     <VBox prefHeight="86.0" prefWidth="529.0" spacing="5.0">
                                        <children>
-                                          <Label id="nameText" stylesheets="@../styles/profile.css" text="Nome do candidato" />
-                                          <Label id="bioText" prefHeight="36.0" prefWidth="418.0" stylesheets="@../styles/profile.css" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eleifend fermentum urna, a faucibus felis vehicula ut. Etiam metus libero." wrapText="true" />
+                                          <Label id="nameText" fx:id="nameLabel" stylesheets="@../styles/profile.css" text="Nome do candidato" />
+                                          <Label id="bioText" fx:id="bioLabel" prefHeight="36.0" prefWidth="418.0" stylesheets="@../styles/profile.css" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eleifend fermentum urna, a faucibus felis vehicula ut. Etiam metus libero." wrapText="true" />
                                        </children>
                                     </VBox>
                                     <HBox id="skillContainer" prefHeight="34.0" prefWidth="544.0" spacing="15.0" stylesheets="@../styles/profile.css">
@@ -71,7 +71,7 @@
                            </children>
                         </HBox>
                      </children></VBox>
-                  <VBox id="curriculumContainer" prefHeight="833.0" prefWidth="702.0" spacing="30.0" stylesheets="@../styles/profile.css">
+                  <VBox id="curriculumContainer" prefHeight="1032.0" prefWidth="702.0" spacing="30.0" stylesheets="@../styles/profile.css">
                      <children>
                         <HBox id="curriculumHeader" prefHeight="47.0" prefWidth="654.0" stylesheets="@../styles/profile.css">
                            <children>
@@ -137,7 +137,7 @@
                               </VBox>
                            </children>
                         </HBox>
-                        <HBox id="fieldContainer" minHeight="-Infinity" prefHeight="158.0" prefWidth="654.0" stylesheets="@../styles/profile.css">
+                        <HBox id="fieldContainer" minHeight="-Infinity" prefHeight="126.0" prefWidth="654.0" stylesheets="@../styles/profile.css">
                            <children>
                               <VBox id="textContainer" prefHeight="100.0" prefWidth="276.0" spacing="5.0" stylesheets="@../styles/profile.css">
                                  <children>
@@ -148,6 +148,48 @@
                               <VBox id="fieldContent" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="126.0" prefWidth="450.0" stylesheets="@../styles/profile.css">
                                  <children>
                                     <TextArea id="bioInputField" fx:id="experienciaText" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="450.0" promptText="Descreva suas experiências profissionais  (deixe em branco se não possuir nenhuma)" stylesheets="@../styles/profile.css" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox id="fieldContainer" minHeight="-Infinity" prefHeight="36.0" prefWidth="654.0" stylesheets="@../styles/profile.css">
+                           <children>
+                              <VBox id="textContainer" prefHeight="158.0" prefWidth="224.0" spacing="5.0" stylesheets="@../styles/profile.css">
+                                 <children>
+                                    <Label id="inputTitle" stylesheets="@../styles/profile.css" text="Site/portifólio" />
+                                 </children>
+                              </VBox>
+                              <VBox id="fieldContent" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="36.0" prefWidth="450.0" stylesheets="@../styles/profile.css">
+                                 <children>
+                                    <TextField id="inputField" fx:id="siteText" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="450.0" promptText="Escreva o link do seu site ou portifólio" stylesheets="@../styles/profile.css" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox id="fieldContainer" minHeight="-Infinity" prefHeight="36.0" prefWidth="654.0" stylesheets="@../styles/profile.css">
+                           <children>
+                              <VBox id="textContainer" prefHeight="158.0" prefWidth="224.0" spacing="5.0" stylesheets="@../styles/profile.css">
+                                 <children>
+                                    <Label id="inputTitle" stylesheets="@../styles/profile.css" text="Linkedin" />
+                                 </children>
+                              </VBox>
+                              <VBox id="fieldContent" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="36.0" prefWidth="450.0" stylesheets="@../styles/profile.css">
+                                 <children>
+                                    <TextField id="inputField" fx:id="linkedinText" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="450.0" promptText="Escreva o link do seu Linkedin" stylesheets="@../styles/profile.css" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox id="fieldContainer" minHeight="-Infinity" prefHeight="36.0" prefWidth="654.0" stylesheets="@../styles/profile.css">
+                           <children>
+                              <VBox id="textContainer" prefHeight="158.0" prefWidth="224.0" spacing="5.0" stylesheets="@../styles/profile.css">
+                                 <children>
+                                    <Label id="inputTitle" stylesheets="@../styles/profile.css" text="GitHub" />
+                                 </children>
+                              </VBox>
+                              <VBox id="fieldContent" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="36.0" prefWidth="450.0" stylesheets="@../styles/profile.css">
+                                 <children>
+                                    <TextField id="inputField" fx:id="gitText" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="450.0" promptText="Escreva o link do seu GitHub" stylesheets="@../styles/profile.css" />
                                  </children>
                               </VBox>
                            </children>
@@ -174,7 +216,7 @@
                                     <Image url="@../assets/icons/site.png" />
                                  </image>
                               </ImageView>
-                              <Hyperlink id="hyperlink" fx:id="siteLink" onAction="#openLink" stylesheets="@../styles/profile.css" text="site.com" />
+                              <Hyperlink id="hyperlink" fx:id="siteLink" onAction="#openLinkSite" stylesheets="@../styles/profile.css" text="site-portifolio.com" />
                            </children>
                            <VBox.margin>
                               <Insets />

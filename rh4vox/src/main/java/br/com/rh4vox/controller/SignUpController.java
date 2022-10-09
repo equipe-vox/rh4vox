@@ -3,7 +3,6 @@ package br.com.rh4vox.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import br.com.rh4vox.App;
@@ -13,7 +12,6 @@ import br.com.rh4vox.service.PopupService;
 import br.com.rh4vox.service.UsuarioService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -43,8 +41,6 @@ public class SignUpController implements Initializable  {
 
         text.setWrapText(true);
 
-        // setar on action no fxml
-
         loginBtn.setOnAction(event -> {
             try {
                 App.setRoot("login");
@@ -53,35 +49,54 @@ public class SignUpController implements Initializable  {
             }
         });
 
-        // setar on action no fxml
-
         signupBtn.setOnAction(event -> {
-            try {
-                Usuario usuario = usuarioService.cadastroCandidato(emailText.getText(), senhaText.getText(), nomeText.getText(), dataText.getValue(), cpfText.getText());
+            if(
+                emailText.getText().isEmpty() ||
+                senhaText.getText().isEmpty() ||
+                nomeText.getText().isEmpty() ||
+                dataText.getValue() == null ||
+                cpfText.getText().isEmpty()
+            ) {
+                popupService.popupEmptyInput();
+            } else {
+                try {
+                    Usuario emailAlreadyInUse = usuarioService.emailAlreadyInUse(emailText.getText());
 
-                if(usuario != null) {
-                    String targetScreen = null;
-
-                    if(usuario.getTipo() == TipoUsuario.CANDIDATO) {
-                        targetScreen = "login";
-                    } else if(usuario.getTipo() == TipoUsuario.ADM) {
-                        targetScreen = "mainAdm";
-                    } else if(usuario.getTipo() == TipoUsuario.RH) {
-                        targetScreen = "mainRH";
-                    }
-
-                    try {
-                        App.setRoot(targetScreen);
-                        this.popupService.popupSignUp();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-
+                    if(emailAlreadyInUse != null) {
+                        popupService.popupEmailAlreadyInUse();
+                        emailText.setText("");
+                    } else if(senhaText.getText().length() >= 6 && senhaText.getText().length() <= 20) {
+                        try {
+                            Usuario usuario = usuarioService.cadastroCandidato(emailText.getText(), senhaText.getText(), nomeText.getText(), dataText.getValue(), cpfText.getText());
             
+                            if(usuario != null) {
+                                String targetScreen = null;
+            
+                                if(usuario.getTipo() == TipoUsuario.CANDIDATO) {
+                                    targetScreen = "login";
+                                } else if(usuario.getTipo() == TipoUsuario.ADM) {
+                                    targetScreen = "mainAdm";
+                                } else if(usuario.getTipo() == TipoUsuario.RH) {
+                                    targetScreen = "mainRH";
+                                }
+            
+                                try {
+                                    App.setRoot(targetScreen);
+                                    this.popupService.popupSignUp();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        popupService.popupPassword();
+                    }
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+            }
         });
     }
 }

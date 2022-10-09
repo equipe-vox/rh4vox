@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.rh4vox.model.Candidato;
@@ -59,7 +60,35 @@ public class CandidatoDAO extends BaseDAO {
 
   }
 
-  public List<Candidato> listCandidatos() {
-    return null;
+  public List<Candidato> listCandidatos() throws SQLException {
+    Connection conn = getConnection(); 
+
+    List<Candidato> candidatos = new ArrayList<>();
+    String sql = "SELECT * FROM candidato";
+    
+    try {
+      PreparedStatement stmt = conn.prepareStatement(sql);
+      ResultSet rs = stmt.executeQuery();
+
+      while(rs.next()) {
+        Candidato c = new Candidato();
+
+        c.setId(rs.getInt("id"));
+        c.setNome(rs.getString("nome"));
+        c.setDataNasc(rs.getDate("data_nasc").toLocalDate());
+        c.setCpf(rs.getString("cpf"));
+        candidatos.add(c);
+        break;
+      }
+
+      stmt.close();
+      rs.close();
+      conn.close();
+
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+    return candidatos;
   }
 }

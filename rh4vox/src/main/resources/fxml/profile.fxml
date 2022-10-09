@@ -229,7 +229,7 @@
                                     <Image url="@../assets/icons/linkedin.png" />
                                  </image>
                               </ImageView>
-                              <Hyperlink id="hyperlink" fx:id="linkedinLink" stylesheets="@../styles/profile.css" text="linkedin.com" />
+                              <Hyperlink id="hyperlink" fx:id="linkedinLink" onAction="#openLinkLinkedin" stylesheets="@../styles/profile.css" text="linkedin.com" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="245.0" spacing="10.0">
@@ -239,7 +239,7 @@
                                     <Image url="@../assets/icons/github.png" />
                                  </image>
                               </ImageView>
-                              <Hyperlink id="hyperlink" fx:id="githubLink" stylesheets="@../styles/profile.css" text="github.com" />
+                              <Hyperlink id="hyperlink" fx:id="githubLink" onAction="#openLinkGit" stylesheets="@../styles/profile.css" text="github.com" />
                            </children>
                         </HBox>
                      </children></VBox>

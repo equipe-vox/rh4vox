@@ -53,6 +53,17 @@ public class UsuarioService {
     return usuario;
   }
 
+  public Usuario emailAlreadyInUse(String email) throws SQLException {
+    List<Usuario> usuarios = dao.listUsuarios();
+
+    for(Usuario usuario:usuarios) {
+      if(email.equals(usuario.getEmail())) {
+        return usuario;
+      }
+    }
+    return null;
+  }
+
   public void logoff() {
     UsuarioLogado.getInstance().logoff();
   }

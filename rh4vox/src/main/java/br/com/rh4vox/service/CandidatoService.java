@@ -2,6 +2,7 @@ package br.com.rh4vox.service;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.List;
 
 import br.com.rh4vox.dao.CandidatoDAO;
 import br.com.rh4vox.dao.CurriculoDAO;
@@ -31,4 +32,14 @@ public class CandidatoService {
 
   }
 
+  public Candidato cpfAlreadyExists(String cpf) throws SQLException {
+    List<Candidato> candidatos = dao.listCandidatos();
+
+    for(Candidato candidato:candidatos) {
+      if(cpf.equals(candidato.getCpf())) {
+        return candidato;
+      }
+    }
+    return null;
+  }
 }

@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 import br.com.rh4vox.model.CandidatoLogado;
 import br.com.rh4vox.model.Curriculo;
 import br.com.rh4vox.service.CurriculoService;
+import br.com.rh4vox.service.PopupService;
 
 import java.awt.Desktop;
 import java.io.IOException;
@@ -47,9 +48,12 @@ public class ProfileController implements Initializable  {
 
   private String site, linkedin,git; 
 
+  private PopupService popupService;
+
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     curriculoService = new CurriculoService();
+    popupService = new PopupService();
     
     try {
       bioLabel.setText("Defina uma bio para seu perfil.");
@@ -78,6 +82,7 @@ public class ProfileController implements Initializable  {
         alert.showAndWait();
       } else {
         saveCurriculo();
+        popupService.popupSaveCurriculo();
       }
     });
 

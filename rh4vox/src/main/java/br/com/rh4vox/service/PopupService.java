@@ -31,7 +31,7 @@ public class PopupService {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("rh4vox");
         alert.setHeaderText("Salvo com sucesso");
-        alert.setContentText("Seu currículo foi salvo, altera as informações se desejar");
+        alert.setContentText("Seu currículo foi salvo, altere suas informações se desejar");
         alert.show();   
     }
 

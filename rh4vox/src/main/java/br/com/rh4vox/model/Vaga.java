@@ -34,6 +34,8 @@ public class Vaga {
         this.cargo = cargo;
     }
 
+    public Vaga() {}
+
     public Integer getId() {
         return id;
     }

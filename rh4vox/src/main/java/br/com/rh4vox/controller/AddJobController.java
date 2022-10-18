@@ -1,6 +1,5 @@
 package br.com.rh4vox.controller;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
@@ -14,9 +13,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
-import br.com.rh4vox.MaskedTextField;
 import br.com.rh4vox.enums.Regime;
-import br.com.rh4vox.model.*;
 import br.com.rh4vox.service.*;
 
 public class AddJobController implements Initializable {

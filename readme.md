@@ -48,6 +48,7 @@
 ## 📈 Burn Down
 
 <a href="https://github.com/equipe-vox/rh4vox/tree/main/images/burndown/burndown-sp1.png">Sprint Burn Down 1</a>
+<a href="https://github.com/equipe-vox/rh4vox/tree/main/images/burndown/burndown-sp2.png">Sprint Burn Down 2</a>
 
 <br>
 

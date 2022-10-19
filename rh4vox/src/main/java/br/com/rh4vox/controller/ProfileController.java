@@ -16,7 +16,9 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
@@ -24,6 +26,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.HBox;
+
+import org.apache.commons.lang3.ArrayUtils;
 
 public class ProfileController implements Initializable  {
 
@@ -42,6 +47,9 @@ public class ProfileController implements Initializable  {
   @FXML
   private Label nameLabel, bioLabel;
 
+  @FXML
+  private HBox skillContainer;
+
   private CurriculoService curriculoService;
 
   private Curriculo curriculo, c;
@@ -58,7 +66,7 @@ public class ProfileController implements Initializable  {
     try {
       bioLabel.setText("Defina uma bio para seu perfil.");
       setCurriculo();
-    } catch (SQLException e) {
+    } catch (SQLException | IOException e) {
       e.printStackTrace();
     }
     
@@ -81,14 +89,18 @@ public class ProfileController implements Initializable  {
         alert.setContentText("Para salvar o currículo, os campos não podem estar em branco");
         alert.showAndWait();
       } else {
-        saveCurriculo();
+        try {
+          saveCurriculo();
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
         popupService.popupSaveCurriculo();
       }
     });
 
   }
 
-  private void saveCurriculo() {
+  private void saveCurriculo() throws IOException {
     try {
 
 
@@ -144,12 +156,26 @@ public class ProfileController implements Initializable  {
       if (!git.startsWith("https://")) {
         githubLink.setText("https://"+git);
       }
+      String [] habilidades = habilidadesText.getText().split(";");
+
+      if(habilidades.length != 0) {
+        System.out.println(habilidades);
+        for(String h:habilidades) {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/skillItem.fxml"));
+          Parent skillItem = loader.load();
+          SkillsController skillController = loader.getController();
+
+          skillController.setSkill(h);   
+  
+          skillContainer.getChildren().add(skillItem);
+        }
+      }
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
   }
 
-  private void setCurriculo() throws SQLException {
+  private void setCurriculo() throws SQLException, IOException {
     curriculo = curriculoService.getCurriculo();
 
     if(curriculo != null) {
@@ -170,6 +196,25 @@ public class ProfileController implements Initializable  {
       }
       if (!gitText.getText().startsWith("https://")) {
         githubLink.setText("https://"+curriculo.getGit());
+      }
+
+      String [] habilidades = curriculo.getHabilidades().split(";");
+      if(
+        !ArrayUtils.isEmpty(habilidades) &&
+        habilidades[0].length() != 0 &&
+        habilidades[0] != null &&
+        habilidades[0] != ""
+      ) {
+        for(String h:habilidades) {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/skillItem.fxml"));
+          Parent skillItem = loader.load();
+          SkillsController skillController = loader.getController();
+
+          skillController.setSkill(h);   
+  
+          skillContainer.getChildren().add(skillItem);
+          
+        }
       }
     } else {
       Alert alert = new Alert(AlertType.INFORMATION);

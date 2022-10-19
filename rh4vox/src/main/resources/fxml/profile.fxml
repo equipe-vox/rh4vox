@@ -42,30 +42,7 @@
                                           <Label id="bioText" fx:id="bioLabel" prefHeight="36.0" prefWidth="418.0" stylesheets="@../styles/profile.css" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eleifend fermentum urna, a faucibus felis vehicula ut. Etiam metus libero." wrapText="true" />
                                        </children>
                                     </VBox>
-                                    <HBox id="skillContainer" prefHeight="34.0" prefWidth="544.0" spacing="15.0" stylesheets="@../styles/profile.css">
-                                       <children>
-                                          <HBox id="skillItem" prefHeight="34.0" prefWidth="88.0" stylesheets="@../styles/profile.css">
-                                             <children>
-                                                <Label id="skillText" stylesheets="@../styles/profile.css" text="Label" />
-                                             </children>
-                                          </HBox>
-                                          <HBox id="skillItem" prefHeight="34.0" prefWidth="88.0" stylesheets="@../styles/profile.css">
-                                             <children>
-                                                <Label id="skillText" stylesheets="@../styles/profile.css" text="Label" />
-                                             </children>
-                                          </HBox>
-                                          <HBox id="skillItem" prefHeight="34.0" prefWidth="88.0" stylesheets="@../styles/profile.css">
-                                             <children>
-                                                <Label id="skillText" stylesheets="@../styles/profile.css" text="Label" />
-                                             </children>
-                                          </HBox>
-                                          <HBox id="skillItem" prefHeight="34.0" prefWidth="88.0" stylesheets="@../styles/profile.css">
-                                             <children>
-                                                <Label id="skillText" stylesheets="@../styles/profile.css" text="Label" />
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </HBox>
+                                    <HBox id="skillContainer" fx:id="skillContainer" prefHeight="34.0" prefWidth="544.0" spacing="15.0" stylesheets="@../styles/profile.css" />
                                  </children>
                               </VBox>
                            </children>

@@ -43,22 +43,22 @@
           <children>
             <HBox id="skillItem" prefHeight="34.0" prefWidth="88.0" stylesheets="@../styles/profile.css">
                 <children>
-                  <Label id="skillText" stylesheets="@../styles/profile.css" text="Label" />
+                  <Label id="skillText" fx:id="regimeLabel" stylesheets="@../styles/profile.css" text="Label" />
                 </children>
             </HBox>
             <HBox id="skillItem" prefHeight="34.0" prefWidth="88.0" stylesheets="@../styles/profile.css">
                 <children>
-                  <Label id="skillText" stylesheets="@../styles/profile.css" text="Label" />
+                  <Label id="skillText" fx:id="salarioLabel" stylesheets="@../styles/profile.css" text="Label" />
+                </children>
+            </HBox>
+            <HBox id="skillItem" fx:id="negociavelItem" prefHeight="34.0" prefWidth="88.0" stylesheets="@../styles/profile.css">
+                <children>
+                  <Label id="skillText" fx:id="negociavelLabel" stylesheets="@../styles/profile.css" text="Label" />
                 </children>
             </HBox>
             <HBox id="skillItem" prefHeight="34.0" prefWidth="88.0" stylesheets="@../styles/profile.css">
                 <children>
-                  <Label id="skillText" stylesheets="@../styles/profile.css" text="Label" />
-                </children>
-            </HBox>
-            <HBox id="skillItem" prefHeight="34.0" prefWidth="88.0" stylesheets="@../styles/profile.css">
-                <children>
-                  <Label id="skillText" stylesheets="@../styles/profile.css" text="Label" />
+                  <Label id="skillText" fx:id="abertoLabel" stylesheets="@../styles/profile.css" text="Label" />
                 </children>
             </HBox>
           </children>

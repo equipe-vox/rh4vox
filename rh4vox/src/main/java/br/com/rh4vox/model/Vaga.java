@@ -13,6 +13,7 @@ public class Vaga {
     private Boolean negociavel;
     private Boolean aberto;
     private String cargo;
+    private Integer idUsuario;
 
     public Vaga(
         Integer id, 
@@ -22,7 +23,8 @@ public class Vaga {
         Regime regime, 
         Boolean negociavel, 
         Boolean aberto, 
-        String cargo
+        String cargo,
+        Integer idUsuario
     ){
         this.id = id;
         this.nome = nome;
@@ -32,6 +34,7 @@ public class Vaga {
         this.negociavel = negociavel;
         this.aberto = aberto;
         this.cargo = cargo;
+        this.idUsuario = idUsuario;
     }
 
     public Vaga() {}
@@ -100,4 +103,11 @@ public class Vaga {
         this.cargo = cargo;
     }
     
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 }

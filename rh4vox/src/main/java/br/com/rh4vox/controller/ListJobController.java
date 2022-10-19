@@ -40,16 +40,24 @@ public class ListJobController implements Initializable {
     try {
       List<Vaga> vagas = dao.listVagas();
 
-      for(Vaga v:vagas) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/jobItem.fxml"));
-        Parent jobItem = loader.load();
-        JobItemController jobController = loader.getController();
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/jobItem.fxml"));
+      Parent jobItem = loader.load();
+      JobItemController jobController = loader.getController();
 
-        jobController.setNome(v.getNome());    
-        jobController.setDescricao(v.getDescricao());
-        listContainer.getChildren().addAll(jobItem);
-        break;
+      if(vagas.size() != 0) {
+        for(Vaga v:vagas) {
+
+          jobController.setNome(v.getNome());    
+          jobController.setDescricao(v.getDescricao());
+          jobController.setRegime(v.getRegime().toString());
+          jobController.setSalario(v.getSalario().toString());
+          jobController.setNegociavel(v.getNegociavel());
+          jobController.setAberto(v.getAberto());
+  
+        }
+        listContainer.getChildren().add(jobItem);
       }
+
       
 
     } catch (IOException e) {

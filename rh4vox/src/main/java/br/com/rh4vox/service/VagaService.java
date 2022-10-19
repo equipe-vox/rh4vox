@@ -23,7 +23,8 @@ public class VagaService {
     Regime regime, 
     Boolean negociavel, 
     Boolean aberto, 
-    String cargo
+    String cargo,
+    Integer idUsuario
   ) throws SQLException {
     Vaga vaga = new Vaga(
       null,
@@ -33,7 +34,8 @@ public class VagaService {
       regime,
       negociavel,
       aberto,
-      cargo
+      cargo,
+      idUsuario
     );
     
     dao.insertVaga(vaga);

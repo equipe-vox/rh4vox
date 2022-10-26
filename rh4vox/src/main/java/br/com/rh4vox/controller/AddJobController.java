@@ -1,5 +1,6 @@
 package br.com.rh4vox.controller;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
@@ -13,6 +14,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import br.com.rh4vox.App;
 import br.com.rh4vox.enums.Regime;
 import br.com.rh4vox.model.UsuarioLogado;
 import br.com.rh4vox.service.*;
@@ -63,7 +65,7 @@ public class AddJobController implements Initializable {
     });
 	}
 
-	public void createVaga() {
+	public void createVaga() throws IOException {
 		try {
 			if(regimeBtn1.isSelected()) {
 				regime = Regime.CLT;
@@ -71,6 +73,17 @@ public class AddJobController implements Initializable {
 				regime = Regime.PJ;
 			} else if (regimeBtn3.isSelected()) {
 				regime = Regime.ESTAGIO;
+			}
+
+			if(
+				nameJobText.getText().isEmpty() ||
+				descriptionJobText.getText().isEmpty() ||
+				salario == null ||
+				regime == null ||
+				negociavelBtn.isSelected() == false ||
+				cargoText.getText().isEmpty()
+			) {
+				popupService.popupEmptyInput();
 			}
 
 			vagaService.cadastroVaga(
@@ -85,6 +98,7 @@ public class AddJobController implements Initializable {
 			);
 
 			this.popupService.popupCreateJob();
+			App.setRoot("mainAdm");
 		} catch (SQLException e) {
 				e.printStackTrace();
 		}

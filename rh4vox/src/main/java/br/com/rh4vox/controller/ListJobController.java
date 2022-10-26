@@ -43,6 +43,7 @@ public class ListJobController implements Initializable {
       
       if(vagas.size() != 0) {
         for(Vaga v:vagas) {
+          System.out.println(v.getNome());
           FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/jobItem.fxml"));
           Parent jobItem = loader.load();
           JobItemController jobController = loader.getController();

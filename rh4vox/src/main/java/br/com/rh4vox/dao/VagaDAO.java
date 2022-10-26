@@ -51,7 +51,6 @@ public class VagaDAO extends BaseDAO{
               v.setAberto(rs.getBoolean("aberto"));
               v.setCargo(rs.getString("cargo"));
               vagas.add(v);
-              break;
             }
       
             stmt.close();

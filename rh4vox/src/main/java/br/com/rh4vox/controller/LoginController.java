@@ -2,6 +2,7 @@ package br.com.rh4vox.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -69,6 +70,9 @@ public class LoginController implements Initializable {
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
+                } catch (NoSuchAlgorithmException e1) {
+                    // TODO Auto-generated catch block
+                    e1.printStackTrace();
                 }
             }
         });

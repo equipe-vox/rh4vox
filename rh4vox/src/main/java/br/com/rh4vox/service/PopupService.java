@@ -27,6 +27,8 @@ public class PopupService {
         alert.show();   
     }
 
+
+
     public void popupSaveCurriculo(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("rh4vox");

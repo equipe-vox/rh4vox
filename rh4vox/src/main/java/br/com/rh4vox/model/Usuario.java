@@ -1,5 +1,8 @@
 package br.com.rh4vox.model;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import br.com.rh4vox.enums.TipoUsuario;
 
 public class Usuario {

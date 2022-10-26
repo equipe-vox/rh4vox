@@ -2,6 +2,7 @@ package br.com.rh4vox.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
@@ -67,6 +68,7 @@ public class SignUpController implements Initializable  {
                         emailText.setText("");
                     } else if(senhaText.getText().length() >= 6 && senhaText.getText().length() <= 20) {
                         try {
+                            
                             Usuario usuario = usuarioService.cadastroCandidato(emailText.getText(), senhaText.getText(), nomeText.getText(), dataText.getValue(), cpfText.getText());
             
                             if(usuario != null) {
@@ -89,6 +91,9 @@ public class SignUpController implements Initializable  {
                             }
                         } catch (SQLException e) {
                             e.printStackTrace();
+                        } catch (NoSuchAlgorithmException e1) {
+                            // TODO Auto-generated catch block
+                            e1.printStackTrace();
                         }
                     } else {
                         popupService.popupPassword();

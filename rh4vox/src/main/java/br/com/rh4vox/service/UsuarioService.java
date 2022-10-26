@@ -1,5 +1,8 @@
 package br.com.rh4vox.service;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Date;
@@ -19,14 +22,13 @@ public class UsuarioService {
   CandidatoDAO candDao = new CandidatoDAO();
   Candidato candidato;
 
-  public Usuario login(String email, String senha) throws SQLException {
+  public Usuario login(String email, String senha) throws SQLException, NoSuchAlgorithmException {
     candidato = new Candidato();
-
 
     List<Usuario> usuarios = dao.listUsuarios();
 
     for(Usuario usuario:usuarios) {
-      if(email.equals(usuario.getEmail()) && senha.equals(usuario.getSenha())) {
+      if(email.equals(usuario.getEmail()) && senhaHash(senha).equals(usuario.getSenha())) {
         UsuarioLogado.getInstance().setUsuario(usuario);
         candidato = candDao.getCandidato(usuario);
         
@@ -38,8 +40,8 @@ public class UsuarioService {
     return null;
   }
 
-  public Usuario cadastroCandidato(String email, String senha, String nome, LocalDate data_nasc, String cpf) throws SQLException {
-    dao.insertUsuario(email, senha, TipoUsuario.CANDIDATO);
+  public Usuario cadastroCandidato(String email, String senha, String nome, LocalDate data_nasc, String cpf) throws SQLException, NoSuchAlgorithmException {
+    dao.insertUsuario(email, senhaHash(senha), TipoUsuario.CANDIDATO);
 
     Usuario usuario = login(email, senha);
 
@@ -51,6 +53,14 @@ public class UsuarioService {
     CandidatoLogado.getInstance().setCandidato(candidato);
 
     return usuario;
+  }
+
+  public String senhaHash(String senha) throws NoSuchAlgorithmException {
+    MessageDigest md = MessageDigest.getInstance("MD5");
+
+    BigInteger hash = new BigInteger(1, md.digest(senha.getBytes()));
+
+    return hash.toString(16);
   }
 
   public Usuario emailAlreadyInUse(String email) throws SQLException {

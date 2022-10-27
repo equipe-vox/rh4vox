@@ -18,7 +18,7 @@ import br.com.rh4vox.model.Vaga;
 
 public class ListJobController implements Initializable {
   @FXML
-  private VBox listContainer;
+  private VBox listContainer, showJobContainer;
 
   @FXML
   private ScrollPane scrollContainer;
@@ -47,13 +47,8 @@ public class ListJobController implements Initializable {
           FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/jobItem.fxml"));
           Parent jobItem = loader.load();
           JobItemController jobController = loader.getController();
-
-          jobController.setNome(v.getNome());    
-          jobController.setDescricao(v.getDescricao());
-          jobController.setRegime(v.getRegime().toString());
-          jobController.setSalario(v.getSalario().toString());
-          jobController.setNegociavel(v.getNegociavel());
-          jobController.setAberto(v.getAberto());
+          jobController.setShowJobContainer(showJobContainer);
+          jobController.setVaga(v);
   
           listContainer.getChildren().add(jobItem);
         }

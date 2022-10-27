@@ -44,8 +44,6 @@
 }
 
 #showJobContainer {
-  -fx-min-width: 196px;
-  -fx-max-width: 196px;
   -fx-border-width: 0 0 0 1px;
   -fx-border-color: -border;
 }

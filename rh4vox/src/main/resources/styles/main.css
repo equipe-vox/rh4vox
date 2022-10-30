@@ -107,13 +107,12 @@
 
 #menuBtnContainer {
   -fx-alignment: center;
-  -fx-spacing: 270px;
 }
 
 #menuBtnContent {
   -fx-alignment: top-center;
   -fx-spacing: 35px;
-  -fx-padding: 30px 0px;
+  -fx-padding: 30px 0px 0px 0px;
 }
 
 #menuBtn {
@@ -128,7 +127,7 @@
 }
 
 #exitBtnContainer {
-  -fx-alignment: bottom-center;
+  -fx-alignment: center;
 }
 
 #exitBtnContainer:hover {

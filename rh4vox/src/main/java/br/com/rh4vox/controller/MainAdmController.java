@@ -1,6 +1,9 @@
 package br.com.rh4vox.controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,6 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -27,7 +31,12 @@ public class MainAdmController implements Initializable {
   private StackPane pageContainer;
 
   @FXML
-  private Button addJobBtn, homeBtn, exitBtn;
+  private Button addJobBtn, 
+    homeBtn, 
+    jobsBtn,
+    addRhBtn,
+    profileBtn, 
+    exitBtn;
 
   @FXML
   private ImageView addJobImage;
@@ -42,13 +51,68 @@ public class MainAdmController implements Initializable {
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     setPage("Vagas", "listJobs.fxml");
+    
+    Image addJob = new Image(String.valueOf(new File("/assets/icons/add.png")));
+    Image addJobOrange = new Image(String.valueOf(new File("/assets/icons/add-orange.png")));
+    Image home = new Image(String.valueOf(new File("/assets/icons/home.png")));
+    Image homeOrange = new Image(String.valueOf(new File("/assets/icons/home-orange.png")));
+    Image profile = new Image(String.valueOf(new File("/assets/icons/person.png")));
+    Image profileOrange = new Image(String.valueOf(new File("/assets/icons/person-orange.png")));
+    Image addRh = new Image(String.valueOf(new File("/assets/icons/add-rh.png")));
+    Image addRhOrange = new Image(String.valueOf(new File("/assets/icons/add-rh-orange.png")));
+    Image jobs = new Image(String.valueOf(new File("/assets/icons/jobs.png")));
+    Image jobsOrange = new Image(String.valueOf(new File("/assets/icons/jobs-orange.png")));
+    
+    setImage(homeOrange, homeBtn);
 
     homeBtn.setOnAction(event -> {
       setPage("Vagas", "listJobs.fxml");
+      
+      setImage(homeOrange, homeBtn);
+      setImage(addJob, addJobBtn);
+      setImage(jobs, jobsBtn);
+      setImage(addRh, addRhBtn);
+      setImage(profile, profileBtn);
     });
     
     addJobBtn.setOnAction(event -> {
       setPage("Adicionar vaga", "addJob.fxml");
+
+      setImage(addJobOrange, addJobBtn);
+      setImage(home, homeBtn);
+      setImage(jobs, jobsBtn);
+      setImage(addRh, addRhBtn);
+      setImage(profile, profileBtn);
+    });
+
+    jobsBtn.setOnAction(event -> {
+      setPage("Vagas", "listJobsAdm.fxml");
+
+      setImage(addJob, addJobBtn);
+      setImage(home, homeBtn);
+      setImage(jobsOrange, jobsBtn);
+      setImage(addRh, addRhBtn);
+      setImage(profile, profileBtn);
+    });
+
+    jobsBtn.setOnAction(event -> {
+      setPage("Adicionar RH", "addRh.fxml");
+
+      setImage(addJob, addJobBtn);
+      setImage(home, homeBtn);
+      setImage(jobs, jobsBtn);
+      setImage(addRhOrange, addRhBtn);
+      setImage(profile, profileBtn);
+    });
+
+    jobsBtn.setOnAction(event -> {
+      setPage("Perfil", "profileAdm.fxml");
+
+      setImage(addJob, addJobBtn);
+      setImage(home, homeBtn);
+      setImage(jobs, jobsBtn);
+      setImage(addRh, addRhBtn);
+      setImage(profileOrange, profileBtn);
     });
 
     exitBtn.setOnAction(event -> {
@@ -68,9 +132,10 @@ public class MainAdmController implements Initializable {
       page = FXMLLoader.load(getClass().getResource("/fxml/" + fxml));
 
       if(pageName == "Vagas") {
-          scrollPane.setStyle("-fx-padding: 0px;");
-      } else {
-          scrollPane.setStyle("-fx-padding: 20px;");
+        scrollPane.setStyle("-fx-padding: 0px;");
+        
+      } else if(pageName == "Adicionar vaga") {
+        scrollPane.setStyle("-fx-padding: 20px;");
       }
 
       scrollPane.setContent(page);          
@@ -78,5 +143,15 @@ public class MainAdmController implements Initializable {
     } catch (IOException ex) {
       ex.printStackTrace();
     }
+  }
+
+
+  public void setImage (Image image, Button button) {
+    ImageView icon = new ImageView();
+    icon.setImage(image);
+    icon.setFitHeight(25);
+    icon.setFitWidth(25);
+
+    button.setGraphic(icon);
   }
 }

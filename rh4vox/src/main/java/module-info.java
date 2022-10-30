@@ -1,5 +1,5 @@
 module br.com.rh4vox {
-    requires javafx.controls;
+    requires transitive javafx.controls;
     requires javafx.fxml;
     requires java.sql;
     requires java.desktop;

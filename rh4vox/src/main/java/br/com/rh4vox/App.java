@@ -4,7 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import java.io.File;
 import java.io.IOException;
 
 
@@ -19,6 +22,7 @@ public class App extends Application {
         stage.show();
         stage.setMaximized(true);
         stage.setResizable(false);
+        stage.getIcons().add(new Image(String.valueOf(new File("/assets/icon.png"))));
     }
 
     public static void setRoot(String fxml) throws IOException {

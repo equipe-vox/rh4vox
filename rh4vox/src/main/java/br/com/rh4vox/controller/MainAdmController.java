@@ -47,22 +47,21 @@ public class MainAdmController implements Initializable {
   @FXML
   private ScrollPane scrollPane;
     
+  private Image addJob = new Image(String.valueOf(new File("/assets/icons/add.png")));
+  private Image addJobOrange = new Image(String.valueOf(new File("/assets/icons/add-orange.png")));
+  private Image home = new Image(String.valueOf(new File("/assets/icons/home.png")));
+  private Image homeOrange = new Image(String.valueOf(new File("/assets/icons/home-orange.png")));
+  private Image profile = new Image(String.valueOf(new File("/assets/icons/person.png")));
+  private Image profileOrange = new Image(String.valueOf(new File("/assets/icons/person-orange.png")));
+  private Image addRh = new Image(String.valueOf(new File("/assets/icons/add-rh.png")));
+  private Image addRhOrange = new Image(String.valueOf(new File("/assets/icons/add-rh-orange.png")));
+  private Image jobs = new Image(String.valueOf(new File("/assets/icons/jobs.png")));
+  private Image jobsOrange = new Image(String.valueOf(new File("/assets/icons/jobs-orange.png")));
 
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     setPage("Vagas", "listJobs.fxml");
-    
-    Image addJob = new Image(String.valueOf(new File("/assets/icons/add.png")));
-    Image addJobOrange = new Image(String.valueOf(new File("/assets/icons/add-orange.png")));
-    Image home = new Image(String.valueOf(new File("/assets/icons/home.png")));
-    Image homeOrange = new Image(String.valueOf(new File("/assets/icons/home-orange.png")));
-    Image profile = new Image(String.valueOf(new File("/assets/icons/person.png")));
-    Image profileOrange = new Image(String.valueOf(new File("/assets/icons/person-orange.png")));
-    Image addRh = new Image(String.valueOf(new File("/assets/icons/add-rh.png")));
-    Image addRhOrange = new Image(String.valueOf(new File("/assets/icons/add-rh-orange.png")));
-    Image jobs = new Image(String.valueOf(new File("/assets/icons/jobs.png")));
-    Image jobsOrange = new Image(String.valueOf(new File("/assets/icons/jobs-orange.png")));
-    
+        
     setImage(homeOrange, homeBtn);
 
     homeBtn.setOnAction(event -> {
@@ -95,7 +94,7 @@ public class MainAdmController implements Initializable {
       setImage(profile, profileBtn);
     });
 
-    jobsBtn.setOnAction(event -> {
+    addRhBtn.setOnAction(event -> {
       setPage("Adicionar RH", "addRh.fxml");
 
       setImage(addJob, addJobBtn);
@@ -105,7 +104,7 @@ public class MainAdmController implements Initializable {
       setImage(profile, profileBtn);
     });
 
-    jobsBtn.setOnAction(event -> {
+    profileBtn.setOnAction(event -> {
       setPage("Perfil", "profileAdm.fxml");
 
       setImage(addJob, addJobBtn);
@@ -134,7 +133,7 @@ public class MainAdmController implements Initializable {
       if(pageName == "Vagas") {
         scrollPane.setStyle("-fx-padding: 0px;");
         
-      } else if(pageName == "Adicionar vaga") {
+      } else if(pageName == "Adicionar vaga" || pageName == "Adicionar RH") {
         scrollPane.setStyle("-fx-padding: 20px;");
       }
 

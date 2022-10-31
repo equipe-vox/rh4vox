@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import br.com.rh4vox.MaskedTextField?>
+
+<AnchorPane id="addJobContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="692.0" stylesheets="@../styles/addJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.AddRhController">
+
+   <VBox id="addJobContent" alignment="TOP_CENTER" fillWidth="false" layoutX="20.0" layoutY="20.0" maxHeight="650.0" maxWidth="413.0" minHeight="630.0" minWidth="413.0" prefHeight="478.0" prefWidth="413.0" stylesheets="@../styles/addJob.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+      
+      <!-- Título -->
+      <HBox alignment="CENTER_LEFT" prefHeight="72.0" prefWidth="629.0">
+         
+         <Label id="addJobTitle" prefHeight="88.0" prefWidth="328.0" stylesheets="@../styles/addJob.css" text="${'Preencha os campos para criar um\nnovo Administrador ou RH'}" />
+         
+         <HBox alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="285.0">
+            <Button id="saveJobBtn" fx:id="saveJobBtn" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="Salvar" />
+         </HBox>
+
+      </HBox>
+      
+      <!-- Conteúdo -->
+      <VBox id="inputsContainer" prefHeight="441.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+         
+         <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+            <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Nome completo" />
+            <TextField id="inputField" fx:id="nameJobText" prefHeight="40.0" prefWidth="450.0" promptText="Escreva o nome completo" stylesheets="@../styles/addJob.css" />
+         </HBox>
+
+         <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+            <children>
+               <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="CPF" />
+               <MaskedTextField id="inputField" fx:id="cpfText" promptText="CPF" stylesheets="@../styles/addJob.css" mask="###.###.###-##" />
+            </children>
+         </HBox>
+         <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+            <children>
+               <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="${'Endereço\nde e-mail'}" />
+               <TextField id="inputField" fx:id="cargoText" prefHeight="40.0" prefWidth="450.0" promptText="Escreva o endereço de e-mail" stylesheets="@../styles/addJob.css" />
+            </children>
+         </HBox>
+         <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+            <children>
+               <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Senha" />
+               <TextField id="inputField" fx:id="cargoText" prefHeight="40.0" prefWidth="450.0" promptText="Escreva a senha" stylesheets="@../styles/addJob.css" />
+            </children>
+         </HBox>
+
+         <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
+            <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="176.0" stylesheets="@../styles/addJob.css" text="Tipo" />
+            <HBox id="regimeBtnContainer" prefHeight="39.0" prefWidth="206.0" spacing="30.0" stylesheets="@../styles/addJob.css">
+               <children>
+                  <RadioButton id="regimeBtn" fx:id="regimeBtn1" mnemonicParsing="false" prefHeight="16.0" prefWidth="71.0" stylesheets="@../styles/addJob.css" text="Adm" />
+                  <RadioButton id="regimeBtn" fx:id="regimeBtn2" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="RH" />
+               </children>
+            </HBox>
+         </HBox>
+      </VBox>
+
+   </VBox>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</AnchorPane>

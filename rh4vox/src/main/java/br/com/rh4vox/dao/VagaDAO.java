@@ -39,8 +39,17 @@ public class VagaDAO extends BaseDAO{
         executeQuery(String.format("INSERT INTO vaga (nome, descricao, regime, aberto, salario, negociavel, cargo, id_usuario) VALUES('%s', '%s', '%s', %s, %s, %s, '%s', %s)", vaga.getNome(), vaga.getDescricao(), vaga.getRegime().toString(), vaga.getAberto(), vaga.getSalario(), vaga.getNegociavel(), vaga.getCargo(), vaga.getIdUsuario()));
     }
 
-    public void removeVaga(Vaga vaga){
-
+    public void removeVaga(Integer id) throws SQLException{
+        Connection conn = getConnection(); 
+        String sql = "DELETE FROM vaga WHERE id=?";
+ 
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setInt(1, id);
+         
+        int rowsDeleted = statement.executeUpdate();
+        if (rowsDeleted > 0) {
+            System.out.println("A job was deleted successfully!");
+        }
     }
 
     public List<Vaga> listVagas() throws SQLException{

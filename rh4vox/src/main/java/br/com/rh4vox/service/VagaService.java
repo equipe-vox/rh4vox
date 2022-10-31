@@ -64,4 +64,8 @@ public class VagaService {
     
     dao.updateVaga(vaga);
   }
+
+  public void removeVaga(Integer id) throws SQLException  {
+    dao.removeVaga(id);
+  }
 }

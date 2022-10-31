@@ -8,6 +8,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
+import br.com.rh4vox.App;
 import br.com.rh4vox.enums.Regime;
 import br.com.rh4vox.model.Vaga;
 import br.com.rh4vox.service.PopupService;
@@ -25,7 +26,7 @@ public class ShowJobAdmController implements Initializable {
   private Vaga vaga;
 	
 	@FXML
-	private Button saveBtn;
+	private Button saveBtn, removeBtn;
 
 	@FXML
 	private TextField nomeText, salarioText, cargoText;
@@ -137,6 +138,18 @@ public class ShowJobAdmController implements Initializable {
 			// App.setRoot("mainAdm");
 		} catch (SQLException e) {
 				e.printStackTrace();
+		}
+	}
+
+	public void removeJob() {
+		try {
+			vagaService.removeVaga(vaga.getId());
+			this.popupService.popup("Sucesso!", "Vaga excluída com sucesso!");
+			App.setRoot("mainAdm");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }

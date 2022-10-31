@@ -1,0 +1,105 @@
+@font-face {
+  src: url('../assets/fonts/Ubuntu-Medium.ttf');
+}
+
+@font-face {
+  src: url('../assets/fonts/Inter-Medium.ttf');
+}
+
+@font-face {
+  src: url('../assets/fonts/Inter-Regular.ttf');
+}
+
+.root {
+  -main: #F35416;
+  -orange: #F18524;
+  -white: #FFFFFF;
+  -text: #555555;
+  -title: #333333;
+  -border: rgba(84, 84, 84, 0.5);
+  -light: rgba(84, 84, 84, 0.4);
+}
+
+#inputField {
+  -fx-height: 40px;
+  -fx-min-width: 200px;
+  -fx-pref-width: 200px;
+  -fx-max-width: 430px;
+  -fx-border-width: 1px;
+  -fx-border-color: -border;
+  -fx-border-radius: 30px;
+  -fx-background-radius: 30px;
+  -fx-padding: 10px;
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-text-box-border: transparent;
+
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+
+#input {
+  -fx-height: 40px;
+  -fx-border-width: 1px;
+  -fx-border-color: -border;
+  -fx-border-radius: 30px;
+  -fx-background-radius: 30px;
+  -fx-padding: 10px;
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-text-box-border: transparent;
+
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+
+#descInputField {
+  -fx-border-width: 1px;
+  -fx-border-color: -border;
+  -fx-border-radius: 30px;
+  -fx-background-radius: 30px;
+  -fx-padding: 10px;
+  -fx-focus-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-text-box-border: transparent;
+  -fx-background-color: transparent;
+
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+
+#saveBtn {
+  -fx-border-radius: 60px;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Ubuntu Medium";
+  -fx-font-size: 12px;
+  -fx-background-color: -orange;
+  -fx-cursor: hand;
+  -fx-text-fill: -white;
+  -fx-border-width: 2px;
+  -fx-border-color: -orange
+}
+
+#saveBtn:hover {
+  -fx-background-color: transparent;
+  -fx-text-fill: -orange;
+}
+#removeBtn {
+  -fx-border-radius: 60px;
+  -fx-background-radius: 60px;
+  -fx-font-family: "Ubuntu Medium";
+  -fx-font-size: 12px;
+  -fx-background-color: transparent;
+  -fx-cursor: hand;
+  -fx-text-fill: -orange;
+  -fx-border-width: 2px;
+  -fx-border-color: -orange
+}
+
+#removeBtn:hover {
+  -fx-background-color: -orange;
+  -fx-text-fill: -white;
+}

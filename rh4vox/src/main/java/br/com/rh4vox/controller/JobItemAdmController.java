@@ -13,7 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class JobItemController implements Initializable {
+public class JobItemAdmController implements Initializable {
 	
   @FXML
   private Label nomeLabel,
@@ -36,20 +36,10 @@ public class JobItemController implements Initializable {
 
   }
 
-  public void showJob() throws IOException {
-    showJobContainer.getChildren().clear();
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showJob.fxml"));
-    Parent showJobItem = loader.load();
-    ShowJobController showJobController = loader.getController();
-
-    showJobController.setJob(vaga);
-
-    showJobContainer.getChildren().add(showJobItem);
-  }
-
   public void setShowJobAdmContainer(VBox container) {
     this.showJobAdmContainer = container;
   }
+  
   public void showJobAdm() throws IOException {
     showJobAdmContainer.getChildren().clear();
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showJobAdm.fxml"));

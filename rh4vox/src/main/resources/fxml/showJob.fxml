@@ -77,7 +77,7 @@
             </HBox>
             <VBox id="descriptionContainer" prefHeight="474.0" prefWidth="519.0" stylesheets="@../styles/showJob.css">
                <children>
-                  <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Descrição">
+                  <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Qualiificações e Requisitos">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>

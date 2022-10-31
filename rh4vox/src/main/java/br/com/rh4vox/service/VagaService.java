@@ -40,4 +40,28 @@ public class VagaService {
     
     dao.insertVaga(vaga);
   }
+
+  public void updateVaga(
+    Integer id,
+    String nome, 
+    String descricao, 
+    BigDecimal salario, 
+    Regime regime, 
+    Boolean negociavel, 
+    String cargo
+  ) throws SQLException {
+    Vaga vaga = new Vaga(
+      id,
+      nome,
+      descricao,
+      salario,
+      regime,
+      negociavel,
+      true,
+      cargo,
+      null
+    );
+    
+    dao.updateVaga(vaga);
+  }
 }

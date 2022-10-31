@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.rh4vox.enums.Regime;
-import br.com.rh4vox.model.UsuarioLogado;
 import br.com.rh4vox.model.Vaga; 
 
 public class VagaDAO extends BaseDAO{
@@ -17,8 +16,23 @@ public class VagaDAO extends BaseDAO{
         return null;
     }
 
-    public void updateVaga(Vaga vaga) {
-
+    public void updateVaga(Vaga vaga) throws SQLException {
+        Connection conn = getConnection(); 
+        String sql = "UPDATE vaga SET nome=?, descricao=?, regime=?, salario=?, negociavel=?, cargo=? WHERE id=?";
+ 
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, vaga.getNome());
+        statement.setString(2, vaga.getDescricao());
+        statement.setString(3, vaga.getRegime().toString());
+        statement.setBigDecimal(4, vaga.getSalario());
+        statement.setBoolean(5,  vaga.getNegociavel());
+        statement.setString(6, vaga.getCargo());
+        statement.setInt(7, vaga.getId());
+        
+        int rowsUpdated = statement.executeUpdate();
+        if (rowsUpdated > 0) {
+            System.out.println("An existing job was updated successfully!");
+        }
     }
 
     public void insertVaga(Vaga vaga) throws SQLException{

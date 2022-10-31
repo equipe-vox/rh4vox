@@ -52,7 +52,7 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
-                  <Button id="saveBtn" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@../styles/showJobAdm.css" text="Salvar" />
+                  <Button id="saveBtn" fx:id="saveBtn" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" onAction="#saveJob" prefHeight="40.0" prefWidth="250.0" stylesheets="@../styles/showJobAdm.css" text="Salvar" />
                   <Button id="removeBtn" maxHeight="-Infinity" minHeight="-Infinity" mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" stylesheets="@../styles/showJobAdm.css" text="Excluir" />
                </children>
                <padding>

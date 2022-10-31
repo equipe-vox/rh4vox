@@ -11,7 +11,7 @@ public class Vaga {
     private BigDecimal salario;
     private Regime regime;
     private Boolean negociavel = false;
-    private Boolean aberto;
+    private Boolean aberto = true;
     private String cargo;
     private Integer idUsuario;
 

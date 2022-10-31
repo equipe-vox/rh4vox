@@ -3,6 +3,8 @@ package br.com.rh4vox.service;
 import javafx.scene.control.Alert;
 
 public class PopupService {
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+
     public void popupSignUp(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("rh4vox");
@@ -26,8 +28,6 @@ public class PopupService {
         alert.setContentText("Aguarde candidaturas");
         alert.show();   
     }
-
-
 
     public void popupSaveCurriculo(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -85,4 +85,11 @@ public class PopupService {
         alert.show(); 
     }
     
+
+    public void popup(String header, String text) {
+        alert.setTitle("RH4vox");
+        alert.setHeaderText(header);
+        alert.setContentText(text);
+        alert.show(); 
+    }
 }

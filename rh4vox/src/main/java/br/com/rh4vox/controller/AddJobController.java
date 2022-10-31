@@ -67,7 +67,18 @@ public class AddJobController implements Initializable {
 
 	public void createVaga() throws IOException {
 		try {
-			if(regimeBtn1.isSelected()) {
+			if(regimeBtn1.isSelected() && 
+				regimeBtn2.isSelected() &&
+				regimeBtn3.isSelected() ||
+				regimeBtn1.isSelected() && 
+				regimeBtn2.isSelected() ||
+				regimeBtn2.isSelected() &&
+				regimeBtn3.isSelected() ||
+				regimeBtn3.isSelected() && 
+				regimeBtn1.isSelected()
+			) {
+				popupService.popup("Erro", "Selecione apenas um tipo de regime de contratação!");
+			} else if(regimeBtn1.isSelected()) {
 				regime = Regime.CLT;
 			} else if (regimeBtn2.isSelected()) {
 				regime = Regime.PJ;
@@ -80,13 +91,24 @@ public class AddJobController implements Initializable {
 				descriptionJobText.getText().isEmpty() ||
 				salario == null ||
 				regime == null ||
-				negociavelBtn.isSelected() == false ||
 				cargoText.getText().isEmpty()
 			) {
 				popupService.popupEmptyInput();
 			}
 
-			vagaService.cadastroVaga(
+			if(negociavelBtn.isSelected() == false) {
+				vagaService.cadastroVaga(
+					nameJobText.getText(),
+					descriptionJobText.getText(),
+					salario,
+					regime,
+					false,
+					true,
+					cargoText.getText(),
+					UsuarioLogado.getInstance().getUsuario().getId()
+				);
+			} else {
+				vagaService.cadastroVaga(
 				nameJobText.getText(),
 				descriptionJobText.getText(),
 				salario,
@@ -96,9 +118,12 @@ public class AddJobController implements Initializable {
 				cargoText.getText(),
 				UsuarioLogado.getInstance().getUsuario().getId()
 			);
+			}
+
+			
 
 			this.popupService.popupCreateJob();
-			App.setRoot("mainAdm");
+			// App.setRoot("mainAdm");
 		} catch (SQLException e) {
 				e.printStackTrace();
 		}

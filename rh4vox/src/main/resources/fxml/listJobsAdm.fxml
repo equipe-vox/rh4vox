@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -12,14 +10,14 @@
    <children>
       <HBox id="content" prefHeight="510.0" prefWidth="900.0" stylesheets="@../styles/listJobs.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox id="jobsContainer" alignment="TOP_CENTER" maxWidth="717.0" minHeight="585.0" minWidth="674.0" prefHeight="510.0" prefWidth="694.0" stylesheets="@../styles/listJobs.css">
+            <VBox id="jobsContainer" alignment="TOP_CENTER" maxHeight="614.0" maxWidth="717.0" minHeight="585.0" minWidth="674.0" prefHeight="510.0" prefWidth="650.0" stylesheets="@../styles/listJobs.css">
                <children>
-                  <ScrollPane id="scrollContainer" fx:id="scrollContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="528.0" prefWidth="544.0" stylesheets="@../styles/listJobs.css" vbarPolicy="NEVER">
+                  <ScrollPane id="scrollContainer" fx:id="scrollContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="590.0" stylesheets="@../styles/listJobs.css" vbarPolicy="NEVER">
                      <VBox.margin>
-                        <Insets top="30.0" />
+                        <Insets />
                      </VBox.margin>
                      <content>
-                        <VBox id="scrollContent" fx:id="listContainer" prefHeight="200.0" prefWidth="100.0" spacing="25.0" stylesheets="@../styles/listJobs.css" />
+                        <VBox id="scrollContent" fx:id="listContainer" prefHeight="611.0" prefWidth="589.0" spacing="25.0" stylesheets="@../styles/listJobs.css" />
                      </content>
                   </ScrollPane>
                </children>

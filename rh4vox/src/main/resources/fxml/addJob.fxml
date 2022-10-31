@@ -44,12 +44,15 @@
                   <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="22.0" prefWidth="170.0" stylesheets="@../styles/addJob.css" text="Descrição" />
                   <Label id="text" style="-fx-text-fill: rgba(84, 84, 84, 0.5);" stylesheets="@../styles/addJob.css" text="${'Escreva uma descrição das\natividades dessa vaga'}" />
             </VBox>
-            <TextArea id="descInputField" fx:id="descriptionJobText" prefHeight="126.0" prefWidth="450.0" promptText="Descreva habilidades, requisitos, benefícios e demais informações" stylesheets="@../styles/addJob.css" wrapText="true" />
+            <TextArea id="descInputField" fx:id="descriptionJobText" prefHeight="113.0" prefWidth="497.0" promptText="Descreva habilidades, requisitos, benefícios e demais informações" stylesheets="@../styles/addJob.css" wrapText="true" />
          </HBox>
 
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
-            <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="268.0" stylesheets="@../styles/addJob.css" text="Salário" />
-            <TextField id="inputField" fx:id="salaryJobText" prefHeight="39.0" prefWidth="335.0" promptText="0000.00" stylesheets="@../styles/addJob.css" />
+            <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="38.0" prefWidth="252.0" stylesheets="@../styles/addJob.css" text="Salário">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></Label>
+            <TextField id="input" fx:id="salaryJobText" maxWidth="377.0" minWidth="261.0" prefHeight="38.0" prefWidth="280.0" promptText="0000.00" stylesheets="@../styles/showJobAdm.css" />
             <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="302.0" spacing="15.0">
                <padding>
                   <Insets left="30.0" />

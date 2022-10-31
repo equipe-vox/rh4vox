@@ -10,7 +10,7 @@ public class Vaga {
     private String descricao;
     private BigDecimal salario;
     private Regime regime;
-    private Boolean negociavel;
+    private Boolean negociavel = false;
     private Boolean aberto;
     private String cargo;
     private Integer idUsuario;

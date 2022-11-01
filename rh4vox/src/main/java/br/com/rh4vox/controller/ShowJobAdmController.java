@@ -5,11 +5,13 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.NumberFormat;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 import br.com.rh4vox.App;
 import br.com.rh4vox.enums.Regime;
+import br.com.rh4vox.model.Candidatura;
 import br.com.rh4vox.model.Vaga;
 import br.com.rh4vox.service.PopupService;
 import br.com.rh4vox.service.VagaService;
@@ -17,6 +19,7 @@ import br.com.rh4vox.service.VagaService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -33,6 +36,9 @@ public class ShowJobAdmController implements Initializable {
 
 	@FXML
 	private TextArea descricaoText;
+
+	@FXML
+	private Label candidatosLabel;
 
 	@FXML
 	private RadioButton regimeBtn1, regimeBtn2, regimeBtn3, negociavelBtn;
@@ -67,12 +73,12 @@ public class ShowJobAdmController implements Initializable {
     });
   }
   
-  public void setJob(Vaga vaga) {
+  public void setJob(Vaga vaga) throws SQLException {
     this.vaga = vaga;
     loadJob();
   }
   
-  private void loadJob() {
+  private void loadJob() throws SQLException {
     nomeText.setText(vaga.getNome());
     descricaoText.setText(vaga.getDescricao());
 
@@ -89,6 +95,10 @@ public class ShowJobAdmController implements Initializable {
     if(vaga.getNegociavel() == true) {
       negociavelBtn.setSelected(true);
     }
+
+		List<Candidatura> candidaturas = vagaService.listCandidaturasByVaga(vaga.getId());
+
+		candidatosLabel.setText(String.format("%s candidatos", candidaturas.size()));
   }
 
 

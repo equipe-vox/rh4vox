@@ -12,12 +12,12 @@
          <children>
             <VBox id="jobsContainer" alignment="TOP_CENTER" maxHeight="566.0" maxWidth="717.0" minHeight="585.0" minWidth="674.0" prefHeight="510.0" prefWidth="650.0" stylesheets="@../styles/listJobs.css">
                <children>
-                  <ScrollPane id="scrollContainer" fx:id="scrollContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="567.0" stylesheets="@../styles/listJobs.css" vbarPolicy="NEVER">
+                  <ScrollPane id="scrollContainer" fx:id="scrollContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="567.0" stylesheets="@../styles/listJobs.css" vbarPolicy="NEVER">
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>
                      <content>
-                        <VBox id="scrollContent" fx:id="listContainer" prefHeight="686.0" prefWidth="566.0" spacing="25.0" stylesheets="@../styles/listJobs.css">
+                        <VBox id="scrollContent" fx:id="listContainer" prefHeight="546.0" prefWidth="567.0" spacing="25.0" stylesheets="@../styles/listJobs.css">
                            <padding>
                               <Insets bottom="30.0" />
                            </padding></VBox>

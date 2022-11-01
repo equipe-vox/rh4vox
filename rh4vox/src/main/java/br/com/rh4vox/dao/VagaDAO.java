@@ -193,4 +193,38 @@ public class VagaDAO extends BaseDAO{
         return candidaturas;
     }
 
+    public List<Candidatura> listCandidaturasByVaga(Integer idVaga) throws SQLException {
+        Connection conn = getConnection(); 
+    
+        List<Candidatura> candidaturas = new ArrayList<>();
+        String sql = "SELECT * FROM candidato_vaga WHERE id_vaga=?";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idVaga);
+            ResultSet rs = stmt.executeQuery();
+      
+            while(rs.next()) {
+                
+
+              Candidatura c = new Candidatura();
+      
+              c.setId(rs.getInt("id"));
+              c.setIdCandidato(rs.getInt("id_candidato"));
+              c.setIdVaga(rs.getInt("id_vaga"));
+              c.setStatusCandidato(StatusCandidatura.valueOf((rs.getString("status_candidato"))));
+              candidaturas.add(c);
+            }
+      
+            stmt.close();
+            rs.close();
+            conn.close();
+      
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return candidaturas;
+    }
+
 }

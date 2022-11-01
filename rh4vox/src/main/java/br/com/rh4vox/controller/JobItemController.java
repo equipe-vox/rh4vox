@@ -2,6 +2,7 @@ package br.com.rh4vox.controller;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import br.com.rh4vox.model.Vaga;
@@ -50,7 +51,7 @@ public class JobItemController implements Initializable {
   public void setShowJobAdmContainer(VBox container) {
     this.showJobAdmContainer = container;
   }
-  public void showJobAdm() throws IOException {
+  public void showJobAdm() throws IOException, SQLException {
     showJobAdmContainer.getChildren().clear();
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showJobAdm.fxml"));
     Parent showJobItem = loader.load();

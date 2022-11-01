@@ -1,5 +1,6 @@
 package br.com.rh4vox.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -12,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -49,6 +51,12 @@ public class MainController implements Initializable {
 
     private CandidatoService candidatoService;
     
+    private Image home = new Image(String.valueOf(new File("/assets/icons/home.png")));
+    private Image homeOrange = new Image(String.valueOf(new File("/assets/icons/home-orange.png")));
+    private Image profile = new Image(String.valueOf(new File("/assets/icons/person.png")));
+    private Image profileOrange = new Image(String.valueOf(new File("/assets/icons/person-orange.png")));
+    private Image jobs = new Image(String.valueOf(new File("/assets/icons/jobs.png")));
+    private Image jobsOrange = new Image(String.valueOf(new File("/assets/icons/jobs-orange.png")));
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -57,6 +65,7 @@ public class MainController implements Initializable {
         candidatoService = new CandidatoService();
 
         setPage("Vagas", "listJobs.fxml");
+        setImage(homeOrange, homeBtn);
 
         try {
             headerProfileBtn.setText(candidatoService.getCandidatoByUsuario(usuario).getNome());
@@ -66,14 +75,26 @@ public class MainController implements Initializable {
 
         homeBtn.setOnAction(event -> {
             setPage("Vagas", "listJobs.fxml");
+
+            setImage(homeOrange, homeBtn);
+            setImage(jobs, candidaciesBtn);
+            setImage(profile, profileBtn);
         });
 
         candidaciesBtn.setOnAction(event -> {
             setPage("Candidaturas", "listCandidacies.fxml");
+
+            setImage(home, homeBtn);
+            setImage(jobsOrange, candidaciesBtn);
+            setImage(profile, profileBtn);
         });
 
         profileBtn.setOnAction(event -> {
             setPage("Meu Perfil", "profile.fxml");
+
+            setImage(home, homeBtn);
+            setImage(jobs, candidaciesBtn);
+            setImage(profileOrange, profileBtn);
         });
 
         headerProfileBtn.setOnAction(event -> {
@@ -108,4 +129,13 @@ public class MainController implements Initializable {
             ex.printStackTrace();
         }
     }
+
+    public void setImage (Image image, Button button) {
+        ImageView icon = new ImageView();
+        icon.setImage(image);
+        icon.setFitHeight(25);
+        icon.setFitWidth(25);
+    
+        button.setGraphic(icon);
+      }
 }

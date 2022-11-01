@@ -89,4 +89,8 @@ public class VagaService {
   public List<Candidatura> listCandidaturasByVaga(Integer idVaga) throws SQLException {
     return dao.listCandidaturasByVaga(idVaga);
   }
+
+  public List<Vaga> listVagasByUsuario(Integer idUsuario) throws SQLException {
+    return dao.listVagasByUsuario(idUsuario);
+  }
 }

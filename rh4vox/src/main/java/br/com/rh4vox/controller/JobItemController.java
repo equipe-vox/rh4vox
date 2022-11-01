@@ -3,9 +3,12 @@ package br.com.rh4vox.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import br.com.rh4vox.model.Candidatura;
 import br.com.rh4vox.model.Vaga;
+import br.com.rh4vox.service.VagaService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,12 +35,14 @@ public class JobItemController implements Initializable {
 
   private Vaga vaga;
 
+  private VagaService vagaService;
+
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
-
+    vagaService = new VagaService();
   }
 
-  public void showJob() throws IOException {
+  public void showJob() throws IOException, SQLException {
     showJobContainer.getChildren().clear();
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showJob.fxml"));
     Parent showJobItem = loader.load();
@@ -48,31 +53,17 @@ public class JobItemController implements Initializable {
     showJobContainer.getChildren().add(showJobItem);
   }
 
-  public void setShowJobAdmContainer(VBox container) {
-    this.showJobAdmContainer = container;
-  }
-  public void showJobAdm() throws IOException, SQLException {
-    showJobAdmContainer.getChildren().clear();
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showJobAdm.fxml"));
-    Parent showJobItem = loader.load();
-    ShowJobAdmController showJobAdmController = loader.getController();
-
-    showJobAdmController.setJob(vaga);
-
-    showJobAdmContainer.getChildren().add(showJobItem);
-  }
-
   public void setShowJobContainer(VBox container) {
     this.showJobContainer = container;
   }
 
-  public void setVaga(Vaga vaga) {
+  public void setVaga(Vaga vaga) throws SQLException {
     this.vaga = vaga;
 
     loadJob();
   }
 
-  private void loadJob() {
+  private void loadJob() throws SQLException {
     nomeLabel.setText(vaga.getNome());
   
     candidatosLabel.setText(String.format("0 candidatos"));
@@ -93,6 +84,14 @@ public class JobItemController implements Initializable {
       abertoLabel.setText("Aberto");
     } else {
       abertoLabel.setText("Fechado");
+    }
+
+    List<Candidatura> candidaturas = vagaService.listCandidaturasByVaga(vaga.getId());
+
+    if(candidaturas.size() > 1 || candidaturas.size() == 0 ) {
+      candidatosLabel.setText(String.format("%s candidatos", candidaturas.size()));
+    } else {
+      candidatosLabel.setText(String.format("%s candidato", candidaturas.size()));
     }
     
   }

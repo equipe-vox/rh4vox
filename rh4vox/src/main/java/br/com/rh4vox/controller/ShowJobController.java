@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import br.com.rh4vox.enums.StatusCandidatura;
+import br.com.rh4vox.enums.TipoUsuario;
 import br.com.rh4vox.model.CandidatoLogado;
 import br.com.rh4vox.model.Candidatura;
 import br.com.rh4vox.model.UsuarioLogado;
@@ -32,7 +33,8 @@ public class ShowJobController implements Initializable {
     salarioLabel,
     regimeLabel,
     abertoLabel,
-    negociavelLabel;
+    negociavelLabel,
+    candidatosLabel;
 
   @FXML
   private HBox negociavelItem;
@@ -49,13 +51,13 @@ public class ShowJobController implements Initializable {
     
   }
   
-  public void setJob(Vaga vaga) {
+  public void setJob(Vaga vaga) throws SQLException {
     this.vaga = vaga;
     loadJob();
     listCandidaturas();
   }
   
-  private void loadJob() {
+  private void loadJob() throws SQLException {
     nomeLabel.setText(vaga.getNome());
     descricaoLabel.setText(vaga.getDescricao());
     regimeLabel.setText(vaga.getRegime().toString());
@@ -71,6 +73,22 @@ public class ShowJobController implements Initializable {
       abertoLabel.setText("Aberto");
     } else {
       abertoLabel.setText("Fechado");
+    }
+
+    List<Candidatura> candidaturas = vagaService.listCandidaturasByVaga(vaga.getId());
+
+    if(candidaturas.size() > 1 || candidaturas.size() == 0 ) {
+      candidatosLabel.setText(String.format("%s candidatos", candidaturas.size()));
+    } else {
+      candidatosLabel.setText(String.format("%s candidato", candidaturas.size()));
+    }
+
+    if(
+      UsuarioLogado.getInstance().getUsuario().getTipo() == TipoUsuario.ADM ||
+      UsuarioLogado.getInstance().getUsuario().getTipo() == TipoUsuario.RH
+    ) {
+      sendBtn.setDisable(true);
+      sendBtn.setVisible(false);
     }
   }
 

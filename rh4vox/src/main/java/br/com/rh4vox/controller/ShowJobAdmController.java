@@ -81,6 +81,7 @@ public class ShowJobAdmController implements Initializable {
   private void loadJob() throws SQLException {
     nomeText.setText(vaga.getNome());
     descricaoText.setText(vaga.getDescricao());
+		cargoText.setText(vaga.getCargo());
 
     if(vaga.getRegime() == Regime.CLT) {
       regimeBtn1.setSelected(true);
@@ -98,7 +99,11 @@ public class ShowJobAdmController implements Initializable {
 
 		List<Candidatura> candidaturas = vagaService.listCandidaturasByVaga(vaga.getId());
 
-		candidatosLabel.setText(String.format("%s candidatos", candidaturas.size()));
+    if(candidaturas.size() > 1 || candidaturas.size() == 0 ) {
+      candidatosLabel.setText(String.format("%s candidatos", candidaturas.size()));
+    } else {
+      candidatosLabel.setText(String.format("%s candidato", candidaturas.size()));
+    }
   }
 
 

@@ -13,8 +13,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
-
+import br.com.rh4vox.model.UsuarioLogado;
 import br.com.rh4vox.model.Vaga;
+import br.com.rh4vox.service.VagaService;
 
 public class ListJobAdmController implements Initializable {
   @FXML
@@ -24,10 +25,14 @@ public class ListJobAdmController implements Initializable {
   private ScrollPane scrollContainer;
 
   VagaDAO dao = new VagaDAO();
+
+  private VagaService vagaService;
     
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     
+    vagaService = new VagaService();
+
     try {
       setJobs();
     } catch (SQLException e) {
@@ -38,7 +43,7 @@ public class ListJobAdmController implements Initializable {
 
   public void setJobs() throws SQLException {
     try {
-      List<Vaga> vagas = dao.listVagas();
+      List<Vaga> vagas = vagaService.listVagasByUsuario(UsuarioLogado.getInstance().getUsuario().getId());
 
       
       if(vagas.size() != 0) {

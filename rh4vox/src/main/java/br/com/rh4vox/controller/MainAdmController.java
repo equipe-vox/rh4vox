@@ -85,7 +85,7 @@ public class MainAdmController implements Initializable {
     });
 
     jobsBtn.setOnAction(event -> {
-      setPage("Vagas", "listJobsAdm.fxml");
+      setPage("Minhas vagas", "listJobsAdm.fxml");
 
       setImage(addJob, addJobBtn);
       setImage(home, homeBtn);
@@ -130,7 +130,7 @@ public class MainAdmController implements Initializable {
       title.setText(pageName);
       page = FXMLLoader.load(getClass().getResource("/fxml/" + fxml));
 
-      if(pageName == "Vagas") {
+      if(pageName == "Vagas" || pageName == "Minhas vagas") {
         scrollPane.setStyle("-fx-padding: 0px;");
         
       } else if(pageName == "Adicionar vaga" || pageName == "Adicionar RH") {

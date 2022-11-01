@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane id="container" fx:id="listContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="828.0" prefWidth="590.0" style="-fx-background-color: white;" stylesheets="@../styles/showJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.ShowJobAdmController">
+<ScrollPane id="container" fx:id="listContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="953.0" prefWidth="590.0" style="-fx-background-color: white;" stylesheets="@../styles/showJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.ShowJobAdmController">
    <content>
-      <VBox id="showJobContainer" fx:id="showJobAdmContainer" prefHeight="873.0" prefWidth="590.0" stylesheets="@../styles/showJob.css">
+      <VBox id="showJobContainer" fx:id="showJobAdmContainer" prefHeight="858.0" prefWidth="590.0" stylesheets="@../styles/showJob.css">
          <children>
             <HBox prefHeight="150.0" prefWidth="528.0">
                <children>
@@ -59,14 +59,14 @@
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </padding>
             </HBox>
-            <VBox id="descriptionContainer" prefHeight="584.0" prefWidth="589.0" stylesheets="@../styles/showJob.css">
+            <VBox id="descriptionContainer" prefHeight="628.0" prefWidth="589.0" stylesheets="@../styles/showJob.css">
                <children>
                   <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Qualificações e Requisitos">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>
                   </Label>
-                  <VBox prefHeight="442.0" prefWidth="528.0" spacing="30.0">
+                  <VBox prefHeight="521.0" prefWidth="528.0" spacing="30.0">
                      <children>
                         <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
                            <children>

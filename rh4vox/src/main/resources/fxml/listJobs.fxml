@@ -16,8 +16,8 @@
                <children>
                   <HBox id="searchContainer" prefHeight="46.0" prefWidth="558.0" stylesheets="@../styles/listJobs.css">
                      <children>
-                        <TextField id="searchInput" prefHeight="46.0" prefWidth="555.0" stylesheets="@../styles/listJobs.css" />
-                        <Button id="searchBtn" mnemonicParsing="false" prefHeight="45.0" prefWidth="90.0" stylesheets="@../styles/listJobs.css" text="Buscar" />
+                        <TextField id="searchInput" fx:id="searchText" prefHeight="46.0" prefWidth="555.0" stylesheets="@../styles/listJobs.css" />
+                        <Button id="searchBtn" fx:id="searchBtn" mnemonicParsing="false" onAction="#searchJobs" prefHeight="45.0" prefWidth="90.0" stylesheets="@../styles/listJobs.css" text="Buscar" />
                      </children>
                      <VBox.margin>
                         <Insets />

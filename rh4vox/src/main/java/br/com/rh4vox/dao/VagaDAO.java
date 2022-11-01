@@ -262,4 +262,39 @@ public class VagaDAO extends BaseDAO{
         
         return vagas;
     }
+
+    public List<Vaga> listVagasByNome(String nome) throws SQLException{
+        Connection conn = getConnection(); 
+    
+        List<Vaga> vagas = new ArrayList<>();
+        String sql = "SELECT * FROM vaga WHERE nome LIKE '%"+nome+"%'";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+      
+            while(rs.next()) {
+              Vaga v = new Vaga();
+      
+              v.setId(rs.getInt("id"));
+              v.setNome(rs.getString("nome"));
+              v.setDescricao(rs.getString("descricao"));
+              v.setSalario(rs.getBigDecimal("salario"));
+              v.setRegime(Regime.valueOf(rs.getString("regime")));
+              v.setNegociavel(rs.getBoolean("negociavel"));
+              v.setAberto(rs.getBoolean("aberto"));
+              v.setCargo(rs.getString("cargo"));
+              vagas.add(v);
+            }
+      
+            stmt.close();
+            rs.close();
+            conn.close();
+      
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return vagas;
+    }
 }

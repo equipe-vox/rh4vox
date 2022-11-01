@@ -93,4 +93,8 @@ public class VagaService {
   public List<Vaga> listVagasByUsuario(Integer idUsuario) throws SQLException {
     return dao.listVagasByUsuario(idUsuario);
   }
+
+  public List<Vaga> listVagasByNome(String nome) throws SQLException {
+    return dao.listVagasByNome(nome);
+  }
 }

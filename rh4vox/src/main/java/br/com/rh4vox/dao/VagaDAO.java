@@ -14,8 +14,39 @@ import br.com.rh4vox.model.Vaga;
 
 public class VagaDAO extends BaseDAO{
     
-    public Vaga getVaga(int id) {
-        return null;
+    public Vaga getVaga(Integer idVaga) throws SQLException {
+        Connection conn = getConnection(); 
+    
+        String sql = "SELECT * FROM vaga WHERE id=?";
+
+        Vaga vaga = new Vaga();
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idVaga);
+            ResultSet rs = stmt.executeQuery();
+      
+
+            while(rs.next()) {
+              vaga.setId(rs.getInt("id"));
+              vaga.setNome(rs.getString("nome"));
+              vaga.setDescricao(rs.getString("descricao"));
+              vaga.setSalario(rs.getBigDecimal("salario"));
+              vaga.setRegime(Regime.valueOf(rs.getString("regime")));
+              vaga.setNegociavel(rs.getBoolean("negociavel"));
+              vaga.setAberto(rs.getBoolean("aberto"));
+              vaga.setCargo(rs.getString("cargo"));
+            }
+      
+            stmt.close();
+            rs.close();
+            conn.close();
+      
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return vaga;
     }
 
     public void updateVaga(Vaga vaga) throws SQLException {
@@ -103,6 +134,40 @@ public class VagaDAO extends BaseDAO{
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, idCandidato);
             stmt.setInt(2, idVaga);
+            ResultSet rs = stmt.executeQuery();
+      
+            while(rs.next()) {
+                
+
+              Candidatura c = new Candidatura();
+      
+              c.setId(rs.getInt("id"));
+              c.setIdCandidato(rs.getInt("id_candidato"));
+              c.setIdVaga(rs.getInt("id_vaga"));
+              c.setStatusCandidato(StatusCandidatura.valueOf((rs.getString("status_candidato"))));
+              candidaturas.add(c);
+            }
+      
+            stmt.close();
+            rs.close();
+            conn.close();
+      
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return candidaturas;
+    }
+
+    public List<Candidatura> listCandidaturasByCandidato(Integer idCandidato) throws SQLException {
+        Connection conn = getConnection(); 
+    
+        List<Candidatura> candidaturas = new ArrayList<>();
+        String sql = "SELECT * FROM candidato_vaga WHERE id_candidato=?";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idCandidato);
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="container" minHeight="-Infinity" minWidth="900.0" prefHeight="510.0" prefWidth="900.0" stylesheets="@../styles/listJobs.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.ListCandidaciesController">
+   <children>
+      <HBox id="content" prefHeight="510.0" prefWidth="900.0" stylesheets="@../styles/listJobs.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox id="jobsContainer" alignment="TOP_CENTER" maxHeight="566.0" maxWidth="717.0" minHeight="585.0" minWidth="674.0" prefHeight="510.0" prefWidth="650.0" stylesheets="@../styles/listJobs.css">
+               <children>
+                  <ScrollPane id="scrollContainer" fx:id="scrollContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="567.0" stylesheets="@../styles/listJobs.css" vbarPolicy="NEVER">
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                     <content>
+                        <VBox id="scrollContent" fx:id="listContainer" prefHeight="686.0" prefWidth="566.0" spacing="25.0" stylesheets="@../styles/listJobs.css">
+                           <padding>
+                              <Insets bottom="30.0" />
+                           </padding></VBox>
+                     </content>
+                     <padding>
+                        <Insets bottom="30.0" />
+                     </padding>
+                  </ScrollPane>
+               </children>
+            </VBox>
+            <VBox id="showJobContainer" maxHeight="702.0" maxWidth="518.0" minHeight="900.0" minWidth="81.0" prefHeight="702.0" prefWidth="196.0" stylesheets="@../styles/listJobs.css">
+               <HBox.margin>
+                  <Insets left="100.0" />
+               </HBox.margin>
+               <children>
+                  <VBox id="vboxContainer" fx:id="showJobContainer" minWidth="350.0" prefHeight="510.0" prefWidth="350.0" stylesheets="@../styles/showJob.css" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

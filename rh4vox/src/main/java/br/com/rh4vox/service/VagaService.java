@@ -77,4 +77,12 @@ public class VagaService {
   public List<Candidatura> listVagas(Integer idVaga, Integer idCandidato) throws SQLException {
     return dao.listCandidaturas(idVaga, idCandidato);
   } 
+
+  public List<Candidatura> listCandidaturasByCandidato(Integer idCandidato) throws SQLException {
+    return dao.listCandidaturasByCandidato(idCandidato);
+  }
+
+  public Vaga getVaga(Integer idVaga) throws SQLException {
+    return dao.getVaga(idVaga);
+  }
 }

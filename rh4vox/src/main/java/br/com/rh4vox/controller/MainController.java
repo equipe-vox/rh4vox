@@ -32,7 +32,7 @@ public class MainController implements Initializable {
     private StackPane pageContainer;
 
     @FXML
-    private Button addJobBtn, homeBtn, exitBtn, profileBtn, headerProfileBtn;
+    private Button homeBtn, candidaciesBtn, exitBtn, profileBtn, headerProfileBtn;
 
     @FXML
     private ImageView addJobImage;
@@ -68,6 +68,10 @@ public class MainController implements Initializable {
             setPage("Vagas", "listJobs.fxml");
         });
 
+        candidaciesBtn.setOnAction(event -> {
+            setPage("Candidaturas", "listCandidacies.fxml");
+        });
+
         profileBtn.setOnAction(event -> {
             setPage("Meu Perfil", "profile.fxml");
         });
@@ -93,7 +97,7 @@ public class MainController implements Initializable {
             title.setText(pageName);
             page = FXMLLoader.load(getClass().getResource("/fxml/" + fxml));
 
-            if(pageName == "Vagas") {
+            if(pageName == "Vagas" || pageName == "Candidaturas" ) {
                 scrollPane.setStyle("-fx-padding: 0px;");
             } else {
                 scrollPane.setStyle("-fx-padding: 20px;");

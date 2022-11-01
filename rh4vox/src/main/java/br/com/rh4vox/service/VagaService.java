@@ -2,6 +2,7 @@ package br.com.rh4vox.service;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.List;
 
 import br.com.rh4vox.dao.VagaDAO;
 import br.com.rh4vox.enums.Regime;
@@ -68,4 +69,12 @@ public class VagaService {
   public void removeVaga(Integer id) throws SQLException  {
     dao.removeVaga(id);
   }
+
+  public void createCandidatura(Integer idVaga, Integer idCandidato) throws SQLException {
+    dao.insertCandidatura(idVaga, idCandidato);
+  }
+
+  public List<Candidatura> listVagas(Integer idVaga, Integer idCandidato) throws SQLException {
+    return dao.listCandidaturas(idVaga, idCandidato);
+  } 
 }

@@ -14,7 +14,7 @@
 
 <ScrollPane id="container" fx:id="listContainer" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="828.0" prefWidth="590.0" style="-fx-background-color: white;" stylesheets="@../styles/showJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.ShowJobAdmController">
    <content>
-      <VBox id="showJobContainer" fx:id="showJobAdmContainer" prefHeight="881.0" prefWidth="590.0" stylesheets="@../styles/showJob.css">
+      <VBox id="showJobContainer" fx:id="showJobAdmContainer" prefHeight="873.0" prefWidth="590.0" stylesheets="@../styles/showJob.css">
          <children>
             <HBox prefHeight="150.0" prefWidth="528.0">
                <children>
@@ -59,7 +59,7 @@
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </padding>
             </HBox>
-            <VBox id="descriptionContainer" prefHeight="503.0" prefWidth="589.0" stylesheets="@../styles/showJob.css">
+            <VBox id="descriptionContainer" prefHeight="584.0" prefWidth="589.0" stylesheets="@../styles/showJob.css">
                <children>
                   <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Qualificações e Requisitos">
                      <VBox.margin>

@@ -38,7 +38,7 @@
                   </VBox>
                   <VBox prefHeight="76.0" prefWidth="285.0">
                      <children>
-                        <Button id="applyButton" mnemonicParsing="false" prefHeight="54.0" prefWidth="152.0" stylesheets="@../styles/showJob.css" text="Enviar Candidatura" />
+                        <Button id="applyButton" fx:id="sendBtn" mnemonicParsing="false" onAction="#sendCandidatura" prefHeight="54.0" prefWidth="152.0" stylesheets="@../styles/showJob.css" text="Enviar Candidatura" />
                      </children></VBox>
                </children>
                <VBox.margin>

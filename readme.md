@@ -76,3 +76,21 @@ $ mvn exec:java
 <br>
 
 ## 🖥️ Mockups
+
+- #### **Candidato:**
+<br>
+<img src="images/mockups/login.png" />
+<img src="images/mockups/home.png" />
+<img src="images/mockups/candidacies.png" />
+<img src="images/mockups/profile.png" />
+<br>
+<br>
+
+#
+
+- #### **Administrador/RH:**
+<br>
+<img src="images/mockups/home-adm.png" />
+<img src="images/mockups/my-jobs.png" />
+<img src="images/mockups/add-job-opportunity.png" />
+<img src="images/mockups/add-rh.png" />

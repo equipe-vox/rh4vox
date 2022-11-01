@@ -58,3 +58,12 @@ CREATE TABLE usuario_vaga (
 	FOREIGN KEY (id_vaga) 
           REFERENCES vaga (id)
 );
+
+CREATE TABLE rh (
+	id SERIAL PRIMARY KEY,
+	nome TEXT NOT NULL,
+	cpf VARCHAR NOT NULL,
+	id_usuario INTEGER NOT NULL,
+	FOREIGN KEY (id_usuario) 
+          REFERENCES usuario (id)	
+);

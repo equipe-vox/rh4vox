@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import br.com.rh4vox.enums.StatusCandidatura;
 import br.com.rh4vox.enums.TipoUsuario;
 import br.com.rh4vox.model.CandidatoLogado;
 import br.com.rh4vox.model.Candidatura;

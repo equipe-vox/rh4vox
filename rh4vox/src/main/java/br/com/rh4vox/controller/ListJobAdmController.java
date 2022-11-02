@@ -15,7 +15,6 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import br.com.rh4vox.model.UsuarioLogado;
 import br.com.rh4vox.model.Vaga;
-import br.com.rh4vox.service.PopupService;
 import br.com.rh4vox.service.VagaService;
 
 public class ListJobAdmController implements Initializable {
@@ -28,14 +27,11 @@ public class ListJobAdmController implements Initializable {
   VagaDAO dao = new VagaDAO();
 
   private VagaService vagaService;
-
-  private PopupService popupService;
     
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     
     vagaService = new VagaService();
-    popupService = new PopupService();
 
     try {
       setJobs();

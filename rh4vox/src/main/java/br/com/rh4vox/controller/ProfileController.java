@@ -52,7 +52,7 @@ public class ProfileController implements Initializable  {
 
   private CurriculoService curriculoService;
 
-  private Curriculo curriculo, c;
+  private Curriculo curriculo;
 
   private String site, linkedin,git; 
 

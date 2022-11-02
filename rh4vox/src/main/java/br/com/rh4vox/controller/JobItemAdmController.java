@@ -31,7 +31,7 @@ public class JobItemAdmController implements Initializable {
   @FXML
   private HBox negociavelItem;
 
-  private VBox jobItemContainer, showJobContainer, showJobAdmContainer;
+  private VBox showJobContainer, showJobAdmContainer;
 
   private Vaga vaga;
 

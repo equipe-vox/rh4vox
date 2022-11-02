@@ -39,7 +39,7 @@
             </VBox>
           </children>
       </HBox>
-      <HBox id="skillContainer" prefHeight="34.0" prefWidth="422.0" spacing="15.0" stylesheets="@../styles/profile.css">
+      <HBox id="skillContainer" fx:id="itemsContainer" prefHeight="34.0" prefWidth="422.0" spacing="15.0" stylesheets="@../styles/profile.css">
           <children>
             <HBox id="skillItem" prefHeight="34.0" prefWidth="88.0" stylesheets="@../styles/profile.css">
                 <children>

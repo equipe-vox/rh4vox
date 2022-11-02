@@ -29,7 +29,7 @@ public class JobItemAdmController implements Initializable {
     abertoLabel;
   
   @FXML
-  private HBox negociavelItem;
+  private HBox negociavelItem, itemsContainer;
 
   private VBox showJobContainer, showJobAdmContainer;
 
@@ -82,6 +82,7 @@ public class JobItemAdmController implements Initializable {
       negociavelLabel.setText("Negociável");
     } else {
       negociavelItem.setVisible(false);
+      itemsContainer.getChildren().remove(negociavelItem);
     }
   
     if(vaga.getAberto()) {

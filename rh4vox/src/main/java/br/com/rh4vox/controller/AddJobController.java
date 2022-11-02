@@ -14,6 +14,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import br.com.rh4vox.App;
 import br.com.rh4vox.enums.Regime;
 import br.com.rh4vox.model.UsuarioLogado;
 import br.com.rh4vox.service.*;
@@ -108,23 +109,21 @@ public class AddJobController implements Initializable {
 				);
 			} else {
 				vagaService.cadastroVaga(
-				nameJobText.getText(),
-				descriptionJobText.getText(),
-				salario,
-				regime,
-				negociavelBtn.isSelected(),
-				true,
-				cargoText.getText(),
-				UsuarioLogado.getInstance().getUsuario().getId()
-			);
-			}
-
-			
+					nameJobText.getText(),
+					descriptionJobText.getText(),
+					salario,
+					regime,
+					negociavelBtn.isSelected(),
+					true,
+					cargoText.getText(),
+					UsuarioLogado.getInstance().getUsuario().getId()
+				);
+			}			
 
 			this.popupService.popupCreateJob();
-			// App.setRoot("mainAdm");
+			App.setRoot("mainAdm");
 		} catch (SQLException e) {
-				e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 

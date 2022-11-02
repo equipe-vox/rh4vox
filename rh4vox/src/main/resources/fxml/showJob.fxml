@@ -77,7 +77,16 @@
             </HBox>
             <VBox id="descriptionContainer" prefHeight="474.0" prefWidth="519.0" stylesheets="@../styles/showJob.css">
                <children>
-                  <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Qualiificações e Requisitos">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Cargo: " />
+                        <Label id="jobItemDescription" fx:id="cargoLabel" stylesheets="@../styles/profile.css" text="Label" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="25.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Qualificações e Requisitos">
                      <VBox.margin>
                         <Insets bottom="15.0" />
                      </VBox.margin>

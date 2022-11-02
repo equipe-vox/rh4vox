@@ -33,7 +33,8 @@ public class ShowJobController implements Initializable {
     regimeLabel,
     abertoLabel,
     negociavelLabel,
-    candidatosLabel;
+    candidatosLabel,
+    cargoLabel;
 
   @FXML
   private HBox negociavelItem;
@@ -61,6 +62,7 @@ public class ShowJobController implements Initializable {
     descricaoLabel.setText(vaga.getDescricao());
     regimeLabel.setText(vaga.getRegime().toString());
     salarioLabel.setText(String.format("R$%s", vaga.getSalario()));
+    cargoLabel.setText(vaga.getCargo());
     
     if(vaga.getNegociavel()) {
       negociavelLabel.setText("Negociável");

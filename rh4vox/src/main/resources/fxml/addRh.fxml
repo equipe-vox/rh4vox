@@ -20,7 +20,7 @@
          <Label id="addJobTitle" prefHeight="88.0" prefWidth="328.0" stylesheets="@../styles/addJob.css" text="${'Preencha os campos para criar um\nnovo Administrador ou RH'}" />
          
          <HBox alignment="CENTER_RIGHT" prefHeight="72.0" prefWidth="285.0">
-            <Button id="saveJobBtn" fx:id="saveJobBtn" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="Salvar" />
+            <Button id="saveJobBtn" fx:id="saveBtn" onAction="#createRH" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="Salvar" />
          </HBox>
 
       </HBox>
@@ -30,7 +30,7 @@
          
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
             <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Nome completo" />
-            <TextField id="inputField" fx:id="nameJobText" prefHeight="40.0" prefWidth="450.0" promptText="Escreva o nome completo" stylesheets="@../styles/addJob.css" />
+            <TextField id="inputField" fx:id="nomeText" prefHeight="40.0" prefWidth="450.0" promptText="Escreva o nome completo" stylesheets="@../styles/addJob.css" />
          </HBox>
 
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
@@ -42,13 +42,13 @@
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
             <children>
                <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="${'Endereço\nde e-mail'}" />
-               <TextField id="inputField" fx:id="cargoText" prefHeight="40.0" prefWidth="450.0" promptText="Escreva o endereço de e-mail" stylesheets="@../styles/addJob.css" />
+               <TextField id="inputField" fx:id="emailText" prefHeight="40.0" prefWidth="450.0" promptText="Escreva o endereço de e-mail" stylesheets="@../styles/addJob.css" />
             </children>
          </HBox>
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
             <children>
                <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="42.0" prefWidth="188.0" stylesheets="@../styles/addJob.css" text="Senha" />
-               <TextField id="inputField" fx:id="cargoText" prefHeight="40.0" prefWidth="450.0" promptText="Escreva a senha" stylesheets="@../styles/addJob.css" />
+               <TextField id="inputField" fx:id="senhaText" prefHeight="40.0" prefWidth="450.0" promptText="Escreva a senha" stylesheets="@../styles/addJob.css" />
             </children>
          </HBox>
 
@@ -56,8 +56,8 @@
             <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="176.0" stylesheets="@../styles/addJob.css" text="Tipo" />
             <HBox id="regimeBtnContainer" prefHeight="39.0" prefWidth="206.0" spacing="30.0" stylesheets="@../styles/addJob.css">
                <children>
-                  <RadioButton id="regimeBtn" fx:id="regimeBtn1" mnemonicParsing="false" prefHeight="16.0" prefWidth="71.0" stylesheets="@../styles/addJob.css" text="Adm" />
-                  <RadioButton id="regimeBtn" fx:id="regimeBtn2" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="RH" />
+                  <RadioButton id="regimeBtn" fx:id="tipoBtn1" mnemonicParsing="false" prefHeight="16.0" prefWidth="71.0" stylesheets="@../styles/addJob.css" text="Adm" />
+                  <RadioButton id="regimeBtn" fx:id="tipoBtn2" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="RH" />
                </children>
             </HBox>
          </HBox>

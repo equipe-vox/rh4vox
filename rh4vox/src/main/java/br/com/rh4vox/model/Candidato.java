@@ -1,7 +1,6 @@
 package br.com.rh4vox.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class Candidato {
   private Integer id;

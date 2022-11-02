@@ -5,10 +5,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 import br.com.rh4vox.dao.CandidatoDAO;
+import br.com.rh4vox.dao.RHDAO;
 import br.com.rh4vox.dao.UsuarioDAO;
 import br.com.rh4vox.enums.TipoUsuario;
 import br.com.rh4vox.model.Candidato;
@@ -20,6 +20,7 @@ public class UsuarioService {
 
   UsuarioDAO dao = new UsuarioDAO();
   CandidatoDAO candDao = new CandidatoDAO();
+  RHDAO rhDao = new RHDAO();
   Candidato candidato;
 
   public Usuario login(String email, String senha) throws SQLException, NoSuchAlgorithmException {
@@ -51,6 +52,18 @@ public class UsuarioService {
 
     candidato = candDao.getCandidato(usuario);
     CandidatoLogado.getInstance().setCandidato(candidato);
+
+    return usuario;
+  }
+
+  public Usuario cadastroRH(String email, String senha, String nome, TipoUsuario tipo, String cpf) throws SQLException, NoSuchAlgorithmException {
+    dao.insertUsuario(email, senhaHash(senha), tipo);
+
+    Usuario usuario = login(email, senha);
+
+    RHService rhService = new RHService();
+
+    rhService.insertRH(nome, cpf, usuario.getId());
 
     return usuario;
   }

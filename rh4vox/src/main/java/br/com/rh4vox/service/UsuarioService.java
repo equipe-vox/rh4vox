@@ -91,4 +91,7 @@ public class UsuarioService {
     UsuarioLogado.getInstance().logoff();
   }
 
+  public void updateUsuario(String email) throws SQLException {
+    dao.updateUsuario(email, UsuarioLogado.getInstance().getUsuario().getId());
+  }
 }

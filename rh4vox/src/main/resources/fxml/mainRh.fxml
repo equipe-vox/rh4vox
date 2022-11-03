@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="942.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.MainController">
+<AnchorPane id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="942.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.MainAdmController">
    <children>
       <AnchorPane id="content" prefHeight="636.0" prefWidth="942.0" stylesheets="@../styles/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -23,9 +23,9 @@
                         <Image url="@../assets/logo.png" />
                      </image>
                   </ImageView>
-                  <VBox id="menuBtnContainer" layoutX="-1.0" layoutY="127.0" prefHeight="604.0" prefWidth="146.0" spacing="470.0" stylesheets="@../styles/main.css">
+                  <VBox id="menuBtnContainer" layoutX="-1.0" layoutY="127.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="691.0" prefWidth="146.0" stylesheets="@../styles/main.css">
                      <children>
-                        <VBox id="menuBtnContent" prefHeight="200.0" prefWidth="100.0" stylesheets="@../styles/main.css">
+                        <VBox id="menuBtnContent" prefHeight="390.0" prefWidth="146.0" stylesheets="@../styles/main.css">
                            <children>
                               <Button id="menuBtn" fx:id="homeBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="154.0" stylesheets="@../styles/main.css">
                                  <graphic>
@@ -36,7 +36,7 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button id="menuBtn" fx:id="candidaciesBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" stylesheets="@../styles/main.css">
+                              <Button id="menuBtn" fx:id="jobsBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="148.0" stylesheets="@../styles/main.css">
                                  <graphic>
                                     <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -45,9 +45,27 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button id="menuBtn" fx:id="profileBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="156.0" stylesheets="@../styles/main.css">
+                              <Button id="menuBtn" fx:id="addJobBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="190.0" stylesheets="@../styles/main.css">
                                  <graphic>
-                                    <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="addJobIcon" fitHeight="25.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/icons/add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="menuBtn" fx:id="addRhBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="190.0" stylesheets="@../styles/main.css">
+                                 <graphic>
+                                    <ImageView fx:id="addJobIcon1" fitHeight="25.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/icons/add-rh.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button id="menuBtn" fx:id="profileBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="190.0" stylesheets="@../styles/main.css">
+                                 <graphic>
+                                    <ImageView fx:id="addJobIcon11" fitHeight="25.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../assets/icons/person.png" />
                                        </image>
@@ -55,8 +73,11 @@
                                  </graphic>
                               </Button>
                            </children>
+                           <VBox.margin>
+                              <Insets bottom="165.0" />
+                           </VBox.margin>
                         </VBox>
-                        <VBox id="exitBtnContainer" prefHeight="174.0" prefWidth="132.0" stylesheets="@../styles/main.css">
+                        <VBox id="exitBtnContainer" prefHeight="0.0" prefWidth="146.0" stylesheets="@../styles/main.css">
                            <children>
                               <Button id="menuBtn" fx:id="exitBtn" mnemonicParsing="false" stylesheets="@../styles/main.css">
                                  <graphic>
@@ -68,9 +89,6 @@
                                  </graphic>
                               </Button>
                            </children>
-                           <padding>
-                              <Insets top="-120.0" />
-                           </padding>
                         </VBox>
                      </children>
                   </VBox>
@@ -83,7 +101,7 @@
                <children>
                   <HBox id="pageTitleContainer" alignment="CENTER_LEFT" prefHeight="150.0" prefWidth="486.0" stylesheets="@../styles/main.css">
                      <children>
-                        <Label id="pageTitle" fx:id="title" minWidth="400.0" prefHeight="30.0" prefWidth="400.0" stylesheets="@../styles/main.css" text="Vagas" />
+                        <Label id="pageTitle" fx:id="title" minWidth="400.0" prefHeight="30.0" prefWidth="400.0" stylesheets="@../styles/main.css" text="Adicionar vaga" />
                      </children>
                      <padding>
                         <Insets left="30.0" />
@@ -91,7 +109,7 @@
                   </HBox>
                   <HBox id="btnContainer" alignment="CENTER_RIGHT" prefHeight="126.0" prefWidth="501.0" stylesheets="@../styles/main.css">
                      <children>
-                        <Button id="settingsBtn" fx:id="configBtn" mnemonicParsing="false" stylesheets="@../styles/main.css">
+                        <Button id="settingsBtn" mnemonicParsing="false" stylesheets="@../styles/main.css">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

@@ -34,7 +34,12 @@ public class MainController implements Initializable {
     private StackPane pageContainer;
 
     @FXML
-    private Button homeBtn, candidaciesBtn, exitBtn, profileBtn, headerProfileBtn;
+    private Button homeBtn, 
+        candidaciesBtn, 
+        exitBtn, 
+        profileBtn, 
+        headerProfileBtn,
+        configBtn;
 
     @FXML
     private ImageView addJobImage;
@@ -101,6 +106,13 @@ public class MainController implements Initializable {
             setPage("Meu Perfil", "profile.fxml");
         });
 
+        configBtn.setOnAction(event -> {
+            setPage("Configurações", "configAccount.fxml");
+            setImage(home, homeBtn);
+            setImage(jobs, candidaciesBtn);
+            setImage(profile, profileBtn);
+        });
+
         exitBtn.setOnAction(event -> {
             try {    	
                 usuarioService.logoff();
@@ -120,7 +132,7 @@ public class MainController implements Initializable {
 
             if(pageName == "Vagas" || pageName == "Candidaturas" ) {
                 scrollPane.setStyle("-fx-padding: 0px;");
-            } else {
+            } else if(pageName == "Configurações") {
                 scrollPane.setStyle("-fx-padding: 20px;");
             }
 

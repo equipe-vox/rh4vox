@@ -21,8 +21,18 @@ public class UsuarioDAO extends BaseDAO {
     executeQuery(String.format("INSERT INTO usuario (email, senha, tipo) VALUES('%s', '%s', '%s')", email, senha, tipo.toString()));
   }
 
-  public void updateUsuario(Usuario usuario) {
+  public void updateUsuario(String email, Integer id) throws SQLException {
+    Connection conn = getConnection(); 
+    String sql = "UPDATE usuario SET email=? WHERE id=?";
 
+    PreparedStatement statement = conn.prepareStatement(sql);
+    statement.setString(1, email);
+    statement.setInt(2, id);
+    
+    int rowsUpdated = statement.executeUpdate();
+    if (rowsUpdated > 0) {
+      System.out.println("An existing usuario was updated successfully!");
+    }
   }
 
   public void removeUsuario(int id) {

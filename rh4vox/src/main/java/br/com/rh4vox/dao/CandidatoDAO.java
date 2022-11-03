@@ -34,6 +34,7 @@ public class CandidatoDAO extends BaseDAO {
         c.setNome(rs.getString("nome"));
         c.setDataNasc(rs.getDate("data_nasc").toLocalDate());
         c.setCpf(rs.getString("cpf"));
+        c.setTelefone(rs.getString("telefone"));
         break;
       }
 
@@ -52,8 +53,19 @@ public class CandidatoDAO extends BaseDAO {
     executeQuery(String.format("INSERT INTO candidato (nome, data_nasc, cpf, id_usuario) VALUES('%s', '%s', '%s', '%s')", candidato.getNome(), candidato.getDataNasc(), candidato.getCpf(), candidato.getUsuario().getId()));
   }
 
-  public void updateCandidato(Candidato candidato) {
+  public void updateCandidato(String nome, String telefone, Integer id) throws SQLException {
+    Connection conn = getConnection(); 
+    String sql = "UPDATE candidato SET nome=?, telefone=? WHERE id=?";
 
+    PreparedStatement statement = conn.prepareStatement(sql);
+    statement.setString(1, nome);
+    statement.setString(2, telefone);
+    statement.setInt(3, id);
+    
+    int rowsUpdated = statement.executeUpdate();
+    if (rowsUpdated > 0) {
+      System.out.println("An existing candidato was updated successfully!");
+    }
   }
 
   public void removeCandidato(int id) {

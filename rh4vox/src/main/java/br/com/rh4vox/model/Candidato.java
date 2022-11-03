@@ -8,19 +8,22 @@ public class Candidato {
   private String cpf;
   private LocalDate dataNasc;
   private Usuario usuario;
+  private String telefone;
 
   public Candidato(
     Integer id,
     String nome,
     String cpf,
     LocalDate dataNasc,
-    Usuario usuario
+    Usuario usuario,
+    String telefone
   ){
     this.id = id;
     this.nome = nome;
     this.cpf = cpf;
     this.dataNasc = dataNasc;
     this.usuario = usuario;
+    this.telefone = telefone;
   }
 
   public Candidato() {}
@@ -65,5 +68,11 @@ public class Candidato {
     this.usuario = usuario;
   }
 
-  
+	public String getTelefone() {
+		return this.telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 }

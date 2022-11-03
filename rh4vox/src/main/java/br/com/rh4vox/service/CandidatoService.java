@@ -16,7 +16,7 @@ public class CandidatoService {
   CurriculoDAO curriculoDAO = new CurriculoDAO();
   
   public void cadastro(String nome, LocalDate data_nasc, String cpf, Usuario usuario) throws SQLException {
-    Candidato candidato = new Candidato(null, nome, cpf, data_nasc, usuario);
+    Candidato candidato = new Candidato(null, nome, cpf, data_nasc, usuario, null);
 
     dao.insertCandidato(candidato);
 
@@ -41,5 +41,9 @@ public class CandidatoService {
       }
     }
     return null;
+  }
+
+  public void updateCandidato(String nome, String telefone, Integer id) throws SQLException {
+    dao.updateCandidato(nome, telefone, id);
   }
 }

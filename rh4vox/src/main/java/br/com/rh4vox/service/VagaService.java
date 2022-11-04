@@ -6,6 +6,7 @@ import java.util.List;
 
 import br.com.rh4vox.dao.VagaDAO;
 import br.com.rh4vox.enums.Regime;
+import br.com.rh4vox.enums.StatusCandidatura;
 import br.com.rh4vox.model.*;
 
 public class VagaService {
@@ -101,4 +102,9 @@ public class VagaService {
   public List<CandidaturaRh> listCandidaturasByRh(Integer idRh) throws SQLException {
     return dao.listCandidaturasByRh(idRh);
   }
+
+  public void updateCandidacyStatus(Integer idCandidato, Integer idVaga, StatusCandidatura status) throws SQLException {
+    dao.updateCandidacyStatus(idCandidato, idVaga, status);
+  }
 }
+

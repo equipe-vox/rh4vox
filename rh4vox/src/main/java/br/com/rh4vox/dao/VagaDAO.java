@@ -317,17 +317,23 @@ public class VagaDAO extends BaseDAO{
             while(rs.next()) {
               CandidaturaRh c = new CandidaturaRh();
       
+              c.setIdVaga(rs.getInt("id_vaga"));
               c.setNomeVaga(rs.getString("nome"));
               c.setDescricao(rs.getString("descricao"));
               c.setSalario(rs.getBigDecimal("salario"));
               c.setRegime(Regime.valueOf(rs.getString("regime")));
               c.setNegociavel(rs.getBoolean("negociavel"));
               c.setCargo(rs.getString("cargo"));
+              c.setStatus(StatusCandidatura.valueOf(rs.getString("status_candidato")));
 
+              c.setIdCandidato(rs.getInt("id_candidato"));
               c.setNomeCand(rs.getString("nome_candidato"));
               c.setDataNasc((rs.getDate("data_nasc").toLocalDate()));
               c.setObjetivo(rs.getString("objetivo"));
               c.setHabilidades((rs.getString("habilidades")));
+              c.setTelefone(rs.getString("telefone"));
+              c.setFormacao(rs.getString("formacao"));
+              c.setExperiencia(rs.getString("experiencia"));
 
               candidaturas.add(c);
             }
@@ -341,5 +347,17 @@ public class VagaDAO extends BaseDAO{
         }
         
         return candidaturas;
+    }
+
+    public void updateCandidacyStatus(Integer idCandidato, Integer idVaga, StatusCandidatura status) throws SQLException {
+        Connection conn = getConnection(); 
+        String sql = "UPDATE candidato_vaga SET status_candidato=? WHERE id_candidato=? AND id_vaga=?";
+ 
+        PreparedStatement statement = conn.prepareStatement(sql);
+        statement.setString(1, status.toString());
+        statement.setInt(2, idCandidato);
+        statement.setInt(3, idVaga);
+        
+        statement.executeUpdate();
     }
 }

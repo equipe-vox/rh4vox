@@ -128,10 +128,10 @@ public class MainRhController implements Initializable {
       title.setText(pageName);
       page = FXMLLoader.load(getClass().getResource("/fxml/" + fxml));
 
-      if(pageName == "Vagas" || pageName == "Minhas vagas") {
+      if(pageName == "Vagas" || pageName == "Minhas vagas" || pageName == "Candidaturas") {
         scrollPane.setStyle("-fx-padding: 0px;");
         
-      } else if(pageName == "Adicionar vaga" || pageName == "Candidaturas") {
+      } else if(pageName == "Adicionar vaga") {
         scrollPane.setStyle("-fx-padding: 20px;");
       }
 

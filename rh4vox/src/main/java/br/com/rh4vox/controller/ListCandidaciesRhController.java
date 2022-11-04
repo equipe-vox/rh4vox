@@ -19,7 +19,7 @@ import br.com.rh4vox.service.VagaService;
 
 public class ListCandidaciesRhController implements Initializable {
   @FXML
-  private VBox listContainer, showJobAdmContainer;
+  private VBox listContainer, showCandidacyContainer;
 
   @FXML
   private ScrollPane scrollContainer;
@@ -34,14 +34,14 @@ public class ListCandidaciesRhController implements Initializable {
     vagaService = new VagaService();
 
     try {
-      setJobs();
+      setCandidacies();
     } catch (SQLException e) {
       e.printStackTrace();
     }
 
   }
 
-  public void setJobs() throws SQLException {
+  public void setCandidacies() throws SQLException {
     try {
       List<CandidaturaRh> candidaturas = vagaService.listCandidaturasByRh(UsuarioLogado.getInstance().getUsuario().getId());
 
@@ -51,7 +51,7 @@ public class ListCandidaciesRhController implements Initializable {
           FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/candidacyItem.fxml"));
           Parent candItem = loader.load();
           CandidacyItemController candController = loader.getController();
-          // candController.setShowJobAdmContainer(showJobAdmContainer);
+          candController.setShowCandidacyContainer(showCandidacyContainer);
           candController.setCandidatura(c);
   
           listContainer.getChildren().add(candItem);

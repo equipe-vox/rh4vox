@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane id="container" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1643.0" prefWidth="590.0" style="-fx-background-color: white;" stylesheets="@../styles/showJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.ShowCandidacyController">
+   <content>
+      <VBox id="showJobContainer" prefHeight="1510.0" prefWidth="590.0" stylesheets="@../styles/showJob.css">
+         <children>
+            <HBox prefHeight="150.0" prefWidth="528.0">
+               <children>
+                  <VBox id="profileIconContainer" maxHeight="60.0" maxWidth="60.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="88.0" prefWidth="96.0" stylesheets="@../styles/profile.css">
+                     <children>
+                        <ImageView fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/icons/person@2x.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="30.0" />
+                     </HBox.margin>
+                  </VBox>
+                  <VBox prefHeight="110.0" prefWidth="688.0" spacing="5.0" stylesheets="@../styles/showJob.css">
+                     <children>
+                        <Label id="jobItemTitle" fx:id="nomeLabel" prefHeight="24.0" prefWidth="331.0" stylesheets="@../styles/listJobs.css" text="Nome da vaga" wrapText="true" />
+                        <Label id="jobItemDescription" fx:id="objetivoLabel" prefHeight="82.0" prefWidth="416.0" stylesheets="@../styles/profile.css" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elemeLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elemeLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit." wrapText="true" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="76.0" prefWidth="285.0" />
+               </children>
+               <VBox.margin>
+                  <Insets left="30.0" right="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox id="skillContainer" fx:id="skillContainer" prefHeight="28.0" prefWidth="589.0" spacing="15.0" style="-fx-border-color: rgba(84, 84, 84, 0.4); -fx-border-width: 0 0 1 0;" stylesheets="@../styles/profile.css">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+               </padding>
+            </HBox>
+            <VBox minHeight="-Infinity" prefHeight="522.0" prefWidth="589.0" spacing="30.0">
+               <children>
+                  <VBox prefHeight="53.0" prefWidth="528.0" spacing="10.0">
+                     <children>
+                        <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Informações: " />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                           <children>
+                              <Label id="jobItemDescription" fx:id="dataNascLabel" stylesheets="@../styles/profile.css" text="Label" />
+                              <Label id="jobItemDescription" fx:id="cargoLabel312" stylesheets="@../styles/profile.css" text="-" />
+                              <Label id="jobItemDescription" fx:id="telefoneLabel" stylesheets="@../styles/profile.css" text="Label" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="106.0" prefWidth="528.0" spacing="10.0">
+                     <children>
+                        <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Formação:" />
+                        <HBox prefHeight="72.0" prefWidth="528.0" spacing="10.0">
+                           <children>
+                              <Label id="jobItemDescription" fx:id="formacaoLabel" prefHeight="108.0" prefWidth="528.0" stylesheets="@../styles/profile.css" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elemeLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elemeLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit." wrapText="true" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="40.0" layoutY="124.0" prefHeight="106.0" prefWidth="528.0" spacing="10.0">
+                     <children>
+                        <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Experiência:" />
+                        <HBox prefHeight="72.0" prefWidth="528.0" spacing="10.0">
+                           <children>
+                              <Label id="jobItemDescription" fx:id="experienciaLabel" prefHeight="108.0" prefWidth="528.0" stylesheets="@../styles/profile.css" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elemeLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elemeLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. DuisLorem ipsum dolor sit amet, consectetur adipiscing elit." wrapText="true" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="146.0" prefWidth="528.0" spacing="25.0">
+                     <children>
+                        <Button id="saveBtn" fx:id="aprovarBtn" mnemonicParsing="false" onAction="#approveCandidacy" prefHeight="54.0" prefWidth="252.0" text="Aprovar Candidatura">
+                           <stylesheets>
+                              <URL value="@../styles/showJob.css" />
+                              <URL value="@../styles/showJobAdm.css" />
+                           </stylesheets>
+                        </Button>
+                        <Button id="removeBtn" fx:id="removeBtn" mnemonicParsing="false" onAction="#removeCandidacy" prefHeight="54.0" prefWidth="252.0" text="Remover Candidatura">
+                           <stylesheets>
+                              <URL value="@../styles/showJob.css" />
+                              <URL value="@../styles/showJobAdm.css" />
+                           </stylesheets>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets left="30.0" right="30.0" top="30.0" />
+               </padding>
+            </VBox>
+            <VBox id="descriptionContainer" minHeight="-Infinity" prefHeight="733.0" prefWidth="589.0" spacing="30.0" stylesheets="@../styles/showJob.css">
+               <children>
+                  <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="41.0" prefHeight="26.0" prefWidth="528.0">
+                     <children>
+                        <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Nome: " />
+                        <Label id="jobItemDescription" fx:id="nomeVagaLabel" stylesheets="@../styles/profile.css" text="Label" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="528.0">
+                     <children>
+                        <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Cargo: " />
+                        <Label id="jobItemDescription" fx:id="cargoLabel" stylesheets="@../styles/profile.css" text="Label" />
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="13.0" prefWidth="528.0">
+                     <children>
+                        <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Regime de contrato: " />
+                        <Label id="jobItemDescription" fx:id="regimeLabel" stylesheets="@../styles/profile.css" text="Label" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="528.0">
+                     <children>
+                        <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Salário: " />
+                        <Label id="jobItemDescription" fx:id="salarioLabel" stylesheets="@../styles/profile.css" text="Label" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="712.0" prefHeight="0.0" prefWidth="528.0">
+                     <children>
+                        <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Negociável: " />
+                        <Label id="jobItemDescription" fx:id="negociavelLabel" stylesheets="@../styles/profile.css" text="Label" />
+                     </children>
+                  </HBox>
+                  <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Qualificações e Requisitos">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label id="jobItemDescription" fx:id="descricaoLabel" alignment="TOP_LEFT" minWidth="-Infinity" prefHeight="397.0" prefWidth="526.0" stylesheets="@../styles/profile.css" text="descricao da vaga aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" wrapText="true">
+                     <VBox.margin>
+                        <Insets top="-20.0" />
+                     </VBox.margin></Label>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="30.0" top="60.0" />
+         </padding>
+      </VBox>
+   </content>
+</ScrollPane>

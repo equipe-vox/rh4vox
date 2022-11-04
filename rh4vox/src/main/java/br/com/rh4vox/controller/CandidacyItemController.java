@@ -28,7 +28,7 @@ public class CandidacyItemController implements Initializable {
   @FXML
   private HBox skillContainer;
 
-  private VBox showJobContainer;
+  private VBox showCandidacyContainer;
 
   private CandidaturaRh candidaturaRh;
 
@@ -39,19 +39,19 @@ public class CandidacyItemController implements Initializable {
     vagaService = new VagaService();
   }
 
-  public void showJob() throws IOException, SQLException {
-    showJobContainer.getChildren().clear();
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showJob.fxml"));
-    Parent showJobItem = loader.load();
-    ShowJobController showJobController = loader.getController();
+  public void showCandidacy() throws IOException, SQLException {
+    showCandidacyContainer.getChildren().clear();
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/showCandidacy.fxml"));
+    Parent showCandidacyItem = loader.load();
+    ShowCandidacyController showCandidacyController = loader.getController();
 
-    // showJobController.setJob(candidaturaRh);
+    showCandidacyController.setCandidacy(candidaturaRh);
 
-    showJobContainer.getChildren().add(showJobItem);
+    showCandidacyContainer.getChildren().add(showCandidacyItem);
   }
 
-  public void setShowJobContainer(VBox container) {
-    this.showJobContainer = container;
+  public void setShowCandidacyContainer(VBox container) {
+    this.showCandidacyContainer = container;
   }
 
   public void setCandidatura(CandidaturaRh candidaturaRh) throws SQLException, IOException {

@@ -31,7 +31,7 @@ public class CandidatoDAO extends BaseDAO {
         c = new Candidato();
 
         c.setId(rs.getInt("id"));
-        c.setNome(rs.getString("nome"));
+        c.setNome(rs.getString("nome_candidato"));
         c.setDataNasc(rs.getDate("data_nasc").toLocalDate());
         c.setCpf(rs.getString("cpf"));
         c.setTelefone(rs.getString("telefone"));
@@ -50,12 +50,12 @@ public class CandidatoDAO extends BaseDAO {
   }
 
   public void insertCandidato(Candidato candidato) throws SQLException {
-    executeQuery(String.format("INSERT INTO candidato (nome, data_nasc, cpf, id_usuario) VALUES('%s', '%s', '%s', '%s')", candidato.getNome(), candidato.getDataNasc(), candidato.getCpf(), candidato.getUsuario().getId()));
+    executeQuery(String.format("INSERT INTO candidato (nome_candidato, data_nasc, cpf, id_usuario) VALUES('%s', '%s', '%s', '%s')", candidato.getNome(), candidato.getDataNasc(), candidato.getCpf(), candidato.getUsuario().getId()));
   }
 
   public void updateCandidato(String nome, String telefone, Integer id) throws SQLException {
     Connection conn = getConnection(); 
-    String sql = "UPDATE candidato SET nome=?, telefone=? WHERE id=?";
+    String sql = "UPDATE candidato SET nome_candidato=?, telefone=? WHERE id=?";
 
     PreparedStatement statement = conn.prepareStatement(sql);
     statement.setString(1, nome);
@@ -86,7 +86,7 @@ public class CandidatoDAO extends BaseDAO {
         Candidato c = new Candidato();
 
         c.setId(rs.getInt("id"));
-        c.setNome(rs.getString("nome"));
+        c.setNome(rs.getString("nome_candidato"));
         c.setDataNasc(rs.getDate("data_nasc").toLocalDate());
         c.setCpf(rs.getString("cpf"));
         candidatos.add(c);

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox id="jobItemContainer" fx:id="candidacyContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" onMouseClicked="#showJob" prefHeight="197.0" prefWidth="542.0" stylesheets="@../styles/listJobs.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.CandidacyItemController">
+    <children>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+          <children>
+            <VBox prefHeight="100.0" prefWidth="632.0" spacing="5.0">
+                <children>
+                  <Label id="jobItemTitle" fx:id="nomeLabel" prefHeight="24.0" prefWidth="267.0" stylesheets="@../styles/listJobs.css" text="Nome do Candidato" />
+                  <Label id="jobItemDescription" fx:id="objetivoLabel" prefHeight="54.0" prefWidth="487.0" stylesheets="@../styles/profile.css" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. Duis" wrapText="true" />
+                </children>
+            </VBox>
+            <VBox prefHeight="83.0" prefWidth="85.0" />
+          </children>
+      </HBox>
+      <HBox id="skillContainer" fx:id="skillContainer" prefHeight="34.0" prefWidth="422.0" spacing="15.0" stylesheets="@../styles/profile.css">
+          <VBox.margin>
+            <Insets top="30.0" />
+          </VBox.margin>
+      </HBox>
+    </children>
+    <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+    </padding>
+</VBox>

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="942.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.MainAdmController">
+<AnchorPane id="container" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="636.0" prefWidth="942.0" stylesheets="@../styles/main.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.MainRhController">
    <children>
       <AnchorPane id="content" prefHeight="636.0" prefWidth="942.0" stylesheets="@../styles/main.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -54,11 +54,11 @@
                                     </ImageView>
                                  </graphic>
                               </Button>
-                              <Button id="menuBtn" fx:id="addRhBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="190.0" stylesheets="@../styles/main.css">
+                              <Button id="menuBtn" fx:id="candidaciesBtn" mnemonicParsing="false" prefHeight="34.0" prefWidth="190.0" stylesheets="@../styles/main.css">
                                  <graphic>
-                                    <ImageView fx:id="addJobIcon1" fitHeight="25.0" fitWidth="68.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="addJobIcon1" fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../assets/icons/add-rh.png" />
+                                          <Image url="@../assets/icons/candidacies.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>

@@ -10,6 +10,7 @@ import java.util.List;
 import br.com.rh4vox.enums.StatusCandidatura;
 import br.com.rh4vox.enums.Regime;
 import br.com.rh4vox.model.Candidatura;
+import br.com.rh4vox.model.CandidaturaRh;
 import br.com.rh4vox.model.Vaga; 
 
 public class VagaDAO extends BaseDAO{
@@ -296,5 +297,49 @@ public class VagaDAO extends BaseDAO{
         }
         
         return vagas;
+    }
+
+    public List<CandidaturaRh> listCandidaturasByRh(Integer idRh) throws SQLException{
+        Connection conn = getConnection(); 
+    
+        List<CandidaturaRh> candidaturas = new ArrayList<>();
+
+        String sql = "SELECT * FROM candidato_vaga ";
+        sql += "INNER JOIN vaga ON vaga.id = candidato_vaga.id_vaga ";
+        sql += "INNER JOIN candidato ON candidato.id = candidato_vaga.id_candidato ";
+        sql += "INNER JOIN curriculo ON curriculo.id_candidato = candidato_vaga.id_candidato ";
+        sql += "WHERE vaga.id_usuario="+idRh;
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+      
+            while(rs.next()) {
+              CandidaturaRh c = new CandidaturaRh();
+      
+              c.setNomeVaga(rs.getString("nome"));
+              c.setDescricao(rs.getString("descricao"));
+              c.setSalario(rs.getBigDecimal("salario"));
+              c.setRegime(Regime.valueOf(rs.getString("regime")));
+              c.setNegociavel(rs.getBoolean("negociavel"));
+              c.setCargo(rs.getString("cargo"));
+
+              c.setNomeCand(rs.getString("nome_candidato"));
+              c.setDataNasc((rs.getDate("data_nasc").toLocalDate()));
+              c.setObjetivo(rs.getString("objetivo"));
+              c.setHabilidades((rs.getString("habilidades")));
+
+              candidaturas.add(c);
+            }
+      
+            stmt.close();
+            rs.close();
+            conn.close();
+      
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return candidaturas;
     }
 }

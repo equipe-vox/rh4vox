@@ -32,10 +32,10 @@
 
 ## 🕛 Cronograma
 
-<a href="https://github.com/equipe-vox/rh4vox/tree/master/images/backlog/backlogS1.jpeg">Sprint 1: 29/08 - 18/09</a><br>
-<a href="https://github.com/equipe-vox/rh4vox/tree/master/images/backlog/backlogS2.jpeg">Sprint 2: 19/09 - 09/10</a><br>
-<a href="https://github.com/equipe-vox/rh4vox/tree/master/images/backlog/backlogS3.jpeg">Sprint 3: 13/10 - 06/11</a><br>
-<a href="https://github.com/equipe-vox/rh4vox/tree/master/images/backlog/backlogS4.jpeg">Sprint 4: 07/11 - 27/11</a><br> 
+<a href="https://github.com/equipe-vox/rh4vox/tree/master/images/backlog/backlogS1.JPG">Sprint 1: 29/08 - 18/09</a><br>
+<a href="https://github.com/equipe-vox/rh4vox/tree/master/images/backlog/backlogS2.JPG">Sprint 2: 19/09 - 09/10</a><br>
+<a href="https://github.com/equipe-vox/rh4vox/tree/master/images/backlog/backlogS3.JPG">Sprint 3: 13/10 - 06/11</a><br>
+<a href="https://github.com/equipe-vox/rh4vox/tree/master/images/backlog/backlogS4.JPG">Sprint 4: 07/11 - 27/11</a><br> 
 
 
 <br>

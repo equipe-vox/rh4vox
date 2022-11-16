@@ -11,4 +11,5 @@ module br.com.rh4vox {
     exports br.com.rh4vox;
     exports br.com.rh4vox.controller;
     exports br.com.rh4vox.model;
+    exports br.com.rh4vox.enums;
 }

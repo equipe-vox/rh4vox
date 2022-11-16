@@ -46,15 +46,17 @@ public class ShowJobController implements Initializable {
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     vagaService = new VagaService();
-    popupService = new PopupService();
-
-    
+    popupService = new PopupService();    
   }
   
   public void setJob(Vaga vaga) throws SQLException {
     this.vaga = vaga;
     loadJob();
-    listCandidaturas();
+
+    if(CandidatoLogado.getInstance().getCandidato() != null) {
+      listCandidaturas();
+    }
+
   }
   
   private void loadJob() throws SQLException {
@@ -97,7 +99,7 @@ public class ShowJobController implements Initializable {
   private void listCandidaturas() {
     try {
       List<Candidatura> candidaturas = vagaService.listVagas(vaga.getId(), CandidatoLogado.getInstance().getCandidato().getId());
-    
+
       for(Candidatura c:candidaturas) {
         if(c.getIdVaga() == vaga.getId()) {
           sendBtn.setStyle("-fx-background-color: #F18524; -fx-text-fill: #ffffff");

@@ -11,7 +11,9 @@ import java.util.ResourceBundle;
 
 import br.com.rh4vox.App;
 import br.com.rh4vox.enums.Regime;
+import br.com.rh4vox.enums.TipoUsuario;
 import br.com.rh4vox.model.Candidatura;
+import br.com.rh4vox.model.UsuarioLogado;
 import br.com.rh4vox.model.Vaga;
 import br.com.rh4vox.service.PopupService;
 import br.com.rh4vox.service.VagaService;
@@ -56,21 +58,7 @@ public class ShowJobAdmController implements Initializable {
     vagaService = new VagaService();
 
 		popupService = new PopupService();
-
-    salarioText.focusedProperty().addListener((ov, oldV, newV) -> {
-      if (!newV) {
-				Double number = Double.parseDouble(salarioText.getText());
-				salario = new BigDecimal(salarioText.getText());
-		
-				NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
-				String currency = format.format(number);
-	
-				format = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
-				currency = format.format(number);
-	
-				salarioText.setText(String.format(currency));
-      }
-    });
+    
   }
   
   public void setJob(Vaga vaga) throws SQLException {
@@ -92,6 +80,21 @@ public class ShowJobAdmController implements Initializable {
     }
 
     salarioText.setText(vaga.getSalario().toString());
+
+		salario = new BigDecimal(salarioText.getText());
+		// salarioText.focusedProperty().addListener((ov, oldV, newV) -> {
+    //   if (!newV) {
+		// 		Double number = Double.parseDouble(salarioText.getText());
+		
+		// 		NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
+		// 		String currency = format.format(number);
+	
+		// 		format = NumberFormat.getCurrencyInstance(new Locale("pt","BR"));
+		// 		currency = format.format(number);
+	
+		// 		salarioText.setText(String.format(currency));
+    //   }
+    // });
     
     if(vaga.getNegociavel() == true) {
       negociavelBtn.setSelected(true);
@@ -128,6 +131,8 @@ public class ShowJobAdmController implements Initializable {
 				regime = Regime.ESTAGIO;
 			}
 
+			System.out.println("salario: "+salario);
+
 			if(
 				nomeText.getText().isEmpty() ||
 				descricaoText.getText().isEmpty() ||
@@ -160,7 +165,14 @@ public class ShowJobAdmController implements Initializable {
 		try {
 			vagaService.removeVaga(vaga.getId());
 			this.popupService.popup("Sucesso!", "Vaga excluída com sucesso!");
-			App.setRoot("mainAdm");
+			
+
+			if(UsuarioLogado.getInstance().getUsuario().getTipo() == TipoUsuario.RH) {
+				App.setRoot("mainRh");
+			} else {
+				App.setRoot("mainAdm");
+			}
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

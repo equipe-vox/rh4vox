@@ -16,6 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import br.com.rh4vox.App;
 import br.com.rh4vox.enums.Regime;
+import br.com.rh4vox.enums.TipoUsuario;
 import br.com.rh4vox.model.UsuarioLogado;
 import br.com.rh4vox.service.*;
 
@@ -121,7 +122,11 @@ public class AddJobController implements Initializable {
 			}			
 
 			this.popupService.popupCreateJob();
-			App.setRoot("mainAdm");
+			if(UsuarioLogado.getInstance().getUsuario().getTipo() == TipoUsuario.RH) {
+				App.setRoot("mainRh");
+			} else {
+				App.setRoot("mainAdm");
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -75,11 +75,15 @@ public class VagaDAO extends BaseDAO{
 
     public void removeVaga(Integer id) throws SQLException{
         Connection conn = getConnection(); 
+        String sqlfk = "DELETE FROM candidato_vaga WHERE id_vaga=?";
         String sql = "DELETE FROM vaga WHERE id=?";
  
+        PreparedStatement statementfk = conn.prepareStatement(sqlfk);
         PreparedStatement statement = conn.prepareStatement(sql);
+        statementfk.setInt(1, id);
         statement.setInt(1, id);
-         
+
+        statementfk.executeUpdate();
         int rowsDeleted = statement.executeUpdate();
         if (rowsDeleted > 0) {
             System.out.println("A job was deleted successfully!");

@@ -56,7 +56,6 @@ public class ShowJobController implements Initializable {
     if(CandidatoLogado.getInstance().getCandidato() != null) {
       listCandidaturas();
     }
-
   }
   
   private void loadJob() throws SQLException {
@@ -104,6 +103,8 @@ public class ShowJobController implements Initializable {
         if(c.getIdVaga() == vaga.getId()) {
           sendBtn.setStyle("-fx-background-color: #F18524; -fx-text-fill: #ffffff");
           sendBtn.setDisable(true);
+
+          // statusLabel.setText(c.getStatusCandidato().toString());
 
           switch (c.getStatusCandidato()) {
             case ENVIADO:

@@ -16,6 +16,39 @@ public class RHDAO extends BaseDAO {
     return null;
   }
 
+  public RH getRH(Usuario usuario) throws SQLException {
+    Connection conn = getConnection(); 
+
+    String sql = String.format("SELECT * FROM rh WHERE id_usuario = %s", usuario.getId());
+    
+    RH rh = null;
+
+    try {
+      PreparedStatement stmt = conn.prepareStatement(sql);
+      ResultSet rs = stmt.executeQuery();
+
+
+      while(rs.next()) {
+        rh = new RH();
+
+        rh.setId(rs.getInt("id"));
+        rh.setNome(rs.getString("nome"));
+        rh.setCpf(rs.getString("cpf"));
+        rh.setIdUsuario(rs.getInt("id_usuario"));
+        break;
+      }
+
+      stmt.close();
+      rs.close();
+      conn.close();
+
+      
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return rh;
+  }
+
   public void insertRH(String nome, String cpf, Integer idUsuario) throws SQLException {
     
     executeQuery(String.format("INSERT INTO rh (nome, cpf, id_usuario) VALUES('%s', '%s', %s)", nome, cpf, idUsuario));

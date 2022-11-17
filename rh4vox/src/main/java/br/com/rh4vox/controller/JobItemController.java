@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import br.com.rh4vox.model.CandidatoLogado;
 import br.com.rh4vox.model.Candidatura;
 import br.com.rh4vox.model.Vaga;
 import br.com.rh4vox.service.VagaService;
@@ -62,6 +63,10 @@ public class JobItemController implements Initializable {
     this.vaga = vaga;
 
     loadJob();
+
+    if(CandidatoLogado.getInstance().getCandidato() != null) {
+      loadCandidaturas();
+    }
   }
 
   private void loadJob() throws SQLException {
@@ -95,6 +100,31 @@ public class JobItemController implements Initializable {
     } else {
       candidatosLabel.setText(String.format("%s candidato", candidaturas.size()));
     }
+  }
+
+  private void loadCandidaturas() {
+    try {
+      List<Candidatura> candidaturas = vagaService.listVagas(vaga.getId(), CandidatoLogado.getInstance().getCandidato().getId());
+
+      for(Candidatura c:candidaturas) {
+        if(c.getIdVaga() == vaga.getId()) {
+          switch (c.getStatusCandidato()) {
+            case ENVIADO:
+              statusLabel.setText("CANDIDATURA ENVIADA");
+            break;
+            case APROVADO:
+              statusLabel.setText("CANDIDATURA APROVADA");
+            break;
+            case RECUSADO:
+              statusLabel.setText("CANDIDATURA REPROVADA");
+            break;
+            default:
+          }
+        }
+      }
     
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 }

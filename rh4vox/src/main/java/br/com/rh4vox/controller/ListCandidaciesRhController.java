@@ -44,7 +44,6 @@ public class ListCandidaciesRhController implements Initializable {
   public void setCandidacies() throws SQLException {
     try {
       List<CandidaturaRh> candidaturas = vagaService.listCandidaturasByRh(UsuarioLogado.getInstance().getUsuario().getId());
-
       
       if(candidaturas.size() != 0) {
         for(CandidaturaRh c:candidaturas) {

@@ -3,6 +3,7 @@ package br.com.rh4vox.controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
@@ -18,7 +19,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
 import br.com.rh4vox.App;
-
+import br.com.rh4vox.model.Usuario;
+import br.com.rh4vox.model.UsuarioLogado;
+import br.com.rh4vox.service.RHService;
 
 public class MainRhController implements Initializable {
 	
@@ -34,7 +37,8 @@ public class MainRhController implements Initializable {
     jobsBtn,
     candidaciesBtn,
     profileBtn, 
-    exitBtn;
+    exitBtn,
+    headerProfileBtn;
 
   @FXML
   private ImageView addJobImage;
@@ -56,11 +60,23 @@ public class MainRhController implements Initializable {
   private Image jobs = new Image(String.valueOf(new File("/assets/icons/jobs.png")));
   private Image jobsOrange = new Image(String.valueOf(new File("/assets/icons/jobs-orange.png")));
 
+  private Usuario usuario;
+  private RHService rhService;
+
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
+    usuario = UsuarioLogado.getInstance().getUsuario();
+    rhService = new RHService();
+
     setPage("Vagas", "listJobs.fxml");
         
     setImage(homeOrange, homeBtn);
+
+    try {
+      headerProfileBtn.setText(rhService.getRhByUsuario(usuario).getNome());
+    } catch (SQLException e1) {
+        e1.printStackTrace();
+    }
 
     homeBtn.setOnAction(event -> {
       setPage("Vagas", "listJobs.fxml");

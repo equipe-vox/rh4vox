@@ -41,7 +41,7 @@
                         <URL value="@../styles/profile.css" />
                         <URL value="@../styles/listJobs.css" />
                      </stylesheets></Label>
-                  <Label id="jobItemDescriptionBold" fx:id="statusLabel" prefHeight="34.0" prefWidth="106.0" stylesheets="@../styles/listJobs.css" text="CANDIDATURA ENVIADA" textAlignment="CENTER" wrapText="true">
+                  <Label id="jobItemDescriptionBold" fx:id="statusLabel" prefHeight="34.0" prefWidth="106.0" stylesheets="@../styles/listJobs.css" wrapText="true">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>

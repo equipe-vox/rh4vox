@@ -26,7 +26,8 @@ public class JobItemController implements Initializable {
     regimeLabel,
     salarioLabel,
     negociavelLabel,
-    abertoLabel;
+    abertoLabel,
+    statusLabel;
   
   @FXML
   private HBox negociavelItem, itemsContainer;

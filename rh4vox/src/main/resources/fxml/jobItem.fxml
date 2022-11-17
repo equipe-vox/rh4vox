@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox id="jobItemContainer" fx:id="jobItemContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" onMouseClicked="#showJob" prefHeight="232.0" prefWidth="542.0" stylesheets="@../styles/listJobs.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.JobItemController">
     <children>
@@ -29,12 +31,21 @@
             <VBox prefHeight="100.0" prefWidth="325.0" spacing="5.0">
                 <children>
                   <Label id="jobItemTitle" fx:id="nomeLabel" prefHeight="0.0" prefWidth="131.0" stylesheets="@../styles/listJobs.css" text="Nome da vaga" />
-                  <Label id="jobItemDescription" fx:id="descricaoLabel" prefHeight="54.0" prefWidth="314.0" stylesheets="@../styles/profile.css" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. Duis" wrapText="true" />
+                  <Label id="jobItemDescription" fx:id="descricaoLabel" prefHeight="54.0" prefWidth="281.0" stylesheets="@../styles/listJobs.css" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin erat urna, porttitor eu nibh vel, tincidunt tincidunt mi. Phasellus elementum leo nisi. Duis" wrapText="true" />
                 </children>
             </VBox>
-            <VBox prefHeight="83.0" prefWidth="85.0">
+            <VBox prefHeight="100.0" prefWidth="102.0" spacing="15.0">
                 <children>
-                  <Label id="jobItemDescription" fx:id="candidatosLabel" prefHeight="15.0" prefWidth="84.0" stylesheets="@../styles/profile.css" text="0 candidatos" wrapText="true" />
+                  <Label id="jobItemDescription" fx:id="candidatosLabel" prefHeight="15.0" prefWidth="84.0" text="0 candidatos" wrapText="true">
+                     <stylesheets>
+                        <URL value="@../styles/profile.css" />
+                        <URL value="@../styles/listJobs.css" />
+                     </stylesheets></Label>
+                  <Label id="jobItemDescriptionBold" fx:id="statusLabel" prefHeight="34.0" prefWidth="106.0" stylesheets="@../styles/listJobs.css" text="CANDIDATURA ENVIADA" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                 </children>
             </VBox>
           </children>

@@ -10,6 +10,10 @@
   src: url('../assets/fonts/Inter-Regular.ttf');
 }
 
+@font-face {
+  src: url('../assets/fonts/Inter-Bold.ttf');
+}
+
 .scroll-pane .viewport {
   -fx-background-color: transparent;
 }
@@ -128,6 +132,11 @@
 
 #jobItemDescription {
   -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+#jobItemDescriptionBold {
+  -fx-font-family: 'Inter Bold';
   -fx-font-size: 12px;
   -fx-text-fill: -text;
 }

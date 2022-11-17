@@ -11,10 +11,14 @@ import br.com.rh4vox.dao.CandidatoDAO;
 import br.com.rh4vox.dao.RHDAO;
 import br.com.rh4vox.dao.UsuarioDAO;
 import br.com.rh4vox.enums.TipoUsuario;
+import br.com.rh4vox.exception.ValidationException;
 import br.com.rh4vox.model.Candidato;
 import br.com.rh4vox.model.CandidatoLogado;
 import br.com.rh4vox.model.Usuario;
 import br.com.rh4vox.model.UsuarioLogado;
+import br.com.rh4vox.validator.CpfValidator;
+import br.com.rh4vox.validator.EmailValidator;
+import br.com.rh4vox.validator.SenhaValidator;
 
 public class UsuarioService {
 
@@ -41,7 +45,11 @@ public class UsuarioService {
     return null;
   }
 
-  public Usuario cadastroCandidato(String email, String senha, String nome, LocalDate data_nasc, String cpf) throws SQLException, NoSuchAlgorithmException {
+  public Usuario cadastroCandidato(String email, String senha, String nome, LocalDate data_nasc, String cpf) throws SQLException, NoSuchAlgorithmException, ValidationException {
+    CpfValidator.validate(cpf);
+    EmailValidator.validate(email);
+    SenhaValidator.validate(senha);
+    
     dao.insertUsuario(email, senhaHash(senha), TipoUsuario.CANDIDATO);
 
     Usuario usuario = login(email, senha);

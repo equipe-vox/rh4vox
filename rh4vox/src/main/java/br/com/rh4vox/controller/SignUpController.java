@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import br.com.rh4vox.App;
 import br.com.rh4vox.enums.TipoUsuario;
+import br.com.rh4vox.exception.ValidationException;
 import br.com.rh4vox.model.Usuario;
 import br.com.rh4vox.service.PopupService;
 import br.com.rh4vox.service.UsuarioService;
@@ -94,6 +95,8 @@ public class SignUpController implements Initializable  {
                         } catch (NoSuchAlgorithmException e1) {
                             // TODO Auto-generated catch block
                             e1.printStackTrace();
+                        } catch (ValidationException ve) {
+                            popupService.popup("Dados inválidos", ve.getMessage());
                         }
                     } else {
                         popupService.popupPassword();

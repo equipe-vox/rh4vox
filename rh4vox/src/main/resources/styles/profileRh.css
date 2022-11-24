@@ -1,0 +1,80 @@
+@font-face {
+  src: url('../assets/fonts/Ubuntu-Medium.ttf');
+}
+
+@font-face {
+  src: url('../assets/fonts/Inter-Medium.ttf');
+}
+
+@font-face {
+  src: url('../assets/fonts/Inter-Regular.ttf');
+}
+
+.root {
+  -main: #F35416;
+  -orange: #F18524;
+  -white: #FFFFFF;
+  -text: #555555;
+  -title: #333333;
+  -border: rgba(84, 84, 84, 0.4);
+  -light: rgba(84, 84, 84, 0.4);
+}
+
+#profileContainer {
+  -fx-pref-height: 255px;
+  -fx-effect: dropshadow(three-pass-box, -border, 10, 0, 0, 0);
+  -fx-border-radius: 25px;
+  -fx-background-radius: 25px;
+  -fx-border-width: 1px;
+  -fx-border-color: -light;
+  -fx-background-image: url("../assets/profile-rh.png");
+  -fx-background-repeat: no-repeat;   
+  -fx-background-size: 100% 100%;
+  -fx-background-position: 100% 100%;
+  -fx-padding: 25px;
+}
+
+#profileIconContainer {
+  -fx-background-color: -white;
+  -fx-pref-height: 110px;
+  -fx-pref-width: 110px;
+  -fx-border-radius: 25px;
+  -fx-background-radius: 25px;
+  -fx-padding: 25px;
+  -fx-alignment: center;
+  -fx-effect: dropshadow(three-pass-box, -border, 10, 0, 0, 0);
+  -fx-border-width: 1px;
+  -fx-border-color: -light;
+}
+
+#profileInfoContainer {
+  -fx-alignment: bottom-left;
+  -fx-padding: 0 0 0 15px;
+}
+
+#nameText {
+  -fx-font-family: 'Ubuntu Medium';
+  -fx-font-size: 20px;
+  -fx-text-fill: -text;
+}
+
+#bioText {
+  -fx-font-family: 'Inter Medium';
+  -fx-font-size: 12px;
+  -fx-text-fill: -text;
+}
+
+#curriculumContainer {
+  -fx-effect: dropshadow(three-pass-box, -border, 10, 0, 0, 0);
+  -fx-border-radius: 25px;
+  -fx-background-radius: 25px;
+  -fx-border-width: 1px;
+  -fx-border-color: -light;
+  -fx-background-color: -white;
+  -fx-padding: 25px;
+}
+
+#curriculumHeader {
+  -fx-alignment: center-right;
+  -fx-effect: none;
+}

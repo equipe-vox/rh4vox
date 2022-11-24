@@ -11,6 +11,7 @@ import br.com.rh4vox.enums.StatusCandidatura;
 import br.com.rh4vox.enums.Regime;
 import br.com.rh4vox.model.Candidatura;
 import br.com.rh4vox.model.CandidaturaRh;
+import br.com.rh4vox.model.Usuario;
 import br.com.rh4vox.model.Vaga; 
 
 public class VagaDAO extends BaseDAO{
@@ -363,5 +364,63 @@ public class VagaDAO extends BaseDAO{
         statement.setInt(3, idVaga);
         
         statement.executeUpdate();
+    }
+
+    public List<CandidaturaRh> approvedCandidacies(Usuario usuario) throws SQLException {
+        
+        Connection conn = getConnection(); 
+        
+        List<CandidaturaRh> candidaturas = new ArrayList<>();
+        List<CandidaturaRh> approvedCandidacies = new ArrayList<>();
+    
+        String sql = "SELECT * FROM candidato_vaga ";
+        sql += "INNER JOIN vaga ON vaga.id = candidato_vaga.id_vaga ";
+        sql += "INNER JOIN candidato ON candidato.id = candidato_vaga.id_candidato ";
+        sql += "INNER JOIN curriculo ON curriculo.id_candidato = candidato_vaga.id_candidato ";
+        sql += "WHERE vaga.id_usuario="+usuario.getId();
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+      
+            while(rs.next()) {
+              CandidaturaRh c = new CandidaturaRh();
+      
+              c.setIdVaga(rs.getInt("id_vaga"));
+              c.setNomeVaga(rs.getString("nome"));
+              c.setDescricao(rs.getString("descricao"));
+              c.setSalario(rs.getBigDecimal("salario"));
+              c.setRegime(Regime.valueOf(rs.getString("regime")));
+              c.setNegociavel(rs.getBoolean("negociavel"));
+              c.setCargo(rs.getString("cargo"));
+              c.setStatus(StatusCandidatura.valueOf(rs.getString("status_candidato")));
+
+              c.setIdCandidato(rs.getInt("id_candidato"));
+              c.setNomeCand(rs.getString("nome_candidato"));
+              c.setDataNasc((rs.getDate("data_nasc").toLocalDate()));
+              c.setObjetivo(rs.getString("objetivo"));
+              c.setHabilidades((rs.getString("habilidades")));
+              c.setTelefone(rs.getString("telefone"));
+              c.setFormacao(rs.getString("formacao"));
+              c.setExperiencia(rs.getString("experiencia"));
+
+              candidaturas.add(c);
+            }
+      
+            stmt.close();
+            rs.close();
+            conn.close();
+
+            for(CandidaturaRh crh:candidaturas) {
+                if(crh.getStatus() == StatusCandidatura.APROVADO) {
+                    approvedCandidacies.add(crh);
+                }
+            }
+      
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return approvedCandidacies;
     }
 }

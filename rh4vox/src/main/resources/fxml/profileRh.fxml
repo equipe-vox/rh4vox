@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="1500.0" maxWidth="-Infinity" minHeight="1400.0" minWidth="-Infinity" prefHeight="700.0" prefWidth="1082.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.ProfileRhController">
+   <children>
+      <HBox minHeight="700.0" prefHeight="100.0" prefWidth="200.0" spacing="30.0" style="-fx-padding: 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0" spacing="30.0">
+               <children>
+                  <VBox id="profileContainer" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="254.0" prefWidth="704.0" style="-fx-background-color: #d2d2d2;" stylesheets="@../styles/profileRh.css">
+                     <children>
+                        <HBox prefHeight="231.0" prefWidth="655.0">
+                           <children>
+                              <VBox id="profileIconContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="258.0" prefWidth="250.0" stylesheets="@../styles/profileRh.css">
+                                 <children>
+                                    <ImageView fitHeight="52.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../assets/icons/person@2x.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <HBox.margin>
+                                    <Insets top="95.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox id="profileInfoContainer" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="206.0" prefWidth="544.0" stylesheets="@../styles/profile.css">
+                                 <children>
+                                    <VBox prefHeight="0.0" prefWidth="529.0" spacing="5.0">
+                                       <children>
+                                          <Label id="nameText" fx:id="nameLabel" stylesheets="@../styles/profile.css" text="Nome do candidato" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox id="curriculumContainer" fx:id="candidatesContainer" maxWidth="700.0" prefHeight="704.0" prefWidth="704.0" spacing="30.0" stylesheets="@../styles/profileRh.css">
+                     <children>
+                        <HBox id="curriculumHeader" alignment="CENTER_LEFT" maxHeight="18.0" minHeight="18.0" prefHeight="18.0" prefWidth="651.0" style="-fx-max-height: 15;" stylesheets="@../styles/profileRh.css">
+                           <children>
+                              <Label id="linksTitle" prefHeight="19.0" prefWidth="657.0" stylesheets="@../styles/profile.css" text="Candidatos aprovados" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1146.0" prefWidth="294.0" spacing="30.0" style="-fx-background-color: transparent;">
+               <children>
+                  <VBox id="linksContainer" prefHeight="121.0" prefWidth="294.0" spacing="20.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/profile.css">
+                     <children>
+                        <VBox prefHeight="19.0" prefWidth="245.0">
+                           <children>
+                              <Label id="linksTitle" stylesheets="@../styles/profile.css" text="Vagas criadas" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="245.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/jobs.png" />
+                                 </image>
+                              </ImageView>
+                              <Label id="hyperlink" fx:id="jobsLabel" stylesheets="@../styles/profile.css" text="10 vagas" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox id="linksContainer" prefHeight="121.0" prefWidth="294.0" spacing="20.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/profile.css">
+                     <children>
+                        <VBox prefHeight="19.0" prefWidth="245.0">
+                           <children>
+                              <Label id="linksTitle" stylesheets="@../styles/profile.css" text="Candidaturas" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="245.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/profile.png" />
+                                 </image>
+                              </ImageView>
+                              <Label id="hyperlink" fx:id="candidaciesLabel" stylesheets="@../styles/profile.css" text="10 vagas" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox id="linksContainer" prefHeight="121.0" prefWidth="294.0" spacing="20.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/profile.css">
+                     <children>
+                        <VBox prefHeight="19.0" prefWidth="245.0">
+                           <children>
+                              <Label id="linksTitle" stylesheets="@../styles/profile.css" text="Candidatos aprovados" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="245.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/candidacies.png" />
+                                 </image>
+                              </ImageView>
+                              <Label id="hyperlink" fx:id="approvedLabel" stylesheets="@../styles/profile.css" text="10 candidatos" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

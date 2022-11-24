@@ -119,7 +119,7 @@ public class MainRhController implements Initializable {
     });
 
     profileBtn.setOnAction(event -> {
-      setPage("Perfil", "profileAdm.fxml");
+      setPage("Perfil", "profileRh.fxml");
 
       setImage(addJob, addJobBtn);
       setImage(home, homeBtn);
@@ -144,7 +144,7 @@ public class MainRhController implements Initializable {
       title.setText(pageName);
       page = FXMLLoader.load(getClass().getResource("/fxml/" + fxml));
 
-      if(pageName == "Vagas" || pageName == "Minhas vagas" || pageName == "Candidaturas") {
+      if(pageName == "Vagas" || pageName == "Minhas vagas" || pageName == "Candidaturas" || pageName == "Perfil") {
         scrollPane.setStyle("-fx-padding: 0px;");
         
       } else if(pageName == "Adicionar vaga") {

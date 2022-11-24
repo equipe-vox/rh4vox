@@ -106,5 +106,9 @@ public class VagaService {
   public void updateCandidacyStatus(Integer idCandidato, Integer idVaga, StatusCandidatura status) throws SQLException {
     dao.updateCandidacyStatus(idCandidato, idVaga, status);
   }
+
+  public List<CandidaturaRh> getApprovedCandidaciesByUsuario(Usuario usuario) throws SQLException {
+    return dao.approvedCandidacies(usuario);
+  }
 }
 

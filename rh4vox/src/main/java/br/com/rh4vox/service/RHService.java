@@ -20,4 +20,18 @@ public class RHService {
   public RH getRhByUsuario(Usuario usuario) throws SQLException {
     return dao.getRH(usuario);
   }
+
+  public Integer getVagasByUsuario(Usuario usuario) {
+    return null;
+  }
+
+  public Integer getCandidaciesByUsuario(Usuario usuario) {
+    return null;
+  }
+
+  public Integer getApprovedCandidaciesByUsuario(Usuario usuario) {
+    return null;
+  }
+
+
 }

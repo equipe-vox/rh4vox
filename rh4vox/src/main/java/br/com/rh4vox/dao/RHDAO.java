@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.rh4vox.model.RH;
-import br.com.rh4vox.model.Usuario; 
+import br.com.rh4vox.model.Usuario;
+import br.com.rh4vox.model.Vaga; 
 
 public class RHDAO extends BaseDAO {
 

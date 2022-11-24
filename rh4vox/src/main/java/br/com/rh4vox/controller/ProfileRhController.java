@@ -17,8 +17,10 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class ProfileRhController implements Initializable  {
 
@@ -27,6 +29,9 @@ public class ProfileRhController implements Initializable  {
 
   @FXML
   private HBox skillContainer;
+
+  @FXML
+  private VBox candidatesContainer;
 
   private RHService rhService;
   private VagaService vagaService;
@@ -54,6 +59,16 @@ public class ProfileRhController implements Initializable  {
       List<CandidaturaRh> candidaturas = vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario());
 
       if(candidaturas != null) {
+        for(CandidaturaRh c:candidaturas) {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/candidateItem.fxml"));
+          Parent candidateItem = loader.load();
+          CandidateItemController candidateItemController = loader.getController();
+
+          candidateItemController.setCandidatura(c);  
+  
+          candidatesContainer.getChildren().add(candidateItem);
+        }
+
         if(candidaturas.size() <= 1) {
           approvedLabel.setText(vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario()).size()+" candidato");
         } else {

@@ -110,7 +110,7 @@ public class UsuarioService {
 
     SenhaValidator.validate(senha);
 
-    dao.insertUsuario(email, senhaHash(senha), TipoUsuario.CANDIDATO);
+    dao.insertUsuario(email, senhaHash(senha), tipo);
     return login(email, senha);
   }
 

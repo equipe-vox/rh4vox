@@ -2,6 +2,7 @@ package br.com.rh4vox.enums;
 
 public enum TipoUsuario {
   ADM("ADM"),
+  GESTOR("GESTOR"),
   RH("RH"),
   CANDIDATO("CANDIDATO");
 

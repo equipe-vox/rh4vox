@@ -25,7 +25,7 @@ public class AddRhController implements Initializable  {
   private TextField nomeText, cpfText, emailText, senhaText;
 
   @FXML
-  private RadioButton tipoBtn1, tipoBtn2;
+  private RadioButton tipoBtn1, tipoBtn2, tipoBtn3;
 
   private UsuarioService usuarioService;
 
@@ -53,37 +53,80 @@ public class AddRhController implements Initializable  {
 
       TipoUsuario tipo = TipoUsuario.RH;
 
-      if(tipoBtn1.isSelected() == true && tipoBtn2.isSelected() == true) {
-        popupService.popup("Erro!", "Selecione apenas um tipo de usuário.");
-      } else if (tipoBtn1.isSelected() == false && tipoBtn2.isSelected() == false) {
-        popupService.popup("Erro!", "Um ou mais campos não podem estar vazios.");
-      } else if (tipoBtn1.isSelected()) {
-        tipo = TipoUsuario.ADM;
-      } else if (tipoBtn2.isSelected()) {
-        tipo = TipoUsuario.RH;
+            if(tipoBtn1.isSelected() == true && tipoBtn2.isSelected() == true && tipoBtn3.isSelected() == true) {
+              popupService.popup("Erro!", "Selecione apenas um tipo de usuário.");
+            } else if (tipoBtn1.isSelected() == false && tipoBtn2.isSelected() == false && tipoBtn3.isSelected() == false) {
+              popupService.popup("Erro!", "Um ou mais campos não podem estar vazios.");
+            } else if (tipoBtn1.isSelected()) {
+              tipo = TipoUsuario.ADM;
+
+              try {
+                Usuario usuario = usuarioService.cadastroAdm(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
+  
+                if(usuario != null) {
+                  popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
+                
+                  nomeText.setText("");
+                  emailText.setText("");
+                  senhaText.setText("");
+                  cpfText.setText("");
+                  tipoBtn1.setSelected(false);
+                  tipoBtn2.setSelected(false);
+                }
+              } catch (SQLException e) {
+                e.printStackTrace();
+              } catch (NoSuchAlgorithmException e1) {
+                e1.printStackTrace();
+              }
+            } else if (tipoBtn2.isSelected()) {
+              tipo = TipoUsuario.RH;
+              try {
+                Usuario usuario = usuarioService.cadastroRH(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
+  
+                if(usuario != null) {
+                  popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
+                
+                  nomeText.setText("");
+                  emailText.setText("");
+                  senhaText.setText("");
+                  cpfText.setText("");
+                  tipoBtn1.setSelected(false);
+                  tipoBtn2.setSelected(false);
+                }
+              } catch (SQLException e) {
+                e.printStackTrace();
+              } catch (NoSuchAlgorithmException e1) {
+                e1.printStackTrace();
+              }
+            } else if(tipoBtn3.isSelected()) {
+              tipo = TipoUsuario.GESTOR;
+              try {
+                Usuario usuario = usuarioService.cadastroGestor(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
+  
+                if(usuario != null) {
+                  popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
+                
+                  nomeText.setText("");
+                  emailText.setText("");
+                  senhaText.setText("");
+                  cpfText.setText("");
+                  tipoBtn1.setSelected(false);
+                  tipoBtn2.setSelected(false);
+                }
+              } catch (SQLException e) {
+                e.printStackTrace();
+              } catch (NoSuchAlgorithmException e1) {
+                e1.printStackTrace();
+              }
+            }
+            
+          } else {
+            popupService.popupPassword();
+          }
+        } catch (SQLException e1) {
+          e1.printStackTrace();
+        }
       }
-
-      Usuario usuario = usuarioService.cadastroRH(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
-
-      if(usuario != null) {
-        popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
-      
-        nomeText.setText("");
-        emailText.setText("");
-        senhaText.setText("");
-        cpfText.setText("");
-        tipoBtn1.setSelected(false);
-        tipoBtn2.setSelected(false);
-      }
-
-    } catch (EmailAlreadyInUseException ee){
-      popupService.popupEmailAlreadyInUse();
-      emailText.setText("");
-    } catch (NoSuchAlgorithmException e1) {
-      e1.printStackTrace();
-    } catch (SQLException e1) {
-      e1.printStackTrace();
-    }
   }
 
 }

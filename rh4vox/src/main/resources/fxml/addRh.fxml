@@ -54,10 +54,11 @@
 
          <HBox id="inputItem" prefHeight="39.0" prefWidth="610.0" stylesheets="@../styles/addJob.css">
             <Label id="inputTitle" alignment="TOP_LEFT" prefHeight="39.0" prefWidth="176.0" stylesheets="@../styles/addJob.css" text="Tipo" />
-            <HBox id="regimeBtnContainer" prefHeight="39.0" prefWidth="206.0" spacing="30.0" stylesheets="@../styles/addJob.css">
+            <HBox id="regimeBtnContainer" prefHeight="39.0" prefWidth="250.0" spacing="30.0" stylesheets="@../styles/addJob.css">
                <children>
                   <RadioButton id="regimeBtn" fx:id="tipoBtn1" mnemonicParsing="false" prefHeight="16.0" prefWidth="71.0" stylesheets="@../styles/addJob.css" text="Adm" />
                   <RadioButton id="regimeBtn" fx:id="tipoBtn2" mnemonicParsing="false" stylesheets="@../styles/addJob.css" text="RH" />
+                  <RadioButton id="regimeBtn" fx:id="tipoBtn3" mnemonicParsing="false" prefHeight="16.0" prefWidth="71.0" stylesheets="@../styles/addJob.css" text="Gestor" />
                </children>
             </HBox>
          </HBox>

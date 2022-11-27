@@ -71,8 +71,16 @@ public class VagaService {
     dao.removeVaga(id);
   }
 
+  public List<Vaga> getAllVagas() throws SQLException {
+    return dao.listVagas();
+  }
+
   public void createCandidatura(Integer idVaga, Integer idCandidato) throws SQLException {
     dao.insertCandidatura(idVaga, idCandidato);
+  }
+
+  public List<Candidatura> getAllCandidaturas() throws SQLException {
+    return dao.getAllCandidaturas();
   }
 
   public List<Candidatura> listVagas(Integer idVaga, Integer idCandidato) throws SQLException {
@@ -95,8 +103,8 @@ public class VagaService {
     return dao.listVagasByUsuario(idUsuario);
   }
 
-  public List<Vaga> listVagasByNome(String nome) throws SQLException {
-    return dao.listVagasByNome(nome);
+  public List<Vaga> listVagasByQuery(String query) throws SQLException {
+    return dao.listVagasByQuery(query);
   }
 
   public List<CandidaturaRh> listCandidaturasByRh(Integer idRh) throws SQLException {

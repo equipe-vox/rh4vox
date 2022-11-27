@@ -120,16 +120,83 @@ public class VagaDAO extends BaseDAO{
         executeQuery(String.format("INSERT INTO candidato_vaga (id_vaga, id_candidato, status_candidato) VALUES(%s, %s, '%s')", idVaga, idCandidato, StatusCandidatura.ENVIADO));
     }
 
-    public List<Candidatura> listCandidaturas(Integer idVaga, Integer idCandidato) throws SQLException {
+    public List<Candidatura> getAllCandidaturas() throws SQLException {
+        Connection conn = getConnection(); 
+    
         List<Candidatura> candidaturas = new ArrayList<>();
+        String sql = "SELECT * FROM candidato_vaga";
 
         try {
-            String query = "SELECT * FROM candidato_vaga WHERE id_candidato = ? AND id_vaga = ?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+      
+            while(rs.next()) {
+                
 
-            PreparedStatement stmt = getPreparedStatement(query);
+              Candidatura c = new Candidatura();
+      
+              c.setId(rs.getInt("id"));
+              c.setIdCandidato(rs.getInt("id_candidato"));
+              c.setIdVaga(rs.getInt("id_vaga"));
+              c.setStatusCandidato(StatusCandidatura.valueOf((rs.getString("status_candidato"))));
+              candidaturas.add(c);
+            }
+      
+            stmt.close();
+            rs.close();
+            conn.close();
+      
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return candidaturas;
+    }
+
+    public List<Candidatura> listCandidaturas(Integer idVaga, Integer idCandidato) throws SQLException {
+        Connection conn = getConnection(); 
+    
+        List<Candidatura> candidaturas = new ArrayList<>();
+        String sql = "SELECT * FROM candidato_vaga WHERE id_candidato=? AND id_vaga=?";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, idCandidato);
             stmt.setInt(2, idVaga);
+            ResultSet rs = stmt.executeQuery();
+      
+            while(rs.next()) {
+                
 
+              Candidatura c = new Candidatura();
+      
+              c.setId(rs.getInt("id"));
+              c.setIdCandidato(rs.getInt("id_candidato"));
+              c.setIdVaga(rs.getInt("id_vaga"));
+              c.setStatusCandidato(StatusCandidatura.valueOf((rs.getString("status_candidato"))));
+              candidaturas.add(c);
+            }
+      
+            stmt.close();
+            rs.close();
+            conn.close();
+      
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return candidaturas;
+    }
+
+    public List<Candidatura> listCandidaturasByCandidato(Integer idCandidato) throws SQLException {
+        Connection conn = getConnection(); 
+    
+        List<Candidatura> candidaturas = new ArrayList<>();
+        String sql = "SELECT * FROM candidato_vaga WHERE id_candidato=?";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, idCandidato);
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -146,37 +213,9 @@ public class VagaDAO extends BaseDAO{
 
             rs.close();
             stmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        
-        return candidaturas;
-    }
-
-    public List<Candidatura> listCandidaturasByCandidato(Integer idCandidato) throws SQLException {
-        List<Candidatura> candidaturas = new ArrayList<>();
-        
-        try {
-            String query = "SELECT * FROM candidato_vaga WHERE id_candidato = ?";
-
-            PreparedStatement stmt = getPreparedStatement(query);
-            stmt.setInt(1, idCandidato);
-
-            ResultSet rs = stmt.executeQuery();
-      
-            while(rs.next()) {
-              Candidatura c = new Candidatura();
-      
-              c.setId(rs.getInt("id"));
-              c.setIdCandidato(rs.getInt("id_candidato"));
-              c.setIdVaga(rs.getInt("id_vaga"));
-              c.setStatusCandidato(StatusCandidatura.valueOf((rs.getString("status_candidato"))));
-
-              candidaturas.add(c);
-            }
-
             rs.close();
-            stmt.close();
+            conn.close();
+      
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -250,9 +289,12 @@ public class VagaDAO extends BaseDAO{
         return vagas;
     }
 
-    public List<Vaga> listVagasByNome(String nome) throws SQLException{
+    public List<Vaga> listVagasByQuery(String query) throws SQLException{
+        Connection conn = getConnection(); 
+    
         List<Vaga> vagas = new ArrayList<>();
-        
+        String sql = "SELECT * FROM vaga WHERE nome LIKE '%"+query+"%' OR cargo LIKE '%"+query+"%'";
+
         try {
             String query = "SELECT * FROM vaga WHERE nome LIKE ?";
             

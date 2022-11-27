@@ -16,6 +16,10 @@ public class AdmDAO extends BaseDAO {
   }
 
   public Administrador getAdm(Usuario usuario) throws SQLException {
+    Connection conn = getConnection(); 
+
+    String sql = String.format("SELECT * FROM administrador WHERE id_usuario = %s", usuario.getId());
+    
     Administrador adm = null;
 
     try {
@@ -50,17 +54,9 @@ public class AdmDAO extends BaseDAO {
     executeQuery(String.format("INSERT INTO administrador (nome, cpf, id_usuario) VALUES('%s', '%s', %s)", nome, cpf, idUsuario));
   }
 
-  public void updateAdm(Usuario usuario) {
-
-  }
-
-  public void removeAdm(int id) {
-
-  }
-
   public List<Administrador> listAdm() throws SQLException {
     List<Administrador> adms = new ArrayList<>();
-    String sql = "SELECT * FROM adm";
+    String sql = "SELECT * FROM administrador";
     
     try {
       PreparedStatement stmt = getPreparedStatement(sql);

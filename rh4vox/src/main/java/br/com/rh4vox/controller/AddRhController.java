@@ -61,27 +61,47 @@ public class AddRhController implements Initializable  {
               popupService.popup("Erro!", "Um ou mais campos não podem estar vazios.");
             } else if (tipoBtn1.isSelected()) {
               tipo = TipoUsuario.ADM;
+
+              try {
+                Usuario usuario = usuarioService.cadastroAdm(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
+  
+                if(usuario != null) {
+                  popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
+                
+                  nomeText.setText("");
+                  emailText.setText("");
+                  senhaText.setText("");
+                  cpfText.setText("");
+                  tipoBtn1.setSelected(false);
+                  tipoBtn2.setSelected(false);
+                }
+              } catch (SQLException e) {
+                e.printStackTrace();
+              } catch (NoSuchAlgorithmException e1) {
+                e1.printStackTrace();
+              }
             } else if (tipoBtn2.isSelected()) {
               tipo = TipoUsuario.RH;
-            } 
-            try {
-              Usuario usuario = usuarioService.cadastroRH(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
-
-              if(usuario != null) {
-                popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
-              
-                nomeText.setText("");
-                emailText.setText("");
-                senhaText.setText("");
-                cpfText.setText("");
-                tipoBtn1.setSelected(false);
-                tipoBtn2.setSelected(false);
+              try {
+                Usuario usuario = usuarioService.cadastroRH(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
+  
+                if(usuario != null) {
+                  popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
+                
+                  nomeText.setText("");
+                  emailText.setText("");
+                  senhaText.setText("");
+                  cpfText.setText("");
+                  tipoBtn1.setSelected(false);
+                  tipoBtn2.setSelected(false);
+                }
+              } catch (SQLException e) {
+                e.printStackTrace();
+              } catch (NoSuchAlgorithmException e1) {
+                e1.printStackTrace();
               }
-            } catch (SQLException e) {
-              e.printStackTrace();
-            } catch (NoSuchAlgorithmException e1) {
-              e1.printStackTrace();
-            }
+            } 
+            
           } else {
             popupService.popupPassword();
           }

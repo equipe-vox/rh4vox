@@ -75,6 +75,17 @@ public class UsuarioService {
 
     return usuario;
   }
+  public Usuario cadastroAdm(String email, String senha, String nome, TipoUsuario tipo, String cpf) throws SQLException, NoSuchAlgorithmException {
+    dao.insertUsuario(email, senhaHash(senha), tipo);
+
+    Usuario usuario = login(email, senha);
+
+    AdmService admService = new AdmService();
+
+    admService.insertAdm(nome, cpf, usuario.getId());
+
+    return usuario;
+  }
 
   public String senhaHash(String senha) throws NoSuchAlgorithmException {
     MessageDigest md = MessageDigest.getInstance("MD5");

@@ -86,6 +86,7 @@ public class VagaDAO extends BaseDAO{
 
     public List<Vaga> listVagas() throws SQLException{
         List<Vaga> vagas = new ArrayList<>();
+        
         try {
             String sql = "SELECT * FROM vaga";
 
@@ -121,13 +122,13 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<Candidatura> getAllCandidaturas() throws SQLException {
-        Connection conn = getConnection(); 
-    
         List<Candidatura> candidaturas = new ArrayList<>();
-        String sql = "SELECT * FROM candidato_vaga";
 
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM candidato_vaga";
+
+            PreparedStatement stmt = getPreparedStatement(query);
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -141,11 +142,9 @@ public class VagaDAO extends BaseDAO{
               c.setStatusCandidato(StatusCandidatura.valueOf((rs.getString("status_candidato"))));
               candidaturas.add(c);
             }
-      
-            stmt.close();
+
             rs.close();
-            conn.close();
-      
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -154,15 +153,15 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<Candidatura> listCandidaturas(Integer idVaga, Integer idCandidato) throws SQLException {
-        Connection conn = getConnection(); 
-    
         List<Candidatura> candidaturas = new ArrayList<>();
-        String sql = "SELECT * FROM candidato_vaga WHERE id_candidato=? AND id_vaga=?";
-
+        
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM candidato_vaga WHERE id_candidato = ? AND id_vaga = ?";
+
+            PreparedStatement stmt = getPreparedStatement(query);
             stmt.setInt(1, idCandidato);
             stmt.setInt(2, idVaga);
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -176,11 +175,9 @@ public class VagaDAO extends BaseDAO{
               c.setStatusCandidato(StatusCandidatura.valueOf((rs.getString("status_candidato"))));
               candidaturas.add(c);
             }
-      
-            stmt.close();
+
             rs.close();
-            conn.close();
-      
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -189,14 +186,14 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<Candidatura> listCandidaturasByCandidato(Integer idCandidato) throws SQLException {
-        Connection conn = getConnection(); 
-    
         List<Candidatura> candidaturas = new ArrayList<>();
-        String sql = "SELECT * FROM candidato_vaga WHERE id_candidato=?";
 
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM candidato_vaga WHERE id_candidato = ?";
+
+            PreparedStatement stmt = getPreparedStatement(query);
             stmt.setInt(1, idCandidato);
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -213,9 +210,6 @@ public class VagaDAO extends BaseDAO{
 
             rs.close();
             stmt.close();
-            rs.close();
-            conn.close();
-      
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -227,7 +221,7 @@ public class VagaDAO extends BaseDAO{
         List<Candidatura> candidaturas = new ArrayList<>();
         
         try {
-            String query = "SELECT * FROM candidato_vaga WHERE id_vaga=?";
+            String query = "SELECT * FROM candidato_vaga WHERE id_vaga = ?";
 
             PreparedStatement stmt = getPreparedStatement(query);
             stmt.setInt(1, idVaga);
@@ -289,17 +283,16 @@ public class VagaDAO extends BaseDAO{
         return vagas;
     }
 
-    public List<Vaga> listVagasByQuery(String query) throws SQLException{
-        Connection conn = getConnection(); 
-    
+    public List<Vaga> listVagasByQuery(String word) throws SQLException{
         List<Vaga> vagas = new ArrayList<>();
-        String sql = "SELECT * FROM vaga WHERE nome LIKE '%"+query+"%' OR cargo LIKE '%"+query+"%'";
+        word = '%'+word+'%';
 
         try {
-            String query = "SELECT * FROM vaga WHERE nome LIKE ?";
+            String query = "SELECT * FROM vaga WHERE nome LIKE ? OR cargo LIKE ?";
             
             PreparedStatement stmt = getPreparedStatement(query);
-            stmt.setString(1, '%'+nome+'%');
+            stmt.setString(1, word);
+            stmt.setString(2, word);
 
             ResultSet rs = stmt.executeQuery();
       
@@ -375,7 +368,7 @@ public class VagaDAO extends BaseDAO{
     }
 
     public void updateCandidacyStatus(Integer idCandidato, Integer idVaga, StatusCandidatura status) throws SQLException {
-        String query = "UPDATE candidato_vaga SET status_candidato=? WHERE id_candidato=? AND id_vaga=?";
+        String query = "UPDATE candidato_vaga SET status_candidato = ? WHERE id_candidato = ? AND id_vaga = ?";
  
         PreparedStatement statement = getPreparedStatement(query);
         statement.setString(1, status.toString());

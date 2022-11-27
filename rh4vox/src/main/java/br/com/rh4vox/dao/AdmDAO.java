@@ -16,14 +16,10 @@ public class AdmDAO extends BaseDAO {
   }
 
   public Administrador getAdm(Usuario usuario) throws SQLException {
-    Connection conn = getConnection(); 
-
-    String sql = String.format("SELECT * FROM administrador WHERE id_usuario = %s", usuario.getId());
-    
     Administrador adm = null;
 
     try {
-      String query = "SELECT * FROM adm WHERE id_usuario = ?";
+      String query = "SELECT * FROM administrador WHERE id_usuario = ?";
 
       PreparedStatement stmt = getPreparedStatement(query);
       stmt.setInt(1, usuario.getId());

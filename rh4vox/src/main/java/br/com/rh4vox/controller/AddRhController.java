@@ -42,91 +42,76 @@ public class AddRhController implements Initializable  {
     try {
 
       if(
-          emailText.getText().isEmpty() ||
-          senhaText.getText().isEmpty() ||
-          nomeText.getText().isEmpty() ||
-          cpfText.getText().isEmpty()
-        ) {
-          popupService.popupEmptyInput();
-          return;
-        }
+        emailText.getText().isEmpty() ||
+        senhaText.getText().isEmpty() ||
+        nomeText.getText().isEmpty() ||
+        cpfText.getText().isEmpty()
+      ) {
+        popupService.popupEmptyInput();
+        return;
+      }
 
       TipoUsuario tipo = TipoUsuario.RH;
 
-            if(tipoBtn1.isSelected() == true && tipoBtn2.isSelected() == true && tipoBtn3.isSelected() == true) {
-              popupService.popup("Erro!", "Selecione apenas um tipo de usuário.");
-            } else if (tipoBtn1.isSelected() == false && tipoBtn2.isSelected() == false && tipoBtn3.isSelected() == false) {
-              popupService.popup("Erro!", "Um ou mais campos não podem estar vazios.");
-            } else if (tipoBtn1.isSelected()) {
-              tipo = TipoUsuario.ADM;
+      if(tipoBtn1.isSelected() == true && tipoBtn2.isSelected() == true && tipoBtn3.isSelected() == true) {
+        popupService.popup("Erro!", "Selecione apenas um tipo de usuário.");
 
-              try {
-                Usuario usuario = usuarioService.cadastroAdm(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
-  
-                if(usuario != null) {
-                  popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
-                
-                  nomeText.setText("");
-                  emailText.setText("");
-                  senhaText.setText("");
-                  cpfText.setText("");
-                  tipoBtn1.setSelected(false);
-                  tipoBtn2.setSelected(false);
-                }
-              } catch (SQLException e) {
-                e.printStackTrace();
-              } catch (NoSuchAlgorithmException e1) {
-                e1.printStackTrace();
-              }
-            } else if (tipoBtn2.isSelected()) {
-              tipo = TipoUsuario.RH;
-              try {
-                Usuario usuario = usuarioService.cadastroRH(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
-  
-                if(usuario != null) {
-                  popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
-                
-                  nomeText.setText("");
-                  emailText.setText("");
-                  senhaText.setText("");
-                  cpfText.setText("");
-                  tipoBtn1.setSelected(false);
-                  tipoBtn2.setSelected(false);
-                }
-              } catch (SQLException e) {
-                e.printStackTrace();
-              } catch (NoSuchAlgorithmException e1) {
-                e1.printStackTrace();
-              }
-            } else if(tipoBtn3.isSelected()) {
-              tipo = TipoUsuario.GESTOR;
-              try {
-                Usuario usuario = usuarioService.cadastroGestor(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
-  
-                if(usuario != null) {
-                  popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
-                
-                  nomeText.setText("");
-                  emailText.setText("");
-                  senhaText.setText("");
-                  cpfText.setText("");
-                  tipoBtn1.setSelected(false);
-                  tipoBtn2.setSelected(false);
-                }
-              } catch (SQLException e) {
-                e.printStackTrace();
-              } catch (NoSuchAlgorithmException e1) {
-                e1.printStackTrace();
-              }
-            }
-            
-          } else {
-            popupService.popupPassword();
-          }
-        } catch (SQLException e1) {
-          e1.printStackTrace();
+      } else if (tipoBtn1.isSelected() == false && tipoBtn2.isSelected() == false && tipoBtn3.isSelected() == false) {
+        popupService.popup("Erro!", "Um ou mais campos não podem estar vazios.");
+
+      } else if (tipoBtn1.isSelected()) {
+        tipo = TipoUsuario.ADM;
+
+        Usuario usuario = usuarioService.cadastroAdm(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
+
+        if(usuario != null) {
+          popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
+        
+          nomeText.setText("");
+          emailText.setText("");
+          senhaText.setText("");
+          cpfText.setText("");
+          tipoBtn1.setSelected(false);
+          tipoBtn2.setSelected(false);
         }
-      }
-  }
 
+      } else if (tipoBtn2.isSelected()) {
+        tipo = TipoUsuario.RH;
+
+        Usuario usuario = usuarioService.cadastroRH(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
+
+        if(usuario != null) {
+          popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
+        
+          nomeText.setText("");
+          emailText.setText("");
+          senhaText.setText("");
+          cpfText.setText("");
+          tipoBtn1.setSelected(false);
+          tipoBtn2.setSelected(false);
+        }
+
+      } else if(tipoBtn3.isSelected()) {
+        tipo = TipoUsuario.GESTOR;
+
+        Usuario usuario = usuarioService.cadastroGestor(emailText.getText(), senhaText.getText(), nomeText.getText(), tipo, cpfText.getText());
+
+        if(usuario != null) {
+          popupService.popup("Sucesso!", String.format("%s criado com sucesso!", usuario.getTipo()));
+        
+          nomeText.setText("");
+          emailText.setText("");
+          senhaText.setText("");
+          cpfText.setText("");
+          tipoBtn1.setSelected(false);
+          tipoBtn2.setSelected(false);
+        }
+
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    } catch (NoSuchAlgorithmException e1) {
+      e1.printStackTrace();
+    }
+  }
 }

@@ -12,16 +12,15 @@ import br.com.rh4vox.model.Usuario;
 
 public class GestorDAO extends BaseDAO {
   public Gestor getGestor(Usuario usuario) throws SQLException {
-    Connection conn = getConnection(); 
-
-    String sql = String.format("SELECT * FROM gestor WHERE id_usuario = %s", usuario.getId());
-    
     Gestor gestor = null;
 
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
-      ResultSet rs = stmt.executeQuery();
+      String query = "SELECT * FROM gestor WHERE id_usuario = ?";
 
+      PreparedStatement stmt = getPreparedStatement(query);
+      stmt.setInt(1, usuario.getId());
+
+      ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
         gestor = new Gestor();
@@ -33,11 +32,8 @@ public class GestorDAO extends BaseDAO {
         break;
       }
 
-      stmt.close();
       rs.close();
-      conn.close();
-
-      
+      stmt.close();
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -50,13 +46,12 @@ public class GestorDAO extends BaseDAO {
   }
 
   public List<Gestor> listGestor() throws SQLException {
-    Connection conn = getConnection(); 
-
     List<Gestor> gestores = new ArrayList<Gestor>();
-    String sql = "SELECT * FROM gestor";
     
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
+      String query = "SELECT * FROM gestor";
+      PreparedStatement stmt = getPreparedStatement(query);
+
       ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
@@ -69,10 +64,8 @@ public class GestorDAO extends BaseDAO {
         gestores.add(gestor);
       }
 
-      stmt.close();
       rs.close();
-      conn.close();
-
+      stmt.close();
     } catch (SQLException e) {
       e.printStackTrace();
     }

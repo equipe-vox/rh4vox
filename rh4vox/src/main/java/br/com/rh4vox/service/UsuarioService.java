@@ -86,6 +86,17 @@ public class UsuarioService {
 
     return usuario;
   }
+  public Usuario cadastroGestor(String email, String senha, String nome, TipoUsuario tipo, String cpf) throws SQLException, NoSuchAlgorithmException {
+    dao.insertUsuario(email, senhaHash(senha), tipo);
+
+    Usuario usuario = login(email, senha);
+
+    GestorService gestorService = new GestorService();
+
+    gestorService.insertGestor(nome, cpf, usuario.getId());
+
+    return usuario;
+  }
 
   public String senhaHash(String senha) throws NoSuchAlgorithmException {
     MessageDigest md = MessageDigest.getInstance("MD5");

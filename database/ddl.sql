@@ -76,3 +76,12 @@ CREATE TABLE administrador (
 	FOREIGN KEY (id_usuario) 
           REFERENCES usuario (id)	
 );
+
+CREATE TABLE gestor (
+	id SERIAL PRIMARY KEY,
+	nome TEXT NOT NULL,
+	cpf VARCHAR NOT NULL,
+	id_usuario INTEGER NOT NULL,
+	FOREIGN KEY (id_usuario) 
+          REFERENCES usuario (id)	
+);

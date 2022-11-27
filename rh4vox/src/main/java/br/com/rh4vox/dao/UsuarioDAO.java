@@ -11,8 +11,34 @@ import br.com.rh4vox.model.Usuario;
 
 public class UsuarioDAO extends BaseDAO {
 
-  public Usuario getUsuario(int id) throws SQLException {
-    return null;
+  public Usuario getUsuario(Integer id) throws SQLException {
+    Usuario usuario = null;
+
+    try {
+      String query = "SELECT * FROM usuario WHERE id = ?";
+
+      PreparedStatement stmt = getPreparedStatement(query);
+      stmt.setInt(1, id);
+
+      ResultSet rs = stmt.executeQuery();
+
+      while(rs.next()) {
+        usuario = new Usuario();
+
+        usuario.setId(rs.getInt("id"));
+        usuario.setEmail(rs.getString("email"));
+        usuario.setSenha(rs.getString("senha"));
+        usuario.setTipo(TipoUsuario.valueOf(rs.getString("tipo")));
+        break;
+      }
+
+      stmt.close();
+      rs.close();      
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+
+    return usuario;
   }
 
   public void insertUsuario(String email, String senha, TipoUsuario tipo) throws SQLException {

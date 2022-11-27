@@ -144,6 +144,50 @@
                         </HBox>
                      </children>
                   </VBox>
+                  <VBox id="linksContainer" layoutX="10.0" layoutY="466.0" prefHeight="121.0" prefWidth="294.0" spacing="20.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/profile.css">
+                     <children>
+                        <VBox prefHeight="19.0" prefWidth="245.0">
+                           <children>
+                              <Label id="linksTitle" stylesheets="@../styles/profile.css" text="Total de RHs" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="245.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/candidacies.png" />
+                                 </image>
+                              </ImageView>
+                              <Label id="hyperlink" fx:id="rhLabel" stylesheets="@../styles/profile.css" text="10 candidatos" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox id="linksContainer" layoutX="10.0" layoutY="618.0" prefHeight="121.0" prefWidth="294.0" spacing="20.0" style="-fx-background-color: #ffffff;" stylesheets="@../styles/profile.css">
+                     <children>
+                        <VBox prefHeight="19.0" prefWidth="245.0">
+                           <children>
+                              <Label id="linksTitle" stylesheets="@../styles/profile.css" text="Total de Gestores" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="245.0" spacing="10.0">
+                           <children>
+                              <ImageView fitHeight="21.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/icons/candidacies.png" />
+                                 </image>
+                              </ImageView>
+                              <Label id="hyperlink" fx:id="gestoresLabel" stylesheets="@../styles/profile.css" text="10 candidatos" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
                </children>
             </VBox>
          </children>

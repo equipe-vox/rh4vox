@@ -91,6 +91,20 @@ public class ProfileAdmController implements Initializable  {
     } else {
       disapprovedLabel.setText(disapprovedCandidaturas.size() + " candidatos");
     }
+    
+    List<RH> rhs = rhService.getRhs();
+
+    for(RH rh:rhs) {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/rhItem.fxml"));
+      Parent rhItem = loader.load();
+      RhItemController rhItemController = loader.getController();
+
+      rhItemController.setRh(rh);  
+
+      candidatesContainer.getChildren().add(rhItem);
+    }
+
+
   }
 
 }

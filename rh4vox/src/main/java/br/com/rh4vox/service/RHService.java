@@ -1,6 +1,7 @@
 package br.com.rh4vox.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import br.com.rh4vox.dao.RHDAO;
 import br.com.rh4vox.model.RH;
@@ -21,7 +22,11 @@ public class RHService {
     return dao.getRH(usuario);
   }
 
-  public Integer getVagasByUsuario(Usuario usuario) {
+  public List<RH> getRhs() throws SQLException {
+    return dao.listRH();
+  }
+
+  public Integer getVagasByUsuario(Integer integer) {
     return null;
   }
 

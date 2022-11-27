@@ -28,6 +28,14 @@ public class UsuarioService {
   RHDAO rhDao = new RHDAO();
   Candidato candidato;
 
+  public Usuario getUsuario(Integer id) throws SQLException {
+    return dao.getUsuario(id);
+  }
+
+  public List<Usuario> listUsuarios() throws SQLException {
+    return dao.listUsuarios();
+  }
+
   public Usuario login(String email, String senha) throws SQLException, NoSuchAlgorithmException {
     candidato = new Candidato();
 

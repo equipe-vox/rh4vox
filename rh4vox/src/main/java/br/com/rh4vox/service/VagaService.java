@@ -103,8 +103,8 @@ public class VagaService {
     return dao.listVagasByUsuario(idUsuario);
   }
 
-  public List<Vaga> listVagasByNome(String nome) throws SQLException {
-    return dao.listVagasByNome(nome);
+  public List<Vaga> listVagasByQuery(String query) throws SQLException {
+    return dao.listVagasByQuery(query);
   }
 
   public List<CandidaturaRh> listCandidaturasByRh(Integer idRh) throws SQLException {

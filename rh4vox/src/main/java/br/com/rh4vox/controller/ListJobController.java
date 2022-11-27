@@ -77,13 +77,13 @@ public class ListJobController implements Initializable {
   @FXML
   public void searchJobs(Event e) throws SQLException, IOException {
     listContainer.getChildren().clear();
-    String nome = searchText.getText();
+    String query = searchText.getText();
 
-    if(nome == "" || nome == " ") {
+    if(query == "" || query == " ") {
       setJobs();
     }
 
-    List<Vaga> vagas = vagaService.listVagasByNome(nome);
+    List<Vaga> vagas = vagaService.listVagasByQuery(query);
 
     if(vagas.size() != 0) {
       for(Vaga v:vagas) {

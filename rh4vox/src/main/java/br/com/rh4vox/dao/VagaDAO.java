@@ -302,11 +302,11 @@ public class VagaDAO extends BaseDAO{
         return vagas;
     }
 
-    public List<Vaga> listVagasByNome(String nome) throws SQLException{
+    public List<Vaga> listVagasByQuery(String query) throws SQLException{
         Connection conn = getConnection(); 
     
         List<Vaga> vagas = new ArrayList<>();
-        String sql = "SELECT * FROM vaga WHERE nome LIKE '%"+nome+"%'";
+        String sql = "SELECT * FROM vaga WHERE nome LIKE '%"+query+"%' OR cargo LIKE '%"+query+"%'";
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);

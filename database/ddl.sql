@@ -18,10 +18,11 @@ CREATE TABLE usuario (
 
 CREATE TABLE candidato (
 	id SERIAL PRIMARY KEY,
-	nome TEXT NOT NULL,
+	nome_candidato TEXT NOT NULL,
 	data_nasc DATE NOT NULL,
 	cpf VARCHAR NOT NULL,
 	id_usuario INTEGER NOT NULL,
+	telefone VARCHAR,
 	FOREIGN KEY (id_usuario) 
           REFERENCES usuario (id)	
 );

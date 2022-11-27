@@ -19,7 +19,6 @@ public class CandidatoService {
     Candidato candidato = new Candidato(null, nome, cpf, data_nasc, usuario, null);
 
     dao.insertCandidato(candidato);
-
   }
 
   public Candidato getCandidatoByUsuario(Usuario usuario) throws SQLException {
@@ -29,7 +28,6 @@ public class CandidatoService {
     CandidatoLogado.getInstance().setCandidato(candidato);
     
     return candidato;
-
   }
 
   public Candidato cpfAlreadyExists(String cpf) throws SQLException {
@@ -40,6 +38,7 @@ public class CandidatoService {
         return candidato;
       }
     }
+    
     return null;
   }
 

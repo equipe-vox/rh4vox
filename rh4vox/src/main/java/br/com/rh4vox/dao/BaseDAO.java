@@ -1,47 +1,24 @@
 package br.com.rh4vox.dao;
-
-import java.io.FileInputStream;
 import java.sql.*;
-import java.util.Properties;
+
+import br.com.rh4vox.exception.DatabaseNotAvailableException;
 
 
 public class BaseDAO {
 
-    public Connection getConnection() throws SQLException {
-        try{
-            Properties properties = new Properties();
-    
-            properties.load(new FileInputStream("local.properties"));
-    
-            String url = String.format("jdbc:%s://%s:%s/%s",
-                properties.getProperty("driver"), 
-                properties.getProperty("host"),
-                properties.getProperty("port"),
-                properties.getProperty("database")
-            );
-    
-            Connection conn = DriverManager.getConnection(url, properties);
-            return conn;
-        } catch(Exception e){
-            e.printStackTrace();
-        }
+    protected PreparedStatement getPreparedStatement(String query) throws DatabaseNotAvailableException, SQLException{
+        PreparedStatement preparedStatement = Database.getInstance().getConnection().prepareStatement(query);
 
-        return null;
+        return preparedStatement;
     }
 
-    public void executeQuery(String query) throws SQLException{
+    protected void executeQuery(String query) throws SQLException{
         try{
-            Connection conn = getConnection(); 
-            Statement st = conn.createStatement();
-    
+            Statement st = Database.getInstance().getConnection().createStatement();
             st.execute(query);
-    
             st.close();
-            conn.close();
-            
         } catch (SQLException e){
             e.printStackTrace();
         } 
     }
-    
 }

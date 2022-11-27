@@ -66,6 +66,7 @@ public class MainController implements Initializable {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         usuario = UsuarioLogado.getInstance().getUsuario();
+        
         usuarioService = new UsuarioService();
         candidatoService = new CandidatoService();
 

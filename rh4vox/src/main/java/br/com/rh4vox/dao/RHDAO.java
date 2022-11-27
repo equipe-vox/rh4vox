@@ -1,6 +1,5 @@
 package br.com.rh4vox.dao;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,7 +8,6 @@ import java.util.List;
 
 import br.com.rh4vox.model.RH;
 import br.com.rh4vox.model.Usuario;
-import br.com.rh4vox.model.Vaga; 
 
 public class RHDAO extends BaseDAO {
 
@@ -18,16 +16,15 @@ public class RHDAO extends BaseDAO {
   }
 
   public RH getRH(Usuario usuario) throws SQLException {
-    Connection conn = getConnection(); 
-
-    String sql = String.format("SELECT * FROM rh WHERE id_usuario = %s", usuario.getId());
-    
     RH rh = null;
 
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
-      ResultSet rs = stmt.executeQuery();
+      String query = "SELECT * FROM rh WHERE id_usuario = ?";
 
+      PreparedStatement stmt = getPreparedStatement(query);
+      stmt.setInt(1, usuario.getId());
+
+      ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
         rh = new RH();
@@ -39,11 +36,8 @@ public class RHDAO extends BaseDAO {
         break;
       }
 
-      stmt.close();
       rs.close();
-      conn.close();
-
-      
+      stmt.close();
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -64,13 +58,13 @@ public class RHDAO extends BaseDAO {
   }
 
   public List<RH> listRH() throws SQLException {
-    Connection conn = getConnection(); 
-
     List<RH> rhs = new ArrayList<>();
-    String sql = "SELECT * FROM rh";
-    
+
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
+      String query = "SELECT * FROM rh";
+
+      PreparedStatement stmt = getPreparedStatement(query);
+
       ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
@@ -85,8 +79,6 @@ public class RHDAO extends BaseDAO {
 
       stmt.close();
       rs.close();
-      conn.close();
-
     } catch (SQLException e) {
       e.printStackTrace();
     }

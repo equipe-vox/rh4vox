@@ -1,6 +1,5 @@
 package br.com.rh4vox.dao;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,18 +9,16 @@ import br.com.rh4vox.model.Curriculo;
 
 public class CurriculoDAO extends BaseDAO {
   
-
   public Curriculo getCurriculo(int idCandidato) throws SQLException {
-    Connection conn = getConnection(); 
-
-    String sql = String.format("SELECT * FROM curriculo WHERE id_candidato = %s", idCandidato);
-    
     Curriculo c = null;
 
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
-      ResultSet rs = stmt.executeQuery();
+      String query = "SELECT * FROM curriculo WHERE id_candidato = ?";
 
+      PreparedStatement stmt = getPreparedStatement(query);
+      stmt.setInt(1, idCandidato);
+
+      ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
         c = new Curriculo();
@@ -41,35 +38,32 @@ public class CurriculoDAO extends BaseDAO {
 
       stmt.close();
       rs.close();
-      conn.close();
     } catch (SQLException e) {
       e.printStackTrace();
     }
+
     return c;
   }
 
   public void insertCurrilo(Curriculo curriculo, Integer idCandidato) throws SQLException {
-    Connection conn = getConnection(); 
-
-    String sql = String.format("SELECT * FROM curriculo WHERE id_candidato = %s", idCandidato);
-    
     Curriculo c = null;
 
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
-      ResultSet rs = stmt.executeQuery();
+      String query = "SELECT * FROM curriculo WHERE id_candidato = ?";
 
+      PreparedStatement stmt = getPreparedStatement(query);
+      stmt.setInt(1, idCandidato);
+
+      ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
         c = new Curriculo();
-
         c.setId(rs.getInt("id"));
         break;
       }
 
       stmt.close();
-      rs.close();
-      conn.close();     
+      rs.close();  
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -90,7 +84,7 @@ public class CurriculoDAO extends BaseDAO {
       executeQuery(updateSql);
     } else {
       executeQuery(String.format("INSERT INTO curriculo (bio, objetivo, habilidades, formacao, experiencia, id_candidato, site, linkedin, git) SELECT '%s', '%s', '%s', '%s', '%s', %s, '%s', '%s', '%s' WHERE NOT EXISTS (SELECT id_candidato FROM curriculo where id_candidato = %s)", curriculo.getBio(), curriculo.getObjetivo(), curriculo.getHabilidades(), curriculo.getFormacao(), curriculo.getExperiencia(), idCandidato, curriculo.getSite(), curriculo.getLinkedin(), curriculo.getGit(), idCandidato));
-    }   
+    }
   }
 
   public void updateCurriculo(Curriculo curriculo) {

@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 
 import br.com.rh4vox.App;
 import br.com.rh4vox.enums.TipoUsuario;
+import br.com.rh4vox.exception.EmailAlreadyInUseException;
 import br.com.rh4vox.exception.ValidationException;
 import br.com.rh4vox.model.Usuario;
 import br.com.rh4vox.service.PopupService;
@@ -52,58 +53,47 @@ public class SignUpController implements Initializable  {
         });
 
         signupBtn.setOnAction(event -> {
-            if(
-                emailText.getText().isEmpty() ||
-                senhaText.getText().isEmpty() ||
-                nomeText.getText().isEmpty() ||
-                dataText.getValue() == null ||
-                cpfText.getText().isEmpty()
-            ) {
-                popupService.popupEmptyInput();
-            } else {
-                try {
-                    Usuario emailAlreadyInUse = usuarioService.emailAlreadyInUse(emailText.getText());
-
-                    if(emailAlreadyInUse != null) {
-                        popupService.popupEmailAlreadyInUse();
-                        emailText.setText("");
-                    } else if(senhaText.getText().length() >= 6 && senhaText.getText().length() <= 20) {
-                        try {
-                            
-                            Usuario usuario = usuarioService.cadastroCandidato(emailText.getText(), senhaText.getText(), nomeText.getText(), dataText.getValue(), cpfText.getText());
-            
-                            if(usuario != null) {
-                                String targetScreen = null;
-            
-                                if(usuario.getTipo() == TipoUsuario.CANDIDATO) {
-                                    targetScreen = "login";
-                                } else if(usuario.getTipo() == TipoUsuario.ADM) {
-                                    targetScreen = "mainAdm";
-                                } else if(usuario.getTipo() == TipoUsuario.RH) {
-                                    targetScreen = "mainRH";
-                                }
-            
-                                try {
-                                    App.setRoot(targetScreen);
-                                    this.popupService.popupSignUp();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        } catch (NoSuchAlgorithmException e1) {
-                            // TODO Auto-generated catch block
-                            e1.printStackTrace();
-                        } catch (ValidationException ve) {
-                            popupService.popup("Dados inválidos", ve.getMessage());
-                        }
-                    } else {
-                        popupService.popupPassword();
-                    }
-                } catch (SQLException e1) {
-                    e1.printStackTrace();
+            try {
+                if (
+                    emailText.getText().isEmpty() ||
+                    senhaText.getText().isEmpty() ||
+                    nomeText.getText().isEmpty() ||
+                    dataText.getValue() == null ||
+                    cpfText.getText().isEmpty()
+                ) {
+                    popupService.popupEmptyInput();
+                    return;
                 }
+                
+                Usuario usuario = usuarioService.cadastroCandidato(emailText.getText(), senhaText.getText(), nomeText.getText(), dataText.getValue(), cpfText.getText());
+
+                if(usuario != null) {
+                    String targetScreen = null;
+
+                    if(usuario.getTipo() == TipoUsuario.CANDIDATO) {
+                        targetScreen = "login";
+                    } else if(usuario.getTipo() == TipoUsuario.ADM) {
+                        targetScreen = "mainAdm";
+                    } else if(usuario.getTipo() == TipoUsuario.RH) {
+                        targetScreen = "mainRH";
+                    }
+
+                    try {
+                        App.setRoot(targetScreen);
+                        this.popupService.popupSignUp();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } catch (ValidationException ve) {
+                popupService.popup("Dados inválidos", ve.getMessage());
+            } catch(EmailAlreadyInUseException ee){
+                 popupService.popupEmailAlreadyInUse();
+                emailText.setText("");
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } catch (NoSuchAlgorithmException e1) {
+                e1.printStackTrace();
             }
         });
     }

@@ -4,9 +4,7 @@ public class UsuarioLogado {
   private static UsuarioLogado instance;
   private Usuario usuario;
 
-  private UsuarioLogado () {
-    
-  }
+  private UsuarioLogado(){}
 
   public static UsuarioLogado getInstance() {
     

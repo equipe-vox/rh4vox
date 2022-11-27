@@ -23,8 +23,8 @@ public class Curriculo {
     Integer idCandidato,
     String site,
     String linkedin,
-    String git
-  ) {
+    String git ) 
+  {
     this.id = id;
     this.bio = bio;
     this.objetivo = objetivo;

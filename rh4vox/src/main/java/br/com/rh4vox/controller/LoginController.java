@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import br.com.rh4vox.App;
 import br.com.rh4vox.enums.TipoUsuario;
 import br.com.rh4vox.model.Usuario;
+import br.com.rh4vox.model.UsuarioLogado;
 import br.com.rh4vox.service.PopupService;
 import br.com.rh4vox.service.UsuarioService;
 
@@ -46,6 +47,7 @@ public class LoginController implements Initializable {
                 popupService.popupEmptyInput();
             } else {
                 try {
+
                     Usuario usuario = loginService.login(emailText.getText(), senhaText.getText());
 
                     if(usuario != null) {
@@ -59,19 +61,21 @@ public class LoginController implements Initializable {
                             targetScreen = "mainRH";
                         }
 
+                        UsuarioLogado.getInstance().setUsuario(usuario);
+
                         try {
                             App.setRoot(targetScreen);
                             this.popupService.popupLogin();
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
+
                     } else {
                         popupService.popupIncorrectEmailOrPass();
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
                 } catch (NoSuchAlgorithmException e1) {
-                    // TODO Auto-generated catch block
                     e1.printStackTrace();
                 }
             }

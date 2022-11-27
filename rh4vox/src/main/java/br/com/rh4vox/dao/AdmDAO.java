@@ -1,6 +1,5 @@
 package br.com.rh4vox.dao;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,16 +16,15 @@ public class AdmDAO extends BaseDAO {
   }
 
   public Administrador getAdm(Usuario usuario) throws SQLException {
-    Connection conn = getConnection(); 
-
-    String sql = String.format("SELECT * FROM adm WHERE id_usuario = %s", usuario.getId());
-    
     Administrador adm = null;
 
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
-      ResultSet rs = stmt.executeQuery();
+      String query = "SELECT * FROM adm WHERE id_usuario = ?";
 
+      PreparedStatement stmt = getPreparedStatement(query);
+      stmt.setInt(1, usuario.getId());
+
+      ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
         adm = new Administrador();
@@ -39,13 +37,11 @@ public class AdmDAO extends BaseDAO {
       }
 
       stmt.close();
-      rs.close();
-      conn.close();
-
-      
+      rs.close();      
     } catch (SQLException e) {
       e.printStackTrace();
     }
+
     return adm;
   }
 
@@ -63,13 +59,11 @@ public class AdmDAO extends BaseDAO {
   }
 
   public List<Administrador> listAdm() throws SQLException {
-    Connection conn = getConnection(); 
-
     List<Administrador> adms = new ArrayList<>();
     String sql = "SELECT * FROM adm";
     
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
+      PreparedStatement stmt = getPreparedStatement(sql);
       ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
@@ -82,10 +76,8 @@ public class AdmDAO extends BaseDAO {
         adms.add(adm);
       }
 
-      stmt.close();
       rs.close();
-      conn.close();
-
+      stmt.close();
     } catch (SQLException e) {
       e.printStackTrace();
     }

@@ -1,6 +1,5 @@
 package br.com.rh4vox.dao;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,10 +21,9 @@ public class UsuarioDAO extends BaseDAO {
   }
 
   public void updateUsuario(String email, Integer id) throws SQLException {
-    Connection conn = getConnection(); 
-    String sql = "UPDATE usuario SET email=? WHERE id=?";
+    String query = "UPDATE usuario SET email = ? WHERE id = ?";
 
-    PreparedStatement statement = conn.prepareStatement(sql);
+    PreparedStatement statement = getPreparedStatement(query);
     statement.setString(1, email);
     statement.setInt(2, id);
     
@@ -40,13 +38,13 @@ public class UsuarioDAO extends BaseDAO {
   }
 
   public List<Usuario> listUsuarios() throws SQLException {
-    Connection conn = getConnection(); 
-
     List<Usuario> usuarios = new ArrayList<>();
-    String sql = "SELECT * FROM usuario";
     
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
+      String query = "SELECT * FROM usuario";
+
+      PreparedStatement stmt = getPreparedStatement(query);
+
       ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
@@ -55,14 +53,13 @@ public class UsuarioDAO extends BaseDAO {
         u.setId(rs.getInt("id"));
         u.setEmail(rs.getString("email"));
         u.setSenha(rs.getString("senha"));
-        u.setTipo(TipoUsuario.valueOf((rs.getString("tipo"))));
+        u.setTipo(TipoUsuario.valueOf(rs.getString("tipo")));
+        
         usuarios.add(u);
       }
 
       stmt.close();
       rs.close();
-      conn.close();
-
     } catch (SQLException e) {
       e.printStackTrace();
     }

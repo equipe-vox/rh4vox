@@ -85,7 +85,6 @@ public class PopupService {
         alert.show(); 
     }
     
-
     public void popup(String header, String text) {
         alert.setTitle("RH4vox");
         alert.setHeaderText(header);

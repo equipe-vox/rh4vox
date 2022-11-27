@@ -1,6 +1,5 @@
 package br.com.rh4vox.dao;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,16 +15,15 @@ public class CandidatoDAO extends BaseDAO {
   }
 
   public Candidato getCandidato(Usuario usuario) throws SQLException {
-    Connection conn = getConnection(); 
-
-    String sql = String.format("SELECT * FROM candidato WHERE id_usuario = %s", usuario.getId());
-    
     Candidato c = null;
 
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
-      ResultSet rs = stmt.executeQuery();
+      String query = "SELECT * FROM candidato WHERE id_usuario = ?";
 
+      PreparedStatement stmt = getPreparedStatement(query);
+      stmt.setInt(1, usuario.getId());
+
+      ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
         c = new Candidato();
@@ -39,13 +37,11 @@ public class CandidatoDAO extends BaseDAO {
       }
 
       stmt.close();
-      rs.close();
-      conn.close();
-
-      
+      rs.close();      
     } catch (SQLException e) {
       e.printStackTrace();
     }
+
     return c;
   }
 
@@ -54,15 +50,15 @@ public class CandidatoDAO extends BaseDAO {
   }
 
   public void updateCandidato(String nome, String telefone, Integer id) throws SQLException {
-    Connection conn = getConnection(); 
-    String sql = "UPDATE candidato SET nome_candidato=?, telefone=? WHERE id=?";
+    String query = "UPDATE candidato SET nome_candidato=?, telefone=? WHERE id=?";
 
-    PreparedStatement statement = conn.prepareStatement(sql);
+    PreparedStatement statement = getPreparedStatement(query);
     statement.setString(1, nome);
     statement.setString(2, telefone);
     statement.setInt(3, id);
     
     int rowsUpdated = statement.executeUpdate();
+
     if (rowsUpdated > 0) {
       System.out.println("An existing candidato was updated successfully!");
     }
@@ -73,13 +69,11 @@ public class CandidatoDAO extends BaseDAO {
   }
 
   public List<Candidato> listCandidatos() throws SQLException {
-    Connection conn = getConnection(); 
-
     List<Candidato> candidatos = new ArrayList<>();
-    String sql = "SELECT * FROM candidato";
+    String query = "SELECT * FROM candidato";
     
     try {
-      PreparedStatement stmt = conn.prepareStatement(sql);
+      PreparedStatement stmt = getPreparedStatement(query);
       ResultSet rs = stmt.executeQuery();
 
       while(rs.next()) {
@@ -93,10 +87,8 @@ public class CandidatoDAO extends BaseDAO {
         break;
       }
 
-      stmt.close();
       rs.close();
-      conn.close();
-
+      stmt.close();
     } catch (SQLException e) {
       e.printStackTrace();
     }

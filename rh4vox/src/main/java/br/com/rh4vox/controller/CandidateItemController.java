@@ -18,7 +18,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 public class CandidateItemController implements Initializable {
 	
@@ -50,16 +49,16 @@ public class CandidateItemController implements Initializable {
 
     String [] habilidades = candidatura.getHabilidades().split(";");
 
-      if(habilidades.length != 0) {
-        for(String h:habilidades) {
-          FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/skillItem.fxml"));
-          Parent skillItem = loader.load();
-          SkillsController skillController = loader.getController();
+    if(habilidades.length != 0) {
+      for(String h:habilidades) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/skillItem.fxml"));
+        Parent skillItem = loader.load();
+        SkillsController skillController = loader.getController();
 
-          skillController.setSkill(h);   
-  
-          skillContainer.getChildren().add(skillItem);
-        }
+        skillController.setSkill(h);   
+
+        skillContainer.getChildren().add(skillItem);
       }
+    }
   }
 }

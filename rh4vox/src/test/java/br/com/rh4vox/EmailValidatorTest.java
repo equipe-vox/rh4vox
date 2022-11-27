@@ -1,10 +1,11 @@
 package br.com.rh4vox;
 
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import br.com.rh4vox.exception.ValidationException;
 import br.com.rh4vox.validator.EmailValidator;
 
 public class EmailValidatorTest {
@@ -12,35 +13,36 @@ public class EmailValidatorTest {
     @Test
     public void validEmailTest(){
         String email = "teste@teste.com";
+        EmailValidator.validate(email);
 
-        assertTrue(EmailValidator.validate(email));
+        assertTrue(true);
     }
 
     @Test
     public void emailWithoutAtSignTest(){
         String email = "testeteste.com";
 
-        assertFalse(EmailValidator.validate(email));
+        assertThrows(ValidationException.class, () -> EmailValidator.validate(email));
     }
 
     @Test
     public void emailWithoutDomainTest(){
         String email = "teste@";
 
-        assertFalse(EmailValidator.validate(email));
+        assertThrows(ValidationException.class, () -> EmailValidator.validate(email));
     }
 
     @Test
     public void emailWithOnlyDomainTest(){
         String email = "@teste.com";
 
-        assertFalse(EmailValidator.validate(email));
+        assertThrows(ValidationException.class, () -> EmailValidator.validate(email));
     }
 
     @Test
     public void emailWithIncompleteDomainTest(){
         String email = "teste@teste";
 
-        assertFalse(EmailValidator.validate(email));
+        assertThrows(ValidationException.class, () -> EmailValidator.validate(email));
     }
 }

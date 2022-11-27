@@ -4,9 +4,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.sql.SQLException;
-import java.text.NumberFormat;
 import java.util.List;
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import br.com.rh4vox.App;
@@ -45,9 +43,9 @@ public class ShowJobAdmController implements Initializable {
 	@FXML
 	private RadioButton regimeBtn1, regimeBtn2, regimeBtn3, negociavelBtn;
   
-  private Regime regime;
+  	private Regime regime;
 
-  private BigDecimal salario;
+  	private BigDecimal salario;
 
 	private VagaService vagaService;
 
@@ -113,12 +111,12 @@ public class ShowJobAdmController implements Initializable {
 	public void saveJob() throws IOException {
 		try {
 			if(regimeBtn1.isSelected() && 
-				regimeBtn2.isSelected() &&
-				regimeBtn3.isSelected() ||
+				regimeBtn2.isSelected() && 
+				regimeBtn3.isSelected() || 
 				regimeBtn1.isSelected() && 
-				regimeBtn2.isSelected() ||
-				regimeBtn2.isSelected() &&
-				regimeBtn3.isSelected() ||
+				regimeBtn2.isSelected() || 
+				regimeBtn2.isSelected() && 
+				regimeBtn3.isSelected() || 
 				regimeBtn3.isSelected() && 
 				regimeBtn1.isSelected()
 			) {

@@ -7,62 +7,62 @@ import br.com.rh4vox.enums.Regime;
 import br.com.rh4vox.enums.StatusCandidatura;
 
 public class CandidaturaRh {
-	private Integer idCandidato;
-  private String nomeCand;
-  private String habilidades;
-  private String objetivo;
-  private String formacao;
-  private String experiencia;
-	private String telefone;
-  private java.time.LocalDate dataNasc;
 
+	private Integer idCandidato;
+	private String nomeCand;
+	private String habilidades;
+	private String objetivo;
+	private String formacao;
+	private String experiencia;
+	private String telefone;
+	private LocalDate dataNasc;
 	private Integer idVaga;
-  private String nomeVaga;
-  private String descricao;
-  private String cargo;
-  private BigDecimal salario;
-  private Regime regime;
-  private Boolean negociavel;
+	private String nomeVaga;
+	private String descricao;
+	private String cargo;
+	private BigDecimal salario;
+	private Regime regime;
+	private Boolean negociavel;
 	private StatusCandidatura status;
 
 
-  public CandidaturaRh() {}
+  public CandidaturaRh(){}
 
   public CandidaturaRh(
-		Integer idCandidato,
-	  Integer idVaga,
-    String nomeCand,
-    String habilidades,
-    String objetivo,
-    String formacao,
-    String experiencia,
-		String telefone,
-    LocalDate dataNasc,
-    String nomeVaga,
-    String descricao,
-    String cargo,
-    BigDecimal salario,
-    Regime regime,
-    Boolean negociavel,
-		StatusCandidatura status
-  ) {
+	Integer idCandidato,
+	Integer idVaga,
+	String nomeCand,
+	String habilidades,
+	String objetivo,
+	String formacao,
+	String experiencia,
+	String telefone,
+	LocalDate dataNasc,
+	String nomeVaga,
+	String descricao,
+	String cargo,
+	BigDecimal salario,
+	Regime regime,
+	Boolean negociavel,
+	StatusCandidatura status)
+	{
 		this.idCandidato = idCandidato;
 		this.idVaga = idVaga;
-    this.nomeCand = nomeCand;
-    this.habilidades = habilidades;
-    this.objetivo = objetivo;
-    this.formacao = formacao;
-    this.experiencia = experiencia;
+		this.nomeCand = nomeCand;
+		this.habilidades = habilidades;
+		this.objetivo = objetivo;
+		this.formacao = formacao;
+		this.experiencia = experiencia;
 		this.telefone = telefone;
-    this.dataNasc = dataNasc;
-    this.nomeVaga = nomeVaga;
-    this.descricao = descricao;
-    this.cargo = cargo;
-    this.salario = salario;
-    this.regime = regime;
-    this.negociavel = negociavel;
+		this.dataNasc = dataNasc;
+		this.nomeVaga = nomeVaga;
+		this.descricao = descricao;
+		this.cargo = cargo;
+		this.salario = salario;
+		this.regime = regime;
+		this.negociavel = negociavel;
 		this.status = status;
-  }
+	}
 
 	public Integer getIdCandidato() {
 		return this.idCandidato;

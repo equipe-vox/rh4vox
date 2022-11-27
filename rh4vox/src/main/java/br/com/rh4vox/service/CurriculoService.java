@@ -42,18 +42,8 @@ public class CurriculoService {
   }
 
   public Curriculo getCurriculo() throws SQLException {
-    Curriculo c = null;
-
     Integer idCandidato = CandidatoLogado.getInstance().getCandidato().getId();
-
-    c = dao.getCurriculo(idCandidato);
-
-    if(c == null) {
-      return null;
-    } else {
-      return c;
-    }
-
-
+    
+    return dao.getCurriculo(idCandidato);
   }
 }

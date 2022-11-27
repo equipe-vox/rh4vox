@@ -20,4 +20,5 @@ public class AdmService {
   public Administrador getAdmByUsuario(Usuario usuario) throws SQLException {
     return dao.getAdm(usuario);
   }
+
 }

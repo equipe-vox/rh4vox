@@ -1,6 +1,5 @@
 package br.com.rh4vox.dao;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,18 +16,16 @@ import br.com.rh4vox.model.Vaga;
 public class VagaDAO extends BaseDAO{
     
     public Vaga getVaga(Integer idVaga) throws SQLException {
-        Connection conn = getConnection(); 
-    
-        String sql = "SELECT * FROM vaga WHERE id=?";
-
         Vaga vaga = new Vaga();
 
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM vaga WHERE id=?";
+
+            PreparedStatement stmt = getPreparedStatement(query);
             stmt.setInt(1, idVaga);
+
             ResultSet rs = stmt.executeQuery();
       
-
             while(rs.next()) {
               vaga.setId(rs.getInt("id"));
               vaga.setNome(rs.getString("nome"));
@@ -39,11 +36,9 @@ public class VagaDAO extends BaseDAO{
               vaga.setAberto(rs.getBoolean("aberto"));
               vaga.setCargo(rs.getString("cargo"));
             }
-      
-            stmt.close();
+
             rs.close();
-            conn.close();
-      
+            stmt.close();   
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -52,10 +47,9 @@ public class VagaDAO extends BaseDAO{
     }
 
     public void updateVaga(Vaga vaga) throws SQLException {
-        Connection conn = getConnection(); 
-        String sql = "UPDATE vaga SET nome=?, descricao=?, regime=?, salario=?, negociavel=?, cargo=? WHERE id=?";
+        String query = "UPDATE vaga SET nome=?, descricao=?, regime=?, salario=?, negociavel=?, cargo=? WHERE id=?";
  
-        PreparedStatement statement = conn.prepareStatement(sql);
+        PreparedStatement statement = getPreparedStatement(query);
         statement.setString(1, vaga.getNome());
         statement.setString(2, vaga.getDescricao());
         statement.setString(3, vaga.getRegime().toString());
@@ -75,12 +69,11 @@ public class VagaDAO extends BaseDAO{
     }
 
     public void removeVaga(Integer id) throws SQLException{
-        Connection conn = getConnection(); 
-        String sqlfk = "DELETE FROM candidato_vaga WHERE id_vaga=?";
-        String sql = "DELETE FROM vaga WHERE id=?";
+        String sqlfk = "DELETE FROM candidato_vaga WHERE id_vaga = ?";
+        String sql = "DELETE FROM vaga WHERE id = ?";
  
-        PreparedStatement statementfk = conn.prepareStatement(sqlfk);
-        PreparedStatement statement = conn.prepareStatement(sql);
+        PreparedStatement statementfk = getPreparedStatement(sqlfk);
+        PreparedStatement statement = getPreparedStatement(sql);
         statementfk.setInt(1, id);
         statement.setInt(1, id);
 
@@ -92,13 +85,12 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<Vaga> listVagas() throws SQLException{
-        Connection conn = getConnection(); 
-    
         List<Vaga> vagas = new ArrayList<>();
-        String sql = "SELECT * FROM vaga";
-
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String sql = "SELECT * FROM vaga";
+
+            PreparedStatement stmt = getPreparedStatement(sql);
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -117,8 +109,6 @@ public class VagaDAO extends BaseDAO{
       
             stmt.close();
             rs.close();
-            conn.close();
-      
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -131,15 +121,15 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<Candidatura> listCandidaturas(Integer idVaga, Integer idCandidato) throws SQLException {
-        Connection conn = getConnection(); 
-    
         List<Candidatura> candidaturas = new ArrayList<>();
-        String sql = "SELECT * FROM candidato_vaga WHERE id_candidato=? AND id_vaga=?";
 
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM candidato_vaga WHERE id_candidato = ? AND id_vaga = ?";
+
+            PreparedStatement stmt = getPreparedStatement(query);
             stmt.setInt(1, idCandidato);
             stmt.setInt(2, idVaga);
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -153,11 +143,9 @@ public class VagaDAO extends BaseDAO{
               c.setStatusCandidato(StatusCandidatura.valueOf((rs.getString("status_candidato"))));
               candidaturas.add(c);
             }
-      
-            stmt.close();
+
             rs.close();
-            conn.close();
-      
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -166,32 +154,29 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<Candidatura> listCandidaturasByCandidato(Integer idCandidato) throws SQLException {
-        Connection conn = getConnection(); 
-    
         List<Candidatura> candidaturas = new ArrayList<>();
-        String sql = "SELECT * FROM candidato_vaga WHERE id_candidato=?";
-
+        
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM candidato_vaga WHERE id_candidato = ?";
+
+            PreparedStatement stmt = getPreparedStatement(query);
             stmt.setInt(1, idCandidato);
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
-                
-
               Candidatura c = new Candidatura();
       
               c.setId(rs.getInt("id"));
               c.setIdCandidato(rs.getInt("id_candidato"));
               c.setIdVaga(rs.getInt("id_vaga"));
               c.setStatusCandidato(StatusCandidatura.valueOf((rs.getString("status_candidato"))));
+
               candidaturas.add(c);
             }
-      
-            stmt.close();
+
             rs.close();
-            conn.close();
-      
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -200,14 +185,14 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<Candidatura> listCandidaturasByVaga(Integer idVaga) throws SQLException {
-        Connection conn = getConnection(); 
-    
         List<Candidatura> candidaturas = new ArrayList<>();
-        String sql = "SELECT * FROM candidato_vaga WHERE id_vaga=?";
-
+        
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM candidato_vaga WHERE id_vaga=?";
+
+            PreparedStatement stmt = getPreparedStatement(query);
             stmt.setInt(1, idVaga);
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -221,11 +206,9 @@ public class VagaDAO extends BaseDAO{
               c.setStatusCandidato(StatusCandidatura.valueOf((rs.getString("status_candidato"))));
               candidaturas.add(c);
             }
-      
-            stmt.close();
+
             rs.close();
-            conn.close();
-      
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -234,14 +217,14 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<Vaga> listVagasByUsuario(Integer idUsuario) throws SQLException{
-        Connection conn = getConnection(); 
-    
         List<Vaga> vagas = new ArrayList<>();
-        String sql = "SELECT * FROM vaga WHERE id_usuario=?";
 
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM vaga WHERE id_usuario=?";
+
+            PreparedStatement stmt = getPreparedStatement(query);
             stmt.setInt(1, idUsuario);
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -258,10 +241,8 @@ public class VagaDAO extends BaseDAO{
               vagas.add(v);
             }
       
-            stmt.close();
             rs.close();
-            conn.close();
-      
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -270,13 +251,14 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<Vaga> listVagasByNome(String nome) throws SQLException{
-        Connection conn = getConnection(); 
-    
         List<Vaga> vagas = new ArrayList<>();
-        String sql = "SELECT * FROM vaga WHERE nome LIKE '%"+nome+"%'";
-
+        
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM vaga WHERE nome LIKE ?";
+            
+            PreparedStatement stmt = getPreparedStatement(query);
+            stmt.setString(1, '%'+nome+'%');
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -292,11 +274,9 @@ public class VagaDAO extends BaseDAO{
               v.setCargo(rs.getString("cargo"));
               vagas.add(v);
             }
-      
-            stmt.close();
+
             rs.close();
-            conn.close();
-      
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -305,18 +285,18 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<CandidaturaRh> listCandidaturasByRh(Integer idRh) throws SQLException{
-        Connection conn = getConnection(); 
-    
         List<CandidaturaRh> candidaturas = new ArrayList<>();
 
-        String sql = "SELECT * FROM candidato_vaga ";
-        sql += "INNER JOIN vaga ON vaga.id = candidato_vaga.id_vaga ";
-        sql += "INNER JOIN candidato ON candidato.id = candidato_vaga.id_candidato ";
-        sql += "INNER JOIN curriculo ON curriculo.id_candidato = candidato_vaga.id_candidato ";
-        sql += "WHERE vaga.id_usuario="+idRh;
-
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM candidato_vaga ";
+            query += "INNER JOIN vaga ON vaga.id = candidato_vaga.id_vaga ";
+            query += "INNER JOIN candidato ON candidato.id = candidato_vaga.id_candidato ";
+            query += "INNER JOIN curriculo ON curriculo.id_candidato = candidato_vaga.id_candidato ";
+            query += "WHERE vaga.id_usuario=?";
+
+            PreparedStatement stmt = getPreparedStatement(query);
+            stmt.setInt(1, idRh);
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -343,10 +323,8 @@ public class VagaDAO extends BaseDAO{
               candidaturas.add(c);
             }
       
-            stmt.close();
             rs.close();
-            conn.close();
-      
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -355,10 +333,9 @@ public class VagaDAO extends BaseDAO{
     }
 
     public void updateCandidacyStatus(Integer idCandidato, Integer idVaga, StatusCandidatura status) throws SQLException {
-        Connection conn = getConnection(); 
-        String sql = "UPDATE candidato_vaga SET status_candidato=? WHERE id_candidato=? AND id_vaga=?";
+        String query = "UPDATE candidato_vaga SET status_candidato=? WHERE id_candidato=? AND id_vaga=?";
  
-        PreparedStatement statement = conn.prepareStatement(sql);
+        PreparedStatement statement = getPreparedStatement(query);
         statement.setString(1, status.toString());
         statement.setInt(2, idCandidato);
         statement.setInt(3, idVaga);
@@ -367,20 +344,19 @@ public class VagaDAO extends BaseDAO{
     }
 
     public List<CandidaturaRh> approvedCandidacies(Usuario usuario) throws SQLException {
-        
-        Connection conn = getConnection(); 
-        
         List<CandidaturaRh> candidaturas = new ArrayList<>();
         List<CandidaturaRh> approvedCandidacies = new ArrayList<>();
     
-        String sql = "SELECT * FROM candidato_vaga ";
-        sql += "INNER JOIN vaga ON vaga.id = candidato_vaga.id_vaga ";
-        sql += "INNER JOIN candidato ON candidato.id = candidato_vaga.id_candidato ";
-        sql += "INNER JOIN curriculo ON curriculo.id_candidato = candidato_vaga.id_candidato ";
-        sql += "WHERE vaga.id_usuario="+usuario.getId();
-
         try {
-            PreparedStatement stmt = conn.prepareStatement(sql);
+            String query = "SELECT * FROM candidato_vaga ";
+            query += "INNER JOIN vaga ON vaga.id = candidato_vaga.id_vaga ";
+            query += "INNER JOIN candidato ON candidato.id = candidato_vaga.id_candidato ";
+            query += "INNER JOIN curriculo ON curriculo.id_candidato = candidato_vaga.id_candidato ";
+            query += "WHERE vaga.id_usuario = ?";
+            
+            PreparedStatement stmt = getPreparedStatement(query);
+            stmt.setInt(1, usuario.getId());
+
             ResultSet rs = stmt.executeQuery();
       
             while(rs.next()) {
@@ -406,11 +382,10 @@ public class VagaDAO extends BaseDAO{
 
               candidaturas.add(c);
             }
-      
-            stmt.close();
-            rs.close();
-            conn.close();
 
+            rs.close();
+            stmt.close();
+            
             for(CandidaturaRh crh:candidaturas) {
                 if(crh.getStatus() == StatusCandidatura.APROVADO) {
                     approvedCandidacies.add(crh);

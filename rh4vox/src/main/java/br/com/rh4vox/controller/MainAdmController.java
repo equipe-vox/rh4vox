@@ -36,6 +36,7 @@ public class MainAdmController implements Initializable {
   private Button addJobBtn, 
     homeBtn, 
     jobsBtn,
+    candidaciesBtn,
     addRhBtn,
     profileBtn, 
     exitBtn,
@@ -60,6 +61,8 @@ public class MainAdmController implements Initializable {
   private Image addRhOrange = new Image(String.valueOf(new File("/assets/icons/add-rh-orange.png")));
   private Image jobs = new Image(String.valueOf(new File("/assets/icons/jobs.png")));
   private Image jobsOrange = new Image(String.valueOf(new File("/assets/icons/jobs-orange.png")));
+  private Image candidacies = new Image(String.valueOf(new File("/assets/icons/candidacies.png")));
+  private Image candidaciesOrange = new Image(String.valueOf(new File("/assets/icons/candidacies-orange.png")));
 
   private Usuario usuario;
 
@@ -86,6 +89,7 @@ public class MainAdmController implements Initializable {
       setImage(homeOrange, homeBtn);
       setImage(addJob, addJobBtn);
       setImage(jobs, jobsBtn);
+      setImage(candidacies, candidaciesBtn);
       setImage(addRh, addRhBtn);
       setImage(profile, profileBtn);
     });
@@ -96,6 +100,7 @@ public class MainAdmController implements Initializable {
       setImage(addJobOrange, addJobBtn);
       setImage(home, homeBtn);
       setImage(jobs, jobsBtn);
+      setImage(candidacies, candidaciesBtn);
       setImage(addRh, addRhBtn);
       setImage(profile, profileBtn);
     });
@@ -106,6 +111,18 @@ public class MainAdmController implements Initializable {
       setImage(addJob, addJobBtn);
       setImage(home, homeBtn);
       setImage(jobsOrange, jobsBtn);
+      setImage(candidacies, candidaciesBtn);
+      setImage(addRh, addRhBtn);
+      setImage(profile, profileBtn);
+    });
+
+    candidaciesBtn.setOnAction(event -> {
+      setPage("Candidaturas", "listCandidaciesRh.fxml");
+
+      setImage(addJob, addJobBtn);
+      setImage(home, homeBtn);
+      setImage(jobs, jobsBtn);
+      setImage(candidaciesOrange, candidaciesBtn);
       setImage(addRh, addRhBtn);
       setImage(profile, profileBtn);
     });
@@ -116,6 +133,7 @@ public class MainAdmController implements Initializable {
       setImage(addJob, addJobBtn);
       setImage(home, homeBtn);
       setImage(jobs, jobsBtn);
+      setImage(candidacies, candidaciesBtn);
       setImage(addRhOrange, addRhBtn);
       setImage(profile, profileBtn);
     });
@@ -126,6 +144,7 @@ public class MainAdmController implements Initializable {
       setImage(addJob, addJobBtn);
       setImage(home, homeBtn);
       setImage(jobs, jobsBtn);
+      setImage(candidacies, candidaciesBtn);
       setImage(addRh, addRhBtn);
       setImage(profileOrange, profileBtn);
     });
@@ -146,7 +165,7 @@ public class MainAdmController implements Initializable {
       title.setText(pageName);
       page = FXMLLoader.load(getClass().getResource("/fxml/" + fxml));
 
-      if(pageName == "Vagas" || pageName == "Minhas vagas") {
+      if(pageName == "Vagas" || pageName == "Minhas vagas" || pageName == "Candidaturas") {
         scrollPane.setStyle("-fx-padding: 0px;");
         
       } else if(pageName == "Adicionar vaga" || pageName == "Adicionar RH") {

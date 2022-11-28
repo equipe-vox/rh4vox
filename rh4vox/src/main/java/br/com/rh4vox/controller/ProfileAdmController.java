@@ -103,8 +103,5 @@ public class ProfileAdmController implements Initializable  {
 
       candidatesContainer.getChildren().add(rhItem);
     }
-
-
   }
-
 }

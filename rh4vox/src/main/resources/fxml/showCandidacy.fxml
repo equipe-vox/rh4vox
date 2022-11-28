@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane id="container" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1643.0" prefWidth="590.0" style="-fx-background-color: white;" stylesheets="@../styles/showJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.ShowCandidacyController">
+<ScrollPane id="container" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1485.0" prefWidth="590.0" style="-fx-background-color: white;" stylesheets="@../styles/showJob.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.ShowCandidacyController">
    <content>
-      <VBox id="showJobContainer" prefHeight="1510.0" prefWidth="590.0" stylesheets="@../styles/showJob.css">
+      <VBox id="showJobContainer" prefHeight="1605.0" prefWidth="590.0" stylesheets="@../styles/showJob.css">
          <children>
             <HBox prefHeight="150.0" prefWidth="528.0">
                <children>
@@ -48,7 +48,7 @@
                   <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                </padding>
             </HBox>
-            <VBox minHeight="-Infinity" prefHeight="522.0" prefWidth="589.0" spacing="30.0">
+            <VBox minHeight="-Infinity" prefHeight="487.0" prefWidth="587.0" spacing="30.0">
                <children>
                   <VBox prefHeight="53.0" prefWidth="528.0" spacing="10.0">
                      <children>
@@ -82,7 +82,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <HBox prefHeight="146.0" prefWidth="528.0" spacing="25.0">
+                  <HBox prefHeight="106.0" prefWidth="527.0" spacing="25.0">
                      <children>
                         <Button id="saveBtn" fx:id="aprovarBtn" mnemonicParsing="false" onAction="#approveCandidacy" prefHeight="54.0" prefWidth="252.0" text="Aprovar Candidatura">
                            <stylesheets>
@@ -105,48 +105,50 @@
             </VBox>
             <VBox id="descriptionContainer" minHeight="-Infinity" prefHeight="733.0" prefWidth="589.0" spacing="30.0" stylesheets="@../styles/showJob.css">
                <children>
-                  <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="41.0" prefHeight="26.0" prefWidth="528.0">
+                  <VBox prefHeight="62.0" prefWidth="527.0" spacing="10.0">
                      <children>
                         <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Nome: " />
                         <Label id="jobItemDescription" fx:id="nomeVagaLabel" stylesheets="@../styles/profile.css" text="Label" />
                      </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="26.0" prefWidth="528.0">
+                  </VBox>
+                  <VBox layoutX="40.0" layoutY="41.0" prefHeight="62.0" prefWidth="527.0" spacing="10.0">
                      <children>
                         <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Cargo: " />
                         <Label id="jobItemDescription" fx:id="cargoLabel" stylesheets="@../styles/profile.css" text="Label" />
                      </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="13.0" prefWidth="528.0">
+                  </VBox>
+                  <VBox layoutX="40.0" layoutY="124.0" prefHeight="62.0" prefWidth="527.0" spacing="10.0">
                      <children>
                         <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Regime de contrato: " />
                         <Label id="jobItemDescription" fx:id="regimeLabel" stylesheets="@../styles/profile.css" text="Label" />
                      </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" prefHeight="0.0" prefWidth="528.0">
+                  </VBox>
+                  <VBox layoutX="40.0" layoutY="206.0" prefHeight="62.0" prefWidth="527.0" spacing="10.0">
                      <children>
                         <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Salário: " />
                         <Label id="jobItemDescription" fx:id="salarioLabel" stylesheets="@../styles/profile.css" text="Label" />
                      </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" layoutX="40.0" layoutY="712.0" prefHeight="0.0" prefWidth="528.0">
+                  </VBox>
+                  <VBox layoutX="40.0" layoutY="288.0" prefHeight="62.0" prefWidth="527.0" spacing="10.0">
                      <children>
                         <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Negociável: " />
                         <Label id="jobItemDescription" fx:id="negociavelLabel" stylesheets="@../styles/profile.css" text="Label" />
                      </children>
-                  </HBox>
-                  <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Qualificações e Requisitos">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </Label>
-                  <Label id="jobItemDescription" fx:id="descricaoLabel" alignment="TOP_LEFT" minWidth="-Infinity" prefHeight="397.0" prefWidth="526.0" stylesheets="@../styles/profile.css" text="descricao da vaga aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" wrapText="true">
-                     <VBox.margin>
-                        <Insets top="-20.0" />
-                     </VBox.margin></Label>
+                  </VBox>
+                  <VBox layoutX="40.0" layoutY="371.0" prefHeight="330.0" prefWidth="527.0" spacing="30.0">
+                     <children>
+                        <Label id="jobItemTitle" stylesheets="@../styles/listJobs.css" text="Qualificações e Requisitos">
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                        <Label id="jobItemDescription" fx:id="descricaoLabel" alignment="TOP_LEFT" minWidth="-Infinity" prefHeight="265.0" prefWidth="526.0" stylesheets="@../styles/profile.css" text="descricao da vaga aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" wrapText="true">
+                           <VBox.margin>
+                              <Insets top="-20.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
                </children>
             </VBox>
          </children>

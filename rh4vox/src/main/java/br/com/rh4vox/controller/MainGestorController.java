@@ -21,10 +21,10 @@ import javafx.scene.layout.StackPane;
 import br.com.rh4vox.App;
 import br.com.rh4vox.model.Usuario;
 import br.com.rh4vox.model.UsuarioLogado;
-import br.com.rh4vox.service.AdmService;
+import br.com.rh4vox.service.GestorService;
+import br.com.rh4vox.service.RHService;
 
-
-public class MainAdmController implements Initializable {
+public class MainGestorController implements Initializable {
 	
   @FXML
   private Label title,addJobTitle;
@@ -36,8 +36,8 @@ public class MainAdmController implements Initializable {
   private Button addJobBtn, 
     homeBtn, 
     jobsBtn,
-    candidaciesBtn,
     addRhBtn,
+    candidaciesBtn,
     profileBtn, 
     exitBtn,
     headerProfileBtn;
@@ -53,32 +53,31 @@ public class MainAdmController implements Initializable {
     
   private Image addJob = new Image(String.valueOf(new File("/assets/icons/add.png")));
   private Image addJobOrange = new Image(String.valueOf(new File("/assets/icons/add-orange.png")));
+  private Image addRh = new Image(String.valueOf(new File("/assets/icons/add-rh.png")));
+  private Image addRhOrange = new Image(String.valueOf(new File("/assets/icons/add-rh-orange.png")));
   private Image home = new Image(String.valueOf(new File("/assets/icons/home.png")));
   private Image homeOrange = new Image(String.valueOf(new File("/assets/icons/home-orange.png")));
   private Image profile = new Image(String.valueOf(new File("/assets/icons/person.png")));
   private Image profileOrange = new Image(String.valueOf(new File("/assets/icons/person-orange.png")));
-  private Image addRh = new Image(String.valueOf(new File("/assets/icons/add-rh.png")));
-  private Image addRhOrange = new Image(String.valueOf(new File("/assets/icons/add-rh-orange.png")));
-  private Image jobs = new Image(String.valueOf(new File("/assets/icons/jobs.png")));
-  private Image jobsOrange = new Image(String.valueOf(new File("/assets/icons/jobs-orange.png")));
   private Image candidacies = new Image(String.valueOf(new File("/assets/icons/candidacies.png")));
   private Image candidaciesOrange = new Image(String.valueOf(new File("/assets/icons/candidacies-orange.png")));
+  private Image jobs = new Image(String.valueOf(new File("/assets/icons/jobs.png")));
+  private Image jobsOrange = new Image(String.valueOf(new File("/assets/icons/jobs-orange.png")));
 
   private Usuario usuario;
-
-  private AdmService admService;
+  private GestorService gestorService;
 
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     usuario = UsuarioLogado.getInstance().getUsuario();
-    admService = new AdmService();
+    gestorService = new GestorService();
 
     setPage("Vagas", "listJobs.fxml");
         
     setImage(homeOrange, homeBtn);
 
     try {
-      headerProfileBtn.setText(admService.getAdmByUsuario(usuario).getNome());
+      headerProfileBtn.setText(gestorService.getGestorByUsuario(usuario).getNome());
     } catch (SQLException e1) {
         e1.printStackTrace();
     }
@@ -90,8 +89,8 @@ public class MainAdmController implements Initializable {
       setImage(addJob, addJobBtn);
       setImage(jobs, jobsBtn);
       setImage(candidacies, candidaciesBtn);
-      setImage(addRh, addRhBtn);
       setImage(profile, profileBtn);
+      setImage(addRh, addRhBtn);
     });
     
     addJobBtn.setOnAction(event -> {
@@ -101,30 +100,8 @@ public class MainAdmController implements Initializable {
       setImage(home, homeBtn);
       setImage(jobs, jobsBtn);
       setImage(candidacies, candidaciesBtn);
-      setImage(addRh, addRhBtn);
       setImage(profile, profileBtn);
-    });
-
-    jobsBtn.setOnAction(event -> {
-      setPage("Minhas vagas", "listJobsAdm.fxml");
-
-      setImage(addJob, addJobBtn);
-      setImage(home, homeBtn);
-      setImage(jobsOrange, jobsBtn);
-      setImage(candidacies, candidaciesBtn);
       setImage(addRh, addRhBtn);
-      setImage(profile, profileBtn);
-    });
-
-    candidaciesBtn.setOnAction(event -> {
-      setPage("Candidaturas", "listCandidaciesRh.fxml");
-
-      setImage(addJob, addJobBtn);
-      setImage(home, homeBtn);
-      setImage(jobs, jobsBtn);
-      setImage(candidaciesOrange, candidaciesBtn);
-      setImage(addRh, addRhBtn);
-      setImage(profile, profileBtn);
     });
 
     addRhBtn.setOnAction(event -> {
@@ -134,19 +111,41 @@ public class MainAdmController implements Initializable {
       setImage(home, homeBtn);
       setImage(jobs, jobsBtn);
       setImage(candidacies, candidaciesBtn);
-      setImage(addRhOrange, addRhBtn);
       setImage(profile, profileBtn);
+      setImage(addRhOrange, addRhBtn);
+    });
+
+    jobsBtn.setOnAction(event -> {
+      setPage("Minhas vagas", "listJobsAdm.fxml");
+
+      setImage(addJob, addJobBtn);
+      setImage(home, homeBtn);
+      setImage(jobsOrange, jobsBtn);
+      setImage(candidacies, candidaciesBtn);
+      setImage(profile, profileBtn);
+      setImage(addRh, addRhBtn);
+    });
+
+    candidaciesBtn.setOnAction(event -> {
+      setPage("Candidaturas", "listCandidaciesRh.fxml");
+
+      setImage(addJob, addJobBtn);
+      setImage(home, homeBtn);
+      setImage(jobs, jobsBtn);
+      setImage(candidaciesOrange, candidaciesBtn);
+      setImage(profile, profileBtn);
+      setImage(addRh, addRhBtn);
     });
 
     profileBtn.setOnAction(event -> {
-      setPage("Perfil", "profileAdm.fxml");
+      setPage("Perfil", "profileRh.fxml");
 
       setImage(addJob, addJobBtn);
       setImage(home, homeBtn);
       setImage(jobs, jobsBtn);
       setImage(candidacies, candidaciesBtn);
-      setImage(addRh, addRhBtn);
       setImage(profileOrange, profileBtn);
+      setImage(addRh, addRhBtn);
     });
 
     exitBtn.setOnAction(event -> {
@@ -165,7 +164,7 @@ public class MainAdmController implements Initializable {
       title.setText(pageName);
       page = FXMLLoader.load(getClass().getResource("/fxml/" + fxml));
 
-      if(pageName == "Vagas" || pageName == "Minhas vagas" || pageName == "Candidaturas") {
+      if(pageName == "Vagas" || pageName == "Minhas vagas" || pageName == "Candidaturas" || pageName == "Perfil") {
         scrollPane.setStyle("-fx-padding: 0px;");
         
       } else if(pageName == "Adicionar vaga" || pageName == "Adicionar Adm, RH ou Gestor") {
@@ -173,7 +172,6 @@ public class MainAdmController implements Initializable {
       }
 
       scrollPane.setContent(page);          
-      // scrollPane.getChildren().setAll(page);
     } catch (IOException ex) {
       ex.printStackTrace();
     }

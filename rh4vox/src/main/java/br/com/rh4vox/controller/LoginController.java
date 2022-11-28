@@ -59,6 +59,8 @@ public class LoginController implements Initializable {
                             targetScreen = "mainAdm";
                         } else if(usuario.getTipo() == TipoUsuario.RH) {
                             targetScreen = "mainRH";
+                        } else if(usuario.getTipo() == TipoUsuario.GESTOR) {
+                            targetScreen = "mainGestor";
                         }
 
                         UsuarioLogado.getInstance().setUsuario(usuario);

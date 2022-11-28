@@ -53,6 +53,7 @@
 <a href="https://github.com/equipe-vox/rh4vox/tree/master/images/burndown/burndown-sp2.png">Sprint Burn Down 2</a>
 <br>
 <a href="https://github.com/equipe-vox/rh4vox/tree/master/images/burndown/burndown-sp3.jpeg">Sprint Burn Down 3</a>
+<a href="https://github.com/equipe-vox/rh4vox/tree/master/images/burndown/burndown-sp4.jpeg">Sprint Burn Down 4</a>
 
 
 

@@ -105,7 +105,7 @@ public class MainGestorController implements Initializable {
     });
 
     addRhBtn.setOnAction(event -> {
-      setPage("Adicionar Adm, RH ou Gestor", "addRh.fxml");
+      setPage("Adicionar RH ou Gestor", "addRh.fxml");
 
       setImage(addJob, addJobBtn);
       setImage(home, homeBtn);
@@ -167,7 +167,7 @@ public class MainGestorController implements Initializable {
       if(pageName == "Vagas" || pageName == "Minhas vagas" || pageName == "Candidaturas" || pageName == "Perfil") {
         scrollPane.setStyle("-fx-padding: 0px;");
         
-      } else if(pageName == "Adicionar vaga" || pageName == "Adicionar Adm, RH ou Gestor") {
+      } else if(pageName == "Adicionar vaga" || pageName == "Adicionar RH ou Gestor") {
         scrollPane.setStyle("-fx-padding: 20px;");
       }
 

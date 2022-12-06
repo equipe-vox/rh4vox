@@ -88,7 +88,8 @@ public class ShowJobController implements Initializable {
 
     if(
       UsuarioLogado.getInstance().getUsuario().getTipo() == TipoUsuario.ADM ||
-      UsuarioLogado.getInstance().getUsuario().getTipo() == TipoUsuario.RH
+      UsuarioLogado.getInstance().getUsuario().getTipo() == TipoUsuario.RH ||
+      UsuarioLogado.getInstance().getUsuario().getTipo() == TipoUsuario.GESTOR
     ) {
       sendBtn.setDisable(true);
       sendBtn.setVisible(false);

@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+
 <?import br.com.rh4vox.MaskedTextField?>
 
 <AnchorPane id="container" minHeight="-Infinity" minWidth="-Infinity" prefHeight="669.0" prefWidth="934.0" stylesheets="@../styles/signUp.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.rh4vox.controller.SignUpController">
@@ -28,7 +29,7 @@
          <children>
             <VBox id="signupContainer" alignment="CENTER_LEFT" maxHeight="730.0" maxWidth="400.0" minHeight="730.0" minWidth="400.0" prefHeight="606.0" prefWidth="311.0" spacing="30.0" stylesheets="@../styles/signUp.css">
                <children>
-                  <ImageView fitHeight="40.0" fitWidth="85.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/logo.png" />
                      </image>
@@ -49,6 +50,7 @@
                               <MaskedTextField id="inputField" fx:id="cpfText" promptText="CPF" stylesheets="@../styles/signUp.css" mask="###.###.###-##" />
                               <TextField id="inputField" fx:id="emailText" promptText="Endereço de e-mail" stylesheets="@../styles/signUp.css" />
                               <PasswordField id="inputField" fx:id="senhaText" promptText="Senha" stylesheets="@../styles/signUp.css" />
+                              <PasswordField id="inputField" fx:id="confirmaSenhaText" layoutX="10.0" layoutY="221.0" promptText="Confirme sua senha" stylesheets="@../styles/signUp.css" />
                            </children>
                         </VBox>
                         <VBox id="signupBtnContainer" prefHeight="101.0" prefWidth="338.0" stylesheets="@../styles/signUp.css">

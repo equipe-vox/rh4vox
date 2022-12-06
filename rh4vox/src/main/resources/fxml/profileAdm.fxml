@@ -161,7 +161,7 @@
                                     <Image url="@../assets/icons/candidacies.png" />
                                  </image>
                               </ImageView>
-                              <Label id="hyperlink" fx:id="rhLabel" stylesheets="@../styles/profile.css" text="10 candidatos" />
+                              <Label id="hyperlink" fx:id="rhsLabel" stylesheets="@../styles/profile.css" text="0 rhs" />
                            </children>
                         </HBox>
                      </children>
@@ -183,7 +183,7 @@
                                     <Image url="@../assets/icons/candidacies.png" />
                                  </image>
                               </ImageView>
-                              <Label id="hyperlink" fx:id="gestoresLabel" stylesheets="@../styles/profile.css" text="10 candidatos" />
+                              <Label id="hyperlink" fx:id="gestoresLabel" stylesheets="@../styles/profile.css" text="0 gestores" />
                            </children>
                         </HBox>
                      </children>

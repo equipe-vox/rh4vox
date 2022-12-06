@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class SignUpController implements Initializable  {
@@ -25,7 +26,10 @@ public class SignUpController implements Initializable  {
     private Button loginBtn, signupBtn;
 
     @FXML
-    private TextField nomeText, cpfText, emailText, senhaText;
+    private TextField nomeText, cpfText, emailText;
+
+    @FXML
+    private PasswordField senhaText, confirmaSenhaText;
 
     @FXML
     private DatePicker dataText;
@@ -57,6 +61,7 @@ public class SignUpController implements Initializable  {
                 if (
                     emailText.getText().isEmpty() ||
                     senhaText.getText().isEmpty() ||
+                    confirmaSenhaText.getText().isEmpty() ||
                     nomeText.getText().isEmpty() ||
                     dataText.getValue() == null ||
                     cpfText.getText().isEmpty()
@@ -64,27 +69,34 @@ public class SignUpController implements Initializable  {
                     popupService.popupEmptyInput();
                     return;
                 }
+
+                if(senhaText.getText().equals(confirmaSenhaText.getText())) {
+                    Usuario usuario = usuarioService.cadastroCandidato(emailText.getText(), senhaText.getText(), nomeText.getText(), dataText.getValue(), cpfText.getText());
                 
-                Usuario usuario = usuarioService.cadastroCandidato(emailText.getText(), senhaText.getText(), nomeText.getText(), dataText.getValue(), cpfText.getText());
-
-                if(usuario != null) {
-                    String targetScreen = null;
-
-                    if(usuario.getTipo() == TipoUsuario.CANDIDATO) {
-                        targetScreen = "login";
-                    } else if(usuario.getTipo() == TipoUsuario.ADM) {
-                        targetScreen = "mainAdm";
-                    } else if(usuario.getTipo() == TipoUsuario.RH) {
-                        targetScreen = "mainRH";
+                    if(usuario != null) {
+                        String targetScreen = null;
+    
+                        if(usuario.getTipo() == TipoUsuario.CANDIDATO) {
+                            targetScreen = "login";
+                        } else if(usuario.getTipo() == TipoUsuario.ADM) {
+                            targetScreen = "mainAdm";
+                        } else if(usuario.getTipo() == TipoUsuario.RH) {
+                            targetScreen = "mainRH";
+                        }
+    
+                        try {
+                            App.setRoot(targetScreen);
+                            this.popupService.popupSignUp();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
-
-                    try {
-                        App.setRoot(targetScreen);
-                        this.popupService.popupSignUp();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                } else {
+                    popupService.popup("Erro!", "As senhas não conferem.");
                 }
+                
+
+                
             } catch (ValidationException ve) {
                 popupService.popup("Dados inválidos", ve.getMessage());
             } catch(EmailAlreadyInUseException ee){

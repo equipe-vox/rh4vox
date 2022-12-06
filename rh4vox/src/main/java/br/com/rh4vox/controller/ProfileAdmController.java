@@ -8,8 +8,10 @@ import java.util.ResourceBundle;
 
 import br.com.rh4vox.enums.StatusCandidatura;
 import br.com.rh4vox.model.Candidatura;
+import br.com.rh4vox.model.Gestor;
 import br.com.rh4vox.model.RH;
 import br.com.rh4vox.model.Vaga;
+import br.com.rh4vox.service.GestorService;
 import br.com.rh4vox.service.RHService;
 import br.com.rh4vox.service.VagaService;
 
@@ -26,7 +28,13 @@ import javafx.scene.layout.VBox;
 public class ProfileAdmController implements Initializable  {
 
   @FXML
-  private Label nameLabel, candidaciesLabel, jobsLabel, approvedLabel, disapprovedLabel;
+  private Label nameLabel, 
+    candidaciesLabel, 
+    jobsLabel, 
+    approvedLabel, 
+    disapprovedLabel,
+    gestoresLabel,
+    rhsLabel;
 
   @FXML
   private HBox skillContainer;
@@ -36,11 +44,13 @@ public class ProfileAdmController implements Initializable  {
 
   private RHService rhService;
   private VagaService vagaService;
+  private GestorService gestorService;
 
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     rhService = new RHService();
     vagaService = new VagaService();
+    gestorService = new GestorService();
     
     try {
       setRh();
@@ -93,6 +103,18 @@ public class ProfileAdmController implements Initializable  {
     }
     
     List<RH> rhs = rhService.getRhs();
+    List<Gestor> gestores = gestorService.listGestor();
+
+    if(rhs.size() == 1) {
+      rhsLabel.setText(rhs.size() + " rh");
+    } else {
+      rhsLabel.setText(rhs.size() + " rhs");
+    }
+    if(gestores.size() == 1) {
+      gestoresLabel.setText(gestores.size() + " gestor");
+    } else {
+      gestoresLabel.setText(gestores.size() + " gestores");
+    }
 
     for(RH rh:rhs) {
       FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/rhItem.fxml"));

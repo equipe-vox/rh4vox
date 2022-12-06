@@ -5,10 +5,12 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import br.com.rh4vox.enums.TipoUsuario;
 import br.com.rh4vox.model.CandidaturaRh;
+import br.com.rh4vox.model.Gestor;
 import br.com.rh4vox.model.RH;
 import br.com.rh4vox.model.UsuarioLogado;
-
+import br.com.rh4vox.service.GestorService;
 import br.com.rh4vox.service.RHService;
 import br.com.rh4vox.service.VagaService;
 
@@ -35,11 +37,13 @@ public class ProfileRhController implements Initializable  {
 
   private RHService rhService;
   private VagaService vagaService;
+  private GestorService gestorService;
 
   @Override
   public void initialize(URL arg0, ResourceBundle arg1) {
     rhService = new RHService();
     vagaService = new VagaService();
+    gestorService = new GestorService();
     
     try {
       setRh();
@@ -49,35 +53,70 @@ public class ProfileRhController implements Initializable  {
   }
 
   private void setRh() throws SQLException, IOException {
-    RH rh = rhService.getRhByUsuario(UsuarioLogado.getInstance().getUsuario());
 
-    if(rh != null) {
-      nameLabel.setText(rh.getNome());
-      jobsLabel.setText(vagaService.listVagasByUsuario(UsuarioLogado.getInstance().getUsuario().getId()).size()+" vagas");
-      candidaciesLabel.setText(vagaService.listCandidaturasByRh(UsuarioLogado.getInstance().getUsuario().getId()).size()+" candidaturas");
-      
-      List<CandidaturaRh> candidaturas = vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario());
+    if(UsuarioLogado.getInstance().getUsuario().getTipo() == TipoUsuario.RH) {
+      RH rh = rhService.getRhByUsuario(UsuarioLogado.getInstance().getUsuario());
 
-      if(candidaturas != null) {
-        for(CandidaturaRh c:candidaturas) {
-          FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/candidateItem.fxml"));
-          Parent candidateItem = loader.load();
-          CandidateItemController candidateItemController = loader.getController();
+      if(rh != null) {
+        nameLabel.setText(rh.getNome());
+        jobsLabel.setText(vagaService.listVagasByUsuario(UsuarioLogado.getInstance().getUsuario().getId()).size()+" vagas");
+        candidaciesLabel.setText(vagaService.listCandidaturasByRh(UsuarioLogado.getInstance().getUsuario().getId()).size()+" candidaturas");
+        
+        List<CandidaturaRh> candidaturas = vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario());
 
-          candidateItemController.setCandidatura(c);  
-  
-          candidatesContainer.getChildren().add(candidateItem);
-        }
+        if(candidaturas != null) {
+          for(CandidaturaRh c:candidaturas) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/candidateItem.fxml"));
+            Parent candidateItem = loader.load();
+            CandidateItemController candidateItemController = loader.getController();
 
-        if(candidaturas.size() <= 1) {
-          approvedLabel.setText(vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario()).size()+" candidato");
+            candidateItemController.setCandidatura(c);  
+    
+            candidatesContainer.getChildren().add(candidateItem);
+          }
+
+          if(candidaturas.size() <= 1) {
+            approvedLabel.setText(vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario()).size()+" candidato");
+          } else {
+            approvedLabel.setText(vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario()).size()+" candidatos");
+          }
         } else {
-          approvedLabel.setText(vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario()).size()+" candidatos");
+          approvedLabel.setText("0 candidatos");
         }
-      } else {
-        approvedLabel.setText("0 candidatos");
+      }
+    } else if(UsuarioLogado.getInstance().getUsuario().getTipo() == TipoUsuario.GESTOR) {
+      Gestor gestor = gestorService.getGestorByUsuario(UsuarioLogado.getInstance().getUsuario());
+
+      if(gestor != null) {
+        nameLabel.setText(gestor.getNome());
+        jobsLabel.setText(vagaService.listVagasByUsuario(UsuarioLogado.getInstance().getUsuario().getId()).size()+" vagas");
+        candidaciesLabel.setText(vagaService.listCandidaturasByRh(UsuarioLogado.getInstance().getUsuario().getId()).size()+" candidaturas");
+        
+        List<CandidaturaRh> candidaturas = vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario());
+
+        if(candidaturas != null) {
+          for(CandidaturaRh c:candidaturas) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/candidateItem.fxml"));
+            Parent candidateItem = loader.load();
+            CandidateItemController candidateItemController = loader.getController();
+
+            candidateItemController.setCandidatura(c);  
+    
+            candidatesContainer.getChildren().add(candidateItem);
+          }
+
+          if(candidaturas.size() <= 1) {
+            approvedLabel.setText(vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario()).size()+" candidato");
+          } else {
+            approvedLabel.setText(vagaService.getApprovedCandidaciesByUsuario(UsuarioLogado.getInstance().getUsuario()).size()+" candidatos");
+          }
+        } else {
+          approvedLabel.setText("0 candidatos");
+        }
       }
     }
+
+    
   }
 
 }

@@ -1,6 +1,7 @@
 package br.com.rh4vox.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import br.com.rh4vox.dao.GestorDAO;
 import br.com.rh4vox.model.Gestor;
@@ -19,5 +20,9 @@ public class GestorService {
 
   public Gestor getGestorByUsuario(Usuario usuario) throws SQLException {
     return dao.getGestor(usuario);
+  }
+
+  public List<Gestor> listGestor() throws SQLException {
+    return dao.listGestor();
   }
 }

@@ -73,7 +73,7 @@
                                     <Image url="@../assets/icons/jobs.png" />
                                  </image>
                               </ImageView>
-                              <Label id="hyperlink" fx:id="jobsLabel" stylesheets="@../styles/profile.css" text="10 vagas" />
+                              <Label id="hyperlink" fx:id="jobsLabel" stylesheets="@../styles/profile.css" text="0 vagas" />
                            </children>
                         </HBox>
                      </children>
@@ -95,7 +95,7 @@
                                     <Image url="@../assets/icons/profile.png" />
                                  </image>
                               </ImageView>
-                              <Label id="hyperlink" fx:id="candidaciesLabel" stylesheets="@../styles/profile.css" text="10 vagas" />
+                              <Label id="hyperlink" fx:id="candidaciesLabel" stylesheets="@../styles/profile.css" text="0 vagas" />
                            </children>
                         </HBox>
                      </children>
@@ -117,7 +117,7 @@
                                     <Image url="@../assets/icons/candidacies.png" />
                                  </image>
                               </ImageView>
-                              <Label id="hyperlink" fx:id="approvedLabel" stylesheets="@../styles/profile.css" text="10 candidatos" />
+                              <Label id="hyperlink" fx:id="approvedLabel" stylesheets="@../styles/profile.css" text="0 candidatos" />
                            </children>
                         </HBox>
                      </children>

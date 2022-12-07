@@ -38,6 +38,9 @@ CREATE TABLE curriculo (
 	formacao VARCHAR NOT NULL,
 	experiencia VARCHAR NOT NULL,
 	id_candidato INTEGER NOT NULL,
+	site VARCHAR,
+	linkedin VARCHAR,
+	git VARCHAR,
 	FOREIGN KEY (id_candidato) 
           REFERENCES candidato (id)
 );
